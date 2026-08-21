@@ -66,7 +66,8 @@ updated first; GitHub then creates `v0.1.0-alpha.2` in the public repository and
 attaches:
 
 - the raw NSIS setup executable;
-- `DAX-to-SQL-Open-Core-<version>-windows-x64.zip`;
+- `Dummy-BI-Engine-<version>-windows-x64.zip`;
+- `Dummy-BI-Engine-Windows-x64-Setup.exe` as the permanent latest-download asset;
 - bundle and source checksums;
 - the validated source ZIP.
 

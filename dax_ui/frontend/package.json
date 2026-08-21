@@ -1,7 +1,7 @@
 {
-  "name": "dax-to-sql-open-core-ui",
+  "name": "dummy-bi-engine-ui",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.open-core.config.ts",
@@ -34,5 +34,11 @@
   },
   "overrides": {
     "protocol-buffers-schema": "^3.6.1"
+  },
+  "license": "AGPL-3.0-only",
+  "homepage": "https://www.dummy-bi.com/engine",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TomNek/dummy-bi-engine.git"
   }
 }

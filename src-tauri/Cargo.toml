@@ -1,10 +1,12 @@
 [package]
-name = "dax-to-sql-open-core"
-version = "0.1.1"
+name = "dummy-bi-engine"
+version = "0.2.0"
 edition = "2021"
-description = "Semantic Migration Workbench — desktop shell"
+description = "Dummy BI Engine — desktop shell"
+homepage = "https://www.dummy-bi.com/engine"
+repository = "https://github.com/TomNek/dummy-bi-engine"
 authors = ["Thomas"]
-license = "MIT"
+license = "AGPL-3.0-only"
 
 [dependencies]
 tauri = { version = "2", features = [] }

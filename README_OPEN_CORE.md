@@ -1,12 +1,12 @@
-# DAX to SQL — Open-core feedback build
+# Dummy BI Engine — Open-core feedback build
 
-This is a deliberately focused, local-first workbench for testing the project's core idea:
+[Dummy BI Engine](https://www.dummy-bi.com/engine) is a local-first semantic engine. This repository is its deliberately focused open-core feedback build:
 
 ## Download the Windows desktop app
 
-**[Download the latest Windows x64 installer](https://github.com/TomNek/dax-to-sql-open-core/releases/latest/download/DAX-to-SQL-Open-Core-Windows-x64-Setup.exe)**
+**[Download the latest Windows x64 installer](https://github.com/TomNek/dummy-bi-engine/releases/latest/download/Dummy-BI-Engine-Windows-x64-Setup.exe)**
 
-[Release notes and checksums](https://github.com/TomNek/dax-to-sql-open-core/releases/latest) · [All releases](https://github.com/TomNek/dax-to-sql-open-core/releases)
+[Product page](https://www.dummy-bi.com/engine) · [Release notes and checksums](https://github.com/TomNek/dummy-bi-engine/releases/latest) · [All releases](https://github.com/TomNek/dummy-bi-engine/releases)
 
 This is an early feedback build. The installer is not yet Authenticode-signed, so Windows SmartScreen may display a warning.
 

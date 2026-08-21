@@ -250,7 +250,7 @@ export function OpenCoreApp() {
       <header className="topbar">
         <div className="brand">
           <Braces />
-          <div><strong>DAX to SQL</strong><span>Open-core workbench</span></div>
+          <div><strong>Dummy BI Engine</strong><span>Open-core workbench</span></div>
         </div>
         <div className="project-picker">
           <Input value={project} onChange={(event) => setProject(event.target.value)} aria-label="Project path" />
@@ -443,7 +443,7 @@ export function OpenCoreApp() {
 
       <footer className="statusbar">
         <span className={error ? 'error-status' : ''}>{error || status}</span>
-        <span>Open-core MVP · Plotly only · No telemetry</span>
+        <span>Dummy BI Engine · Open-core MVP · Plotly only · No telemetry</span>
       </footer>
     </main>
   )

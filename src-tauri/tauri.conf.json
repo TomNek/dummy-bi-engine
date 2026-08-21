@@ -1,7 +1,7 @@
 {
-  "productName": "DAX to SQL Open Core",
-  "version": "0.1.1",
-  "identifier": "com.dax-to-sql.open-core",
+  "productName": "Dummy BI Engine",
+  "version": "0.2.0",
+  "identifier": "com.dummy-bi.engine",
   "build": {
     "beforeBuildCommand": "",
     "beforeDevCommand": "",
@@ -10,7 +10,7 @@
   "app": {
     "windows": [
       {
-        "title": "DAX to SQL Open Core",
+        "title": "Dummy BI Engine",
         "width": 1536,
         "height": 960,
         "minWidth": 1120,

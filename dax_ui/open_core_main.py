@@ -28,7 +28,7 @@ def _configure_project(workspace: str) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="DAX to SQL Open Core")
+    parser = argparse.ArgumentParser(description="Dummy BI Engine")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", default=8765, type=int)
     parser.add_argument("--auth-token", default="")

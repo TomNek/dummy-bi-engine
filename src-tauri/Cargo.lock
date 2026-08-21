@@ -2651,8 +2651,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "dax-to-sql-open-core"
-version = "0.1.1"
+name = "dummy-bi-engine"
+version = "0.2.0"
 dependencies = [
  "rand",
  "serde",

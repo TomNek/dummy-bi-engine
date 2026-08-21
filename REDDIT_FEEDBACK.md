@@ -1,8 +1,8 @@
 # Reddit feedback post draft
 
-**Title:** I built a local DAX-to-SQL compiler and semantic-model workbench — looking for blunt feedback
+**Title:** I built Dummy BI Engine, a local DAX-to-SQL compiler and semantic-model workbench — looking for blunt feedback
 
-I’m testing the smallest useful open-core version of a project that translates supported DAX expressions into DuckDB SQL.
+I’m testing the smallest useful open-core version of [Dummy BI Engine](https://www.dummy-bi.com/engine), which translates supported DAX expressions into DuckDB SQL.
 
 The build includes the compiler, semantic-model browser, all current data connectors, all 31 existing Plotly visuals, basic filtering/formatting, and a tabular data preview. It runs locally and has no product telemetry.
 
@@ -16,6 +16,6 @@ I would especially value feedback from people who work with DAX, Power BI semant
 4. Which single missing capability would stop you using it a second time?
 5. Where does the UI make you hesitate or guess?
 
-Repository: `<link>`
+Repository: https://github.com/TomNek/dummy-bi-engine
 
 Please use synthetic or anonymized data and never include credentials in reports. There is a sample project and a structured feedback issue template in the repository.

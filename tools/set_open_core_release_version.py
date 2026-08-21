@@ -67,7 +67,7 @@ def set_version(root: Path, version: str) -> list[Path]:
     cargo_lock = root / "src-tauri" / "Cargo.lock"
     lock_text = cargo_lock.read_text(encoding="utf-8")
     lock_pattern = re.compile(
-        r'(\[\[package\]\]\r?\nname = "(?:semantic-migration-workbench|dax-to-sql-open-core)"\r?\nversion = )"[^"]+"',
+        r'(\[\[package\]\]\r?\nname = "(?:semantic-migration-workbench|dax-to-sql-open-core|dummy-bi-engine)"\r?\nversion = )"[^"]+"',
     )
     if lock_pattern.search(lock_text) is None:
         raise ValueError(f"Could not locate root package version in {cargo_lock}")

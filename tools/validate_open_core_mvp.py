@@ -96,15 +96,17 @@ def validate(root: Path) -> list[str]:
     tauri_path = root / "src-tauri" / "tauri.conf.json"
     if tauri_path.exists():
         tauri = json.loads(tauri_path.read_text(encoding="utf-8"))
-        if tauri.get("productName") != "DAX to SQL Open Core":
+        if tauri.get("productName") != "Dummy BI Engine":
             errors.append("Public Tauri product name is incorrect")
+        if tauri.get("identifier") != "com.dummy-bi.engine":
+            errors.append("Public Tauri identifier is incorrect")
         if tauri.get("bundle", {}).get("externalBin") != ["binaries/dax_backend"]:
             errors.append("Public Tauri config does not bundle the backend sidecar")
     main_rs = root / "src-tauri" / "src" / "main.rs"
     if main_rs.exists() and "DAX_EMBEDDED_PRODUCT_PROFILE" not in main_rs.read_text(encoding="utf-8"):
         errors.append("Public Tauri shell does not embed the open-core runtime profile")
     cargo_toml = root / "src-tauri" / "Cargo.toml"
-    if cargo_toml.exists() and 'name = "dax-to-sql-open-core"' not in cargo_toml.read_text(encoding="utf-8"):
+    if cargo_toml.exists() and 'name = "dummy-bi-engine"' not in cargo_toml.read_text(encoding="utf-8"):
         errors.append("Public Cargo package name is incorrect")
     launcher = root / "dax_ui" / "open_core_main.py"
     if launcher.exists() and "OPEN_CORE_PROFILE" not in launcher.read_text(encoding="utf-8"):

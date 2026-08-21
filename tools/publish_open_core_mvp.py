@@ -216,8 +216,14 @@ def _prune_npm_lock(lock: dict) -> None:
 def _write_public_package(output_dir: Path) -> None:
     target = output_dir / "dax_ui" / "frontend" / "package.json"
     package = json.loads(target.read_text(encoding="utf-8"))
-    package["name"] = "dax-to-sql-open-core-ui"
+    package["name"] = "dummy-bi-engine-ui"
     package["private"] = False
+    package["license"] = "AGPL-3.0-only"
+    package["homepage"] = "https://www.dummy-bi.com/engine"
+    package["repository"] = {
+        "type": "git",
+        "url": "https://github.com/TomNek/dummy-bi-engine.git",
+    }
     package["dependencies"] = {
         name: version
         for name, version in package.get("dependencies", {}).items()
@@ -265,24 +271,46 @@ def _write_public_cargo_identity(output_dir: Path) -> None:
     cargo_text = cargo_toml.read_text(encoding="utf-8")
     cargo_text, count = re.subn(
         r'(^\[package\][\s\S]*?^name\s*=\s*)"semantic-migration-workbench"',
-        r'\g<1>"dax-to-sql-open-core"',
+        r'\g<1>"dummy-bi-engine"',
         cargo_text,
         count=1,
         flags=re.MULTILINE,
     )
-    if count != 1 and 'name = "dax-to-sql-open-core"' not in cargo_text:
+    if count != 1 and 'name = "dummy-bi-engine"' not in cargo_text:
         raise ValueError("Could not rewrite the public Cargo package name")
+    cargo_text = re.sub(
+        r'^description\s*=\s*"[^"]*"',
+        'description = "Dummy BI Engine — desktop shell"',
+        cargo_text,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    cargo_text = re.sub(
+        r'^license\s*=\s*"[^"]*"',
+        'license = "AGPL-3.0-only"',
+        cargo_text,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    if not re.search(r'^homepage\s*=', cargo_text, flags=re.MULTILINE):
+        cargo_text = re.sub(
+            r'(^description\s*=.*$)',
+            r'\1\nhomepage = "https://www.dummy-bi.com/engine"\nrepository = "https://github.com/TomNek/dummy-bi-engine"',
+            cargo_text,
+            count=1,
+            flags=re.MULTILINE,
+        )
     cargo_toml.write_text(cargo_text, encoding="utf-8")
 
     cargo_lock = output_dir / "src-tauri" / "Cargo.lock"
     lock_text = cargo_lock.read_text(encoding="utf-8")
     lock_text, count = re.subn(
         r'(\[\[package\]\]\r?\nname = )"semantic-migration-workbench"',
-        r'\g<1>"dax-to-sql-open-core"',
+        r'\g<1>"dummy-bi-engine"',
         lock_text,
         count=1,
     )
-    if count != 1 and 'name = "dax-to-sql-open-core"' not in lock_text:
+    if count != 1 and 'name = "dummy-bi-engine"' not in lock_text:
         raise ValueError("Could not rewrite the public Cargo.lock package name")
     cargo_lock.write_text(lock_text, encoding="utf-8")
 

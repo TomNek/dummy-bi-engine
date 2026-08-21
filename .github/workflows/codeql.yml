@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   analyze:
-    if: github.repository == 'TomNek/dax-to-sql-open-core'
+    if: github.repository == 'TomNek/dummy-bi-engine'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
