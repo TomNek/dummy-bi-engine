@@ -1,0 +1,2522 @@
+- version: 7
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-14T10:10:37.684738+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 8
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-15T23:14:09.740964+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 9
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T11:50:15.914790+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 10
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T20:31:23.018018+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+- version: 11
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T21:04:09.653263+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+- version: 12
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T21:23:02.057082+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+- version: 13
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T21:37:30.120970+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 14
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T21:39:27.219608+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 15
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T21:44:56.001044+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 16
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:06:39.250537+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+  - grain_value: T+7
+    forecast_value: 491.107226107226
+    forecast_lower: -587.3132447319539
+    forecast_upper: 1569.5276969464057
+    confidence_level: 0.95
+  - grain_value: T+8
+    forecast_value: 468.36247086247073
+    forecast_lower: -654.2087537724265
+    forecast_upper: 1590.9336954973678
+    confidence_level: 0.95
+  - grain_value: T+9
+    forecast_value: 445.6177156177155
+    forecast_lower: -722.6359515566937
+    forecast_upper: 1613.8713827921247
+    confidence_level: 0.95
+  - grain_value: T+10
+    forecast_value: 422.8729603729603
+    forecast_lower: -792.422123707234
+    forecast_upper: 1638.1680444531546
+    confidence_level: 0.95
+  - grain_value: T+11
+    forecast_value: 400.128205128205
+    forecast_lower: -863.4154965091334
+    forecast_upper: 1663.6719067655436
+    confidence_level: 0.95
+  - grain_value: T+12
+    forecast_value: 377.38344988344977
+    forecast_lower: -935.4829806951358
+    forecast_upper: 1690.2498804620354
+    confidence_level: 0.95
+- version: 17
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:06:54.073539+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+  - grain_value: T+7
+    forecast_value: 491.107226107226
+    forecast_lower: -587.3132447319539
+    forecast_upper: 1569.5276969464057
+    confidence_level: 0.95
+  - grain_value: T+8
+    forecast_value: 468.36247086247073
+    forecast_lower: -654.2087537724265
+    forecast_upper: 1590.9336954973678
+    confidence_level: 0.95
+  - grain_value: T+9
+    forecast_value: 445.6177156177155
+    forecast_lower: -722.6359515566937
+    forecast_upper: 1613.8713827921247
+    confidence_level: 0.95
+  - grain_value: T+10
+    forecast_value: 422.8729603729603
+    forecast_lower: -792.422123707234
+    forecast_upper: 1638.1680444531546
+    confidence_level: 0.95
+  - grain_value: T+11
+    forecast_value: 400.128205128205
+    forecast_lower: -863.4154965091334
+    forecast_upper: 1663.6719067655436
+    confidence_level: 0.95
+  - grain_value: T+12
+    forecast_value: 377.38344988344977
+    forecast_lower: -935.4829806951358
+    forecast_upper: 1690.2498804620354
+    confidence_level: 0.95
+- version: 18
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:06:55.795252+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+  - grain_value: T+7
+    forecast_value: 491.107226107226
+    forecast_lower: -587.3132447319539
+    forecast_upper: 1569.5276969464057
+    confidence_level: 0.95
+  - grain_value: T+8
+    forecast_value: 468.36247086247073
+    forecast_lower: -654.2087537724265
+    forecast_upper: 1590.9336954973678
+    confidence_level: 0.95
+  - grain_value: T+9
+    forecast_value: 445.6177156177155
+    forecast_lower: -722.6359515566937
+    forecast_upper: 1613.8713827921247
+    confidence_level: 0.95
+  - grain_value: T+10
+    forecast_value: 422.8729603729603
+    forecast_lower: -792.422123707234
+    forecast_upper: 1638.1680444531546
+    confidence_level: 0.95
+  - grain_value: T+11
+    forecast_value: 400.128205128205
+    forecast_lower: -863.4154965091334
+    forecast_upper: 1663.6719067655436
+    confidence_level: 0.95
+  - grain_value: T+12
+    forecast_value: 377.38344988344977
+    forecast_lower: -935.4829806951358
+    forecast_upper: 1690.2498804620354
+    confidence_level: 0.95
+- version: 19
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:07:51.348920+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 20
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:08:36.038199+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+- version: 21
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:08:36.700154+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+- version: 22
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:08:37.930105+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+- version: 23
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:08:38.554539+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+- version: 24
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:08:39.418717+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+- version: 25
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:08:39.981177+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 26
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:35:18.972153+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 27
+  measure_name: Total Sales
+  grain_column: Date
+  algorithm: ets
+  model_params_json: '{}'
+  training_start: '2023-01-01'
+  training_end: '2024-12-15'
+  cv_rmse: 237.72724975088232
+  cv_mape: 2.665511944829297
+  generated_ts: '2026-02-16T22:35:19.142923+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 78.73090120443426
+    forecast_lower: -338.8853540292875
+    forecast_upper: 496.347156438156
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 89.20928314722951
+    forecast_lower: -348.79034048158223
+    forecast_upper: 527.2089067760413
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 136.91123515992876
+    forecast_lower: -320.56445158475975
+    forecast_upper: 594.3869219046173
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 63.798229649401904
+    forecast_lower: -412.35756169001695
+    forecast_upper: 539.9540209888207
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 74.27661159219716
+    forecast_lower: -419.8536053442009
+    forecast_upper: 568.4068285285953
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 121.97856360489641
+    forecast_lower: -389.4948032023651
+    forecast_upper: 633.4519304121579
+    confidence_level: 0.95
+- version: 28
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:35:28.080272+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 29
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:35:38.371491+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 30
+  measure_name: Total Sales
+  grain_column: Date
+  algorithm: ets
+  model_params_json: '{}'
+  training_start: '2023-01-01'
+  training_end: '2024-12-15'
+  cv_rmse: 237.72724975088232
+  cv_mape: 2.665511944829297
+  generated_ts: '2026-02-16T22:35:45.000367+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 78.73090120443426
+    forecast_lower: -338.8853540292875
+    forecast_upper: 496.347156438156
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 89.20928314722951
+    forecast_lower: -348.79034048158223
+    forecast_upper: 527.2089067760413
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 136.91123515992876
+    forecast_lower: -320.56445158475975
+    forecast_upper: 594.3869219046173
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 63.798229649401904
+    forecast_lower: -412.35756169001695
+    forecast_upper: 539.9540209888207
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 74.27661159219716
+    forecast_lower: -419.8536053442009
+    forecast_upper: 568.4068285285953
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 121.97856360489641
+    forecast_lower: -389.4948032023651
+    forecast_upper: 633.4519304121579
+    confidence_level: 0.95
+- version: 31
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: linear
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 181.52717050137906
+  cv_mape: 0.4531016980992071
+  generated_ts: '2026-02-16T22:36:14.500565+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 627.5757575757575
+    forecast_lower: -230.86106126269317
+    forecast_upper: 1486.012576414208
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 604.8310023310023
+    forecast_lower: -283.5602460396468
+    forecast_upper: 1493.2222507016513
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 582.086247086247
+    forecast_lower: -339.3470290984751
+    forecast_upper: 1503.519523270969
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 559.3414918414917
+    forecast_lower: -397.9017315737119
+    forecast_upper: 1516.5847152566953
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 536.5967365967365
+    forecast_lower: -458.92570369429836
+    forecast_upper: 1532.1191768877713
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 513.8519813519813
+    forecast_lower: -522.1452693714814
+    forecast_upper: 1549.849232075444
+    confidence_level: 0.95
+- version: 32
+  measure_name: Total Sales
+  grain_column: Date
+  algorithm: ets
+  model_params_json: '{}'
+  training_start: '2023-01-01'
+  training_end: '2024-12-15'
+  cv_rmse: 237.72724975088232
+  cv_mape: 2.665511944829297
+  generated_ts: '2026-02-16T22:36:14.727989+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 78.73090120443426
+    forecast_lower: -338.8853540292875
+    forecast_upper: 496.347156438156
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 89.20928314722951
+    forecast_lower: -348.79034048158223
+    forecast_upper: 527.2089067760413
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 136.91123515992876
+    forecast_lower: -320.56445158475975
+    forecast_upper: 594.3869219046173
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 63.798229649401904
+    forecast_lower: -412.35756169001695
+    forecast_upper: 539.9540209888207
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 74.27661159219716
+    forecast_lower: -419.8536053442009
+    forecast_upper: 568.4068285285953
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 121.97856360489641
+    forecast_lower: -389.4948032023651
+    forecast_upper: 633.4519304121579
+    confidence_level: 0.95
+- version: 33
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2'
+  training_end: '9'
+  cv_rmse: 119.99552070302497
+  cv_mape: 0.1440360085681065
+  generated_ts: '2026-02-16T22:50:02.388928+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0360961156212
+    forecast_upper: 1156.5455142547535
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0147839129595
+    forecast_upper: 1156.5668264574151
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 730.2908051851873
+    forecast_lower: 303.99347277577476
+    forecast_upper: 1156.5881375945999
+    confidence_level: 0.95
+- version: 34
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-16T22:51:51.445815+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 35
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 0.2719740215733875
+  cv_mape: 0.04410841741588674
+  generated_ts: '2026-02-16T22:55:07.566132+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 673.7010086692916
+    forecast_lower: 299.011316001158
+    forecast_upper: 1517.912616659174
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 673.7010086692916
+    forecast_lower: 296.65191829309583
+    forecast_upper: 1529.985215310789
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 673.7010086692916
+    forecast_lower: 294.3334426761879
+    forecast_upper: 1542.0369664936484
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 673.7010086692916
+    forecast_lower: 292.05459598187844
+    forecast_upper: 1554.0691888655745
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 673.7010086692916
+    forecast_lower: 289.81414698306196
+    forecast_upper: 1566.0831391662439
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 673.7010086692916
+    forecast_lower: 287.6109223988264
+    forecast_upper: 1578.080016212461
+    confidence_level: 0.95
+- version: 36
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-20T11:04:51.454624+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 37
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-20T11:04:52.175347+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 38
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2'
+  training_end: '9'
+  cv_rmse: 119.99552070302497
+  cv_mape: 0.1440360085681065
+  generated_ts: '2026-02-20T11:04:52.842660+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0360961156212
+    forecast_upper: 1156.5455142547535
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0147839129595
+    forecast_upper: 1156.5668264574151
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 730.2908051851873
+    forecast_lower: 303.99347277577476
+    forecast_upper: 1156.5881375945999
+    confidence_level: 0.95
+- version: 39
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-20T11:04:54.701590+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+- version: 40
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-20T11:04:55.728695+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 41
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-20T11:04:56.736010+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+- version: 42
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-20T11:04:57.473781+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 706.2221213444568
+    forecast_lower: 54.72839657378893
+    forecast_upper: 1357.7158461151248
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 706.2221213444568
+    forecast_lower: 48.83458272143446
+    forecast_upper: 1363.6096599674793
+    confidence_level: 0.95
+- version: 43
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:04.485218+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 44
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:05.807362+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 45
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2'
+  training_end: '9'
+  cv_rmse: 119.99552070302497
+  cv_mape: 0.1440360085681065
+  generated_ts: '2026-02-26T16:24:06.525088+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0360961156212
+    forecast_upper: 1156.5455142547535
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0147839129595
+    forecast_upper: 1156.5668264574151
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 730.2908051851873
+    forecast_lower: 303.99347277577476
+    forecast_upper: 1156.5881375945999
+    confidence_level: 0.95
+- version: 46
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:08.352352+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+- version: 47
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:09.461042+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 48
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:10.562807+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+- version: 49
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:11.479325+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 706.2221213444568
+    forecast_lower: 54.72839657378893
+    forecast_upper: 1357.7158461151248
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 706.2221213444568
+    forecast_lower: 48.83458272143446
+    forecast_upper: 1363.6096599674793
+    confidence_level: 0.95
+- version: 50
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:32.337856+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 51
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2'
+  training_end: '9'
+  cv_rmse: 119.99552070302497
+  cv_mape: 0.1440360085681065
+  generated_ts: '2026-02-26T16:24:33.582038+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0360961156212
+    forecast_upper: 1156.5455142547535
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0147839129595
+    forecast_upper: 1156.5668264574151
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 730.2908051851873
+    forecast_lower: 303.99347277577476
+    forecast_upper: 1156.5881375945999
+    confidence_level: 0.95
+- version: 52
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:35.426103+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+- version: 53
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:36.436785+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 54
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:37.477764+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+- version: 55
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:24:38.206659+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 706.2221213444568
+    forecast_lower: 54.72839657378893
+    forecast_upper: 1357.7158461151248
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 706.2221213444568
+    forecast_lower: 48.83458272143446
+    forecast_upper: 1363.6096599674793
+    confidence_level: 0.95
+- version: 56
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:25:12.736751+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 57
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:25:13.511101+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 58
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2'
+  training_end: '9'
+  cv_rmse: 119.99552070302497
+  cv_mape: 0.1440360085681065
+  generated_ts: '2026-02-26T16:25:14.369564+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0360961156212
+    forecast_upper: 1156.5455142547535
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0147839129595
+    forecast_upper: 1156.5668264574151
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 730.2908051851873
+    forecast_lower: 303.99347277577476
+    forecast_upper: 1156.5881375945999
+    confidence_level: 0.95
+- version: 59
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:25:16.448713+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+- version: 60
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:25:17.279115+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 61
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:25:18.464824+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+- version: 62
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T16:25:19.392440+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 706.2221213444568
+    forecast_lower: 54.72839657378893
+    forecast_upper: 1357.7158461151248
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 706.2221213444568
+    forecast_lower: 48.83458272143446
+    forecast_upper: 1363.6096599674793
+    confidence_level: 0.95
+- version: 63
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:05:38.339275+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 64
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:05:39.122399+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 65
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2'
+  training_end: '9'
+  cv_rmse: 119.99552070302497
+  cv_mape: 0.1440360085681065
+  generated_ts: '2026-02-26T20:05:39.892885+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0360961156212
+    forecast_upper: 1156.5455142547535
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0147839129595
+    forecast_upper: 1156.5668264574151
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 730.2908051851873
+    forecast_lower: 303.99347277577476
+    forecast_upper: 1156.5881375945999
+    confidence_level: 0.95
+- version: 66
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:05:42.423889+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+- version: 67
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:05:43.395736+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 68
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:05:44.586488+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+- version: 69
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:05:45.721231+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 706.2221213444568
+    forecast_lower: 54.72839657378893
+    forecast_upper: 1357.7158461151248
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 706.2221213444568
+    forecast_lower: 48.83458272143446
+    forecast_upper: 1363.6096599674793
+    confidence_level: 0.95
+- version: 70
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:14:18.737196+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 71
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:14:19.482778+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 72
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2'
+  training_end: '9'
+  cv_rmse: 119.99552070302497
+  cv_mape: 0.1440360085681065
+  generated_ts: '2026-02-26T20:14:20.322721+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0360961156212
+    forecast_upper: 1156.5455142547535
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0147839129595
+    forecast_upper: 1156.5668264574151
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 730.2908051851873
+    forecast_lower: 303.99347277577476
+    forecast_upper: 1156.5881375945999
+    confidence_level: 0.95
+- version: 73
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:14:22.573907+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+- version: 74
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:14:23.531796+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 75
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:14:24.921333+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+- version: 76
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:14:26.372247+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 706.2221213444568
+    forecast_lower: 54.72839657378893
+    forecast_upper: 1357.7158461151248
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 706.2221213444568
+    forecast_lower: 48.83458272143446
+    forecast_upper: 1363.6096599674793
+    confidence_level: 0.95
+- version: 77
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:35:27.345263+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 78
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:35:28.270128+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 79
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2'
+  training_end: '9'
+  cv_rmse: 119.99552070302497
+  cv_mape: 0.1440360085681065
+  generated_ts: '2026-02-26T20:35:29.171139+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0360961156212
+    forecast_upper: 1156.5455142547535
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 730.2908051851873
+    forecast_lower: 304.0147839129595
+    forecast_upper: 1156.5668264574151
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 730.2908051851873
+    forecast_lower: 303.99347277577476
+    forecast_upper: 1156.5881375945999
+    confidence_level: 0.95
+- version: 80
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:35:32.011523+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+- version: 81
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:35:33.347359+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+- version: 82
+  measure_name: Total Sales
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 167.88804947066092
+  cv_mape: 0.3576974694973969
+  generated_ts: '2026-02-26T20:35:34.695515+00:00'
+  is_active: true
+  rows:
+  - grain_value: T+1
+    forecast_value: 706.2221213444568
+    forecast_lower: 78.85710532072972
+    forecast_upper: 1333.587137368184
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 706.2221213444568
+    forecast_lower: 72.73876256403219
+    forecast_upper: 1339.7054801248814
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 706.2221213444568
+    forecast_lower: 66.67894971879934
+    forecast_upper: 1345.7652929701144
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 706.2221213444568
+    forecast_lower: 60.676018502621105
+    forecast_upper: 1351.7682241862926
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 706.2221213444568
+    forecast_lower: 54.72839657378893
+    forecast_upper: 1357.7158461151248
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 706.2221213444568
+    forecast_lower: 48.83458272143446
+    forecast_upper: 1363.6096599674793
+    confidence_level: 0.95

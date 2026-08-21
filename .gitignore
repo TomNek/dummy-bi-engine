@@ -1,0 +1,80 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test caches
+.pytest_cache/
+.codex_pytest_tmp*/
+.pytest_tmp_codex*/
+.pytest_tmp*/
+debug_pq_*/
+
+# One-off local investigation scripts
+_analyze_*.py
+_check_*.py
+_compare_*.py
+_comprehensive_*.py
+_debug_*.py
+_find_*.py
+_get_*.py
+_inspect_*.py
+_investigate*.py
+_map_*.py
+_precise_*.py
+_read_*.py
+_regen_*.py
+_run_*.py
+_scan_*.py
+_screenshot_*.py
+_show_*.py
+_test_*.py
+_tmp_*.py
+_trace_*.py
+_verify_*.py
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp server / audit output
+server_err.txt
+server_out.txt
+audit_err.txt
+audit_out.txt
+audit_output*.txt
+docs/audit_output*.txt
+docs/audit_run*.txt
+
+# Debug screenshots / temp images
+test_full_page.png
+debug_matrix.png
+
+# QA scratch artifacts (screenshots, scripts, sample projects)
+qa_*.png
+qa_*.py
+qa_*.txt
+qa14b_*.png
+_qa_*.py
+sample_project_qa_*/
+test_e2e_project/
+test_e2e_workflow.py
+
+# Node modules (frontend)
+node_modules/
+
+# Vite build cache
+dax_ui/frontend/dist/
+dax_ui/frontend_dist/
+
+# Generated build output (source under src-tauri remains tracked)
+build/
+dist/
+src-tauri/target/
+src-tauri/binaries/*.exe
+.ruff_cache/

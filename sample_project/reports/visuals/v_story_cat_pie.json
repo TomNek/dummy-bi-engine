@@ -1,0 +1,29 @@
+{
+  "id": "v_story_cat_pie",
+  "title": "Sales Share by Category",
+  "visual_type": "pie",
+  "page_id": "story_categories",
+  "layout": {
+    "x": 20,
+    "y": 20,
+    "w": 450,
+    "h": 350
+  },
+  "encodings": {
+    "names": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Category"
+    },
+    "values": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

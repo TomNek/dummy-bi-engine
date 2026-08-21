@@ -1,0 +1,61 @@
+# Build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+
+# Tauri / Rust (desktop only — not needed for server)
+src-tauri/
+*.msi
+*.exe
+
+# Dev/test files
+tests/
+debug/
+docs/
+scripts/
+tools/
+.github/
+.git/
+.gitignore
+.pytest_cache/
+htmlcov/
+*.md
+!requirements*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Sample projects (users mount their own)
+sample_project*/
+accounting_project/
+ibcs_project/
+
+# Node modules (frontend build uses its own in the build stage)
+node_modules/
+
+# Frontend build inputs (source/index/config are required by the first stage)
+dax_ui/frontend/node_modules/
+dax_ui/frontend/.vite/
+
+# PyInstaller spec
+pyinstaller_backend.spec
+
+# Reports
+reports/
+report_autogeneration.md

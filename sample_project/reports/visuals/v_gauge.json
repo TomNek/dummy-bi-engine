@@ -1,0 +1,29 @@
+{
+  "id": "v_gauge",
+  "title": "Total Sales Gauge",
+  "visual_type": "gauge",
+  "page_id": "page6",
+  "layout": {
+    "x": 660,
+    "y": 340,
+    "w": 300,
+    "h": 300
+  },
+  "encodings": {
+    "value": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    },
+    "reference": {
+      "type": "MeasureRef",
+      "name": "Total Qty"
+    }
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": false,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

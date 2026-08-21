@@ -1,0 +1,11 @@
+id: 026d57e0bb03
+name: Del Test
+version: 1
+author: QA
+created_at: 2026-02-12T16:20:24+00:00Z
+model_references: []
+layout: {}
+measures:
+- X
+visuals: []
+parameters: {}

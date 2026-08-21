@@ -1,0 +1,40 @@
+{
+  "id": "v_combo_pivot",
+  "title": "Measure Pivot — Sales + Qty + Price by Month",
+  "visual_type": "combo",
+  "page_id": "page8",
+  "layout": {
+    "x": 0,
+    "y": 330,
+    "w": 460,
+    "h": 340
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "DimDate",
+      "column": "MonthName"
+    },
+    "y": [
+      {
+        "type": "MeasureRef",
+        "name": "Total Sales"
+      },
+      {
+        "type": "MeasureRef",
+        "name": "Total Qty"
+      },
+      {
+        "type": "MeasureRef",
+        "name": "Price"
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

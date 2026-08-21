@@ -1,0 +1,11 @@
+id: 03960ceb4f85
+name: QA Def 11.2
+version: 1
+author: QA
+created_at: 2026-02-12T16:12:01+00:00Z
+model_references: []
+layout: {}
+measures:
+- Sales Amount
+visuals: []
+parameters: {}

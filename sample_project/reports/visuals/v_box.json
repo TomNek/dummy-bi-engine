@@ -1,0 +1,15 @@
+{
+  "id": "v_box",
+  "title": "Sales by Category (Box)",
+  "visual_type": "box",
+  "page_id": "page3",
+  "layout": {"x": 460, "y": 20, "w": 420, "h": 300},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Product", "column": "Category"},
+    "y": {"type": "ColumnRef", "table": "Sales", "column": "Amount"},
+    "color": {"type": "ColumnRef", "table": "Product", "column": "Category"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

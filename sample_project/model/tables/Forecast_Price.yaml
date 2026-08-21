@@ -1,0 +1,23 @@
+name: Forecast_Price
+columns:
+- name: confidence_level
+  type: DOUBLE
+- name: forecast_lower
+  type: DOUBLE
+- name: forecast_upper
+  type: DOUBLE
+- name: forecast_value
+  type: DOUBLE
+- name: grain_value
+  type: VARCHAR
+- name: measure_name
+  type: VARCHAR
+- name: version
+  type: INTEGER
+source:
+  type: csv
+  path: data/forecast_Price.csv
+description: Auto-generated active forecast baseline for Price
+folder: Forecasts
+table_type: fact
+is_calculated: false

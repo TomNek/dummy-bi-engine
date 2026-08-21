@@ -1,0 +1,16 @@
+{
+  "id": "v_bubble",
+  "title": "Sales Bubble",
+  "visual_type": "bubble",
+  "page_id": "page5",
+  "layout": {"x": 20, "y": 340, "w": 420, "h": 300},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Product", "column": "Category"},
+    "y": {"type": "MeasureRef", "name": "Total Sales"},
+    "size": {"type": "MeasureRef", "name": "Total Qty"},
+    "color": {"type": "ColumnRef", "table": "Product", "column": "Category"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

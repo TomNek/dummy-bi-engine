@@ -1,0 +1,117 @@
+schema_version: 1
+product:
+  name: Semantic Migration Workbench Open Core
+  audience: BI and data engineers evaluating local semantic-model migration
+  promise: >
+    Connect local data, inspect a semantic model, compile supported DAX-style
+    expressions to DuckDB SQL, and visualize or inspect the resulting data.
+
+workflow:
+  - open_local_project
+  - connect_local_data
+  - inspect_tables_columns_measures_relationships
+  - compile_dax_to_duckdb_sql
+  - preview_data
+  - build_plotly_chart
+
+data_connections:
+  allowed:
+    - csv
+    - parquet
+    - json
+    - folder
+    - excel
+    - text
+    - blob
+    - duckdb
+    - sqlite
+    - postgres
+    - mysql
+    - http
+    - s3
+    - azure_blob
+    - cloudflare_r2
+    - delta
+    - iceberg
+
+visuals:
+  # Report visuals are deliberately Plotly-only. The HTML data grid is a
+  # diagnostic preview and is not a visual type.
+  allowed:
+    - bar
+    - column
+    - line
+    - area
+    - scatter
+    - pie
+    - combo
+    - histogram
+    - box
+    - violin
+    - strip
+    - ecdf
+    - funnel
+    - funnel_area
+    - density_contour
+    - density_heatmap
+    - treemap
+    - sunburst
+    - icicle
+    - scatter_polar
+    - line_polar
+    - bar_polar
+    - bubble
+    - bubble_3d
+    - scatter_3d
+    - line_3d
+    - candlestick
+    - ohlc
+    - waterfall
+    - gauge
+    - sankey
+  allowed_renderers:
+    - plotly_express
+    - graph_objects
+  excluded_renderers:
+    - svg
+    - table
+    - matrix
+    - static
+  excluded_families:
+    - ibcs
+    - custom_svg
+    - tableau
+    - power_bi_custom_visuals
+
+ui:
+  left_panel:
+    - local_data_connection
+    - tables_and_columns
+    - measures
+    - relationships
+  center:
+    - dax_editor
+    - generated_sql
+    - plotly_preview
+    - tabular_data_preview
+  right_panel:
+    - plotly_visual_picker
+    - field_wells
+    - basic_filter
+    - title_and_legend
+
+explicitly_excluded:
+  - authentication_and_multi_user_server
+  - subscriptions_and_scheduling
+  - ml_forecasting_and_decision_intelligence
+  - report_autogeneration
+  - marketplace_and_fabric_deployment
+  - advanced_plotly_patch_editor
+  - custom_svg_charts
+  - tableau_visuals_or_import
+
+artifact:
+  frontend_entry: dax_ui/frontend/src/open-core/main.tsx
+  frontend_build: npm run build:open-core
+  publisher: python tools/publish_open_core_mvp.py
+  validator: python tools/validate_open_core_mvp.py

@@ -1,0 +1,41 @@
+{
+  "id": "v3",
+  "title": "Scatter",
+  "visual_type": "scatter",
+  "page_id": "page1",
+  "layout": {
+    "x": 870,
+    "y": 30,
+    "w": 400,
+    "h": 300
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Category"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Price"
+    },
+    "color": null,
+    "size": null,
+    "tooltip": [
+      {
+        "type": "ColumnRef",
+        "table": "Product",
+        "column": "Brand"
+      }
+    ]
+  },
+  "format": {
+    "titleFontSize": 32
+  },
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "highlight"
+  }
+}

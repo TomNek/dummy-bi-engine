@@ -1,0 +1,29 @@
+{
+  "id": "v_story_trend",
+  "title": "Monthly Sales Trend",
+  "visual_type": "line",
+  "page_id": "story_sales_review",
+  "layout": {
+    "x": 20,
+    "y": 160,
+    "w": 700,
+    "h": 320
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "DimDate",
+      "column": "MonthName"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

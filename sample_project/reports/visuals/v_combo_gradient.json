@@ -1,0 +1,54 @@
+{
+  "id": "v_combo_gradient",
+  "title": "Monthly Sales — Color Gradient by Value",
+  "visual_type": "combo",
+  "page_id": "page8",
+  "layout": {
+    "x": 150,
+    "y": 692.66650390625,
+    "w": 460,
+    "h": 340
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "DimDate",
+      "column": "MonthName"
+    },
+    "layers": [
+      {
+        "type": "bar",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Total Sales"
+        },
+        "secondary_y": false,
+        "name": "Sales (gradient)",
+        "format": {
+          "colorscale": "Viridis"
+        }
+      },
+      {
+        "type": "scatter",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Price"
+        },
+        "secondary_y": true,
+        "name": "Price (gradient)",
+        "format": {
+          "colorscale": "Plasma",
+          "markerSize": 12,
+          "markerSymbol": "diamond"
+        }
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

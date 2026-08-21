@@ -1,0 +1,36 @@
+{
+  "id": "v_sankey",
+  "title": "Sales Flow (Sankey)",
+  "visual_type": "sankey",
+  "page_id": "page6",
+  "layout": {
+    "x": 980,
+    "y": 340,
+    "w": 400,
+    "h": 300
+  },
+  "encodings": {
+    "source": {
+      "type": "ColumnRef",
+      "table": "SankeyFlow",
+      "column": "Source"
+    },
+    "target": {
+      "type": "ColumnRef",
+      "table": "SankeyFlow",
+      "column": "Target"
+    },
+    "value": {
+      "type": "ColumnRef",
+      "table": "SankeyFlow",
+      "column": "Value"
+    }
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": false,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

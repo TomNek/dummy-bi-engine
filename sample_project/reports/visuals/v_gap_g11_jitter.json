@@ -1,0 +1,22 @@
+{
+  "id": "v_gap_g11_jitter",
+  "title": "G11 — Jitter on Categorical Scatter",
+  "visual_type": "combo",
+  "page_id": "page_combo_gaps",
+  "layout": {"x": 960, "y": 20, "w": 450, "h": 350},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Product", "column": "Category"},
+    "layers": [
+      {
+        "type": "scatter",
+        "y": {"type": "MeasureRef", "name": "Total Sales"},
+        "secondary_y": false,
+        "name": "Sales per Category",
+        "format": {"markerSize": 10, "markerSymbol": "circle", "markerOpacity": 0.7}
+      }
+    ]
+  },
+  "format": {"comboJitter": 0.25},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

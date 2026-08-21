@@ -1,0 +1,29 @@
+{
+  "id": "v_hierarchy_bar",
+  "title": "Sales by Product Hierarchy",
+  "visual_type": "column",
+  "page_id": "page1",
+  "layout": {
+    "x": 820,
+    "y": 610,
+    "w": 600,
+    "h": 350
+  },
+  "encodings": {
+    "x": {
+      "type": "HierarchyRef",
+      "name": "Product Hierarchy"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

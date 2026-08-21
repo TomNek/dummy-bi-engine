@@ -1,0 +1,395 @@
+# Open-Core Boundary Manifest
+# This file defines which paths belong to the Community (AGPL) edition,
+# which belong to the Enterprise edition, and which are internal-only
+# (development docs, QA artifacts, build specs — never shipped).
+#
+# Community code MUST NOT import from Enterprise.
+# Enterprise may import Community.
+# Internal files are excluded from ALL published artifacts.
+#
+# Used by: tools/check_open_core_boundary.py, tools/publish_community_repo.py
+# Updated: 2026-08-20
+
+edition_rules:
+  # ── Community (AGPL) ─────────────────────────────────────────────
+  community:
+    description: >
+      Core DAX engine, compiler, runtime UI, and project management.
+      Licensed under AGPL. Ships as the public open-source release.
+    paths:
+      # Core engine
+      - dax_engine/__init__.py
+      - dax_engine/compiler.py
+      - dax_engine/context.py
+      - dax_engine/ir.py
+      - dax_engine/filters_ir.py
+      - dax_engine/lowering_iterators.py
+      - dax_engine/lowering_scalar.py
+      - dax_engine/lowering_table.py
+      - dax_engine/duckdb_udfs.py
+      - dax_engine/connectors.py
+      - dax_engine/distributions.py
+      - dax_engine/environments.py
+      - dax_engine/sql_utils.py
+      - dax_engine/relationships.py
+      - dax_engine/table_sources.py
+      - dax_engine/storage_modes.py
+      - dax_engine/registry.py
+      - dax_engine/visual_calculations.py
+
+      # Legacy compiler façade (re-exports core modules)
+      - dax_compiler.py
+
+      # DAX-to-SQL mapping reference
+      - dax_sql_mapping.json
+      - dax_sql_mapping.md
+
+      # Parser
+      - dax_parser/**
+
+      # Project format
+      - dax_project/**
+
+      # Planner (base matrix + visual)
+      - dax_engine/planner/__init__.py
+      - dax_engine/planner/visual_planner.py
+      - dax_engine/planner/matrix_planner.py
+      - dax_engine/planner/tablix.py
+      - dax_engine/planner/tablix_compiler.py
+      - dax_engine/planner/tablix_v2.py
+
+      # Runtime UI (React — authoritative)
+      - dax_ui/frontend/**
+
+      # Runtime UI (old vanilla JS — archived, included for compat)
+      - dax_ui/static/**
+      - dax_ui/templates/**
+
+      # UI core modules
+      - dax_ui/__init__.py
+      - dax_ui/__main__.py
+      - dax_ui/open_core_app.py
+      - dax_ui/open_core_main.py
+      - dax_ui/project_manager.py
+      - dax_ui/version.py
+
+      # Server (modularized package)
+      - dax_ui/server/**
+
+      # Model loader
+      - semantic_model_loader.py
+      - semantic_model.yaml
+
+      # Config / build
+      - .dockerignore
+      - .gitignore
+      - requirements.txt
+      - requirements-ui.txt
+      - requirements-dev.txt
+      - pytest.ini
+      - Dockerfile
+      - docker-compose.yml
+      - open_core_boundary.yml
+      - open_core_mvp.yml
+      - pyinstaller_open_core.spec
+
+      # Public Tauri desktop shell (generated binaries/targets remain internal)
+      - src-tauri/Cargo.toml
+      - src-tauri/Cargo.lock
+      - src-tauri/build.rs
+      - src-tauri/src/main.rs
+      - src-tauri/tauri.open-core.conf.json
+      - src-tauri/icons/icon.ico
+
+      # Community README (renamed to readme.md during publish)
+      - README_community.md
+      - README_OPEN_CORE.md
+      - REDDIT_FEEDBACK.md
+      - OPEN_CORE_RELEASE.md
+
+      # Legal / governance
+      - LICENSE
+      - AI_POLICY.md
+      - CONTRIBUTING.md
+      - SECURITY.md
+      - THIRD_PARTY_NOTICES.md
+      - PRODUCT_SCOPE.md
+      - COMPATIBILITY.md
+
+      # Sample project (community demo)
+      - sample_project/**
+
+      # Tests (community features)
+      - tests/**
+
+      # Scripts (test runners, conformance)
+      - scripts/**
+
+      # Tools (boundary check, publish, release gate)
+      - tools/**
+
+      # CI workflows (useful for contributors)
+      - .github/dependabot.yml
+      - .github/workflows/**
+      - .github/ISSUE_TEMPLATE/**
+
+    excluded_patterns:
+      # Enterprise engine modules that live inside community paths
+      - dax_engine/decision/**
+      - dax_engine/explanations/**
+      - dax_engine/financial.py
+      - dax_engine/autogen/**
+      - dax_engine/catalog_folders.py
+      - dax_engine/catalog_git.py
+      - dax_engine/catalog_index.py
+      - dax_engine/deployment.py
+      - dax_engine/licensing.py
+      - dax_engine/licensing_keygen.py
+      - dax_engine/licensing_trial.py
+      - dax_engine/attachment_renderer.py
+      - dax_engine/planner/tablix_enterprise.py
+      - dax_engine/planner/tablix_compiler_enterprise.py
+      - dax_engine/planner/matrix_conditional_formatting.py
+
+      # Enterprise UI modules
+      - dax_ui/phase14_routes.py
+      - dax_ui/server/routes_enterprise.py
+      - dax_ui/server/_explanations.py
+      - dax_ui/role_guard.py
+      - dax_ui/desktop_auth.py
+      - dax_ui/server_auth.py
+
+      # Enterprise test files (test enterprise-only features)
+      - tests/test_attachment_renderer.py
+      - tests/test_autogen_wizard.py
+      - tests/test_candidate_pruning.py
+      - tests/test_catalog_env_scoped.py
+      - tests/test_catalog_folders.py
+      - tests/test_catalog_git.py
+      - tests/test_catalog_index.py
+      - tests/test_config_clone.py
+      - tests/test_decision_classification.py
+      - tests/test_decision_api.py
+      - tests/test_decision_episodes.py
+      - tests/test_decision_ranking.py
+      - tests/test_decision_scoring.py
+      - tests/test_decision_signals.py
+      - tests/test_decision_stability.py
+      - tests/test_deployment.py
+      - tests/test_edu_virtual_fields.py
+      - tests/test_elasticity_compiler.py
+      - tests/test_evidence_providers.py
+      - tests/test_explanation_engine.py
+      - tests/test_explanation_api.py
+      - tests/test_explanation_subscriptions.py
+      - tests/test_forecast.py
+      - tests/test_hypothesis_compiler.py
+      - tests/test_hypothesis_api.py
+      - tests/test_improvement_batch.py
+      - tests/test_layout_generator.py
+      - tests/test_license_endpoint.py
+      - tests/test_licensing.py
+      - tests/test_measure_generator.py
+      - tests/test_measure_blocks.py
+      - tests/test_ml_integration.py
+      - tests/test_narrator.py
+      - tests/test_playbook_generator.py
+      - tests/test_qa_bugfixes_v2172.py
+      - tests/test_qa_bugfixes_v2174.py
+      - tests/test_qa_bugfixes_v2175.py
+      - tests/test_regime_change.py
+      - tests/test_report_definition.py
+      - tests/test_report_server.py
+      - tests/test_row_measure_blocks_integration.py
+      - tests/test_subscription_product.py
+      - tests/test_tablix_header_bands.py
+      - tests/test_threshold_scheduler.py
+      - tests/test_ui_react_ibcs_card_embedded_graphic_dataset.py
+      - tests/test_viewer_mode.py
+
+  # ── Internal (dev-only, never shipped) ───────────────────────────
+  internal:
+    description: >
+      Development docs, architecture plans, project plans, QA artifacts,
+      build specs, agent reports, and internal tooling docs.
+      Never included in community or enterprise distributions.
+    paths:
+      # Architecture & planning docs
+      - ARCHITECTURE.md
+      - ARCHITECTURE_new_ui.md
+      - project_plan.md
+      - instructions.md
+      - report_autogeneration.md
+      - session_instructions.md
+
+      # Internal readme (not shipped; community gets README_community.md)
+      - readme.md
+
+      # Copilot instructions (internal only)
+      - .github/copilot-instructions.md
+
+      # All internal docs (agent reports, QA, migration plans, screenshots)
+      - docs/**
+
+      # Build / installer specs (desktop packaging, not needed by OSS users)
+      - pyinstaller_backend.spec
+      - pyinstaller_server.spec
+      - installer_server.nsi
+      - test_minimal.spec
+
+      # Build temp logs (tracked but internal)
+      - build_17d_tmp.log
+      - build_phase17_tmp.log
+      - build_phase17ab_tmp.log
+      - build_phase18_tmp.log
+
+      # Temp UI bundles (tracked but internal)
+      - .tmp_live_bundle.js
+      - .tmp_ui_react_live.html
+
+      # Tracked one-off diagnostics and pytest scratch fixtures
+      - _*.py
+      - .pytest_tmp_*/**
+
+      # Legacy generated frontend bundles (the public build is reproduced from source)
+      - dax_ui/frontend_dist/**
+
+      # Private/default desktop configuration and generated Tauri output
+      - src-tauri/tauri.conf.json
+      - src-tauri/target/**
+      - src-tauri/binaries/**
+      - src-tauri/icons/icon.png
+      - src-tauri/icons/32x32.png
+      - src-tauri/icons/128x128.png
+      - src-tauri/icons/256x256.png
+
+      # Dev reports (JUnit XML, diff packets)
+      - reports/**
+
+      # Debug scripts and stress test artifacts
+      - debug/**
+
+      # Power BI notebooks, extractors, and transfer tools (dev-only)
+      - PowerBI/**
+
+      # Extracted compatibility fixture (test/development only)
+      - adventureworks_project/**
+
+  # ── Enterprise (Proprietary) ─────────────────────────────────────
+  enterprise:
+    description: >
+      Decision intelligence, report server, subscriptions, advanced matrix,
+      ML analytics, RLS/OLS, IBCS cards, auto-generation, and licensing.
+    paths:
+      # Decision intelligence
+      - dax_engine/decision/**
+
+      # Explanations / EDU framework
+      - dax_engine/explanations/**
+
+      # Financial (IBCS financial tables)
+      - dax_engine/financial.py
+      - dax_engine/planner/matrix_conditional_formatting.py
+
+      # Auto-generation wizard
+      - dax_engine/autogen/**
+
+      # Report server / catalog / deployment
+      - dax_engine/catalog_folders.py
+      - dax_engine/catalog_git.py
+      - dax_engine/catalog_index.py
+      - dax_engine/deployment.py
+      - dax_ui/phase14_routes.py
+
+      # Report definition / server / security
+      - dax_engine/report_definition.py
+      - dax_engine/report_server.py
+      - dax_engine/server_security.py
+
+      # Licensing
+      - dax_engine/licensing.py
+      - dax_engine/licensing_keygen.py
+      - dax_engine/licensing_trial.py
+
+      # Attachment renderer (subscription delivery)
+      - dax_engine/attachment_renderer.py
+
+      # Auth (enterprise auth layer)
+      - dax_engine/auth.py
+
+      # Subscriptions / scheduling / viewer
+      - dax_engine/subscription_product.py
+      - dax_engine/threshold_scheduler.py
+      - dax_engine/viewer.py
+      - dax_engine/demo.py
+
+      # Enterprise API models
+      - dax_ui/api_models.py
+
+      # Enterprise server routes
+      - dax_ui/server/routes_enterprise.py
+      - dax_ui/server/_explanations.py
+
+      # Enterprise auth / RBAC middleware
+      - dax_ui/role_guard.py
+      - dax_ui/desktop_auth.py
+      - dax_ui/server_auth.py
+
+      # Enterprise tablix (measure blocks, header bands, overlap)
+      - dax_engine/planner/tablix_enterprise.py
+      - dax_engine/planner/tablix_compiler_enterprise.py
+
+      # Enterprise sample projects
+      - accounting_project/**
+      - ibcs_project/**
+      - perf_project/**
+
+      # Enterprise license
+      - LICENSE-COMMERCIAL.md
+
+      # Enterprise tests
+      - tests/test_attachment_renderer.py
+      - tests/test_autogen_wizard.py
+      - tests/test_candidate_pruning.py
+      - tests/test_catalog_env_scoped.py
+      - tests/test_catalog_folders.py
+      - tests/test_catalog_git.py
+      - tests/test_catalog_index.py
+      - tests/test_config_clone.py
+      - tests/test_decision_classification.py
+      - tests/test_decision_episodes.py
+      - tests/test_decision_ranking.py
+      - tests/test_decision_scoring.py
+      - tests/test_decision_signals.py
+      - tests/test_decision_stability.py
+      - tests/test_deployment.py
+      - tests/test_edu_virtual_fields.py
+      - tests/test_elasticity_compiler.py
+      - tests/test_evidence_providers.py
+      - tests/test_explanation_engine.py
+      - tests/test_explanation_subscriptions.py
+      - tests/test_forecast.py
+      - tests/test_hypothesis_compiler.py
+      - tests/test_improvement_batch.py
+      - tests/test_layout_generator.py
+      - tests/test_license_endpoint.py
+      - tests/test_licensing.py
+      - tests/test_measure_generator.py
+      - tests/test_ml_integration.py
+      - tests/test_narrator.py
+      - tests/test_playbook_generator.py
+      - tests/test_qa_bugfixes_v2172.py
+      - tests/test_qa_bugfixes_v2174.py
+      - tests/test_qa_bugfixes_v2175.py
+      - tests/test_regime_change.py
+      - tests/test_report_definition.py
+      - tests/test_report_server.py
+      - tests/test_subscription_product.py
+      - tests/test_tablix_header_bands.py
+      - tests/test_threshold_scheduler.py
+      - tests/test_ui_react_ibcs_card_embedded_graphic_dataset.py
+      - tests/test_viewer_mode.py
+
+  # ── Unclassified (blocking) ──────────────────────────────────────
+  # Any file not matching community or enterprise paths is a blocking error.
+  # The boundary check script will report these.

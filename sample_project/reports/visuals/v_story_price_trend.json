@@ -1,0 +1,29 @@
+{
+  "id": "v_story_price_trend",
+  "title": "Monthly Price Trend",
+  "visual_type": "line",
+  "page_id": "story_pricing",
+  "layout": {
+    "x": 770,
+    "y": 20,
+    "w": 500,
+    "h": 350
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "DimDate",
+      "column": "MonthName"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Price"
+    }
+  },
+  "format": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

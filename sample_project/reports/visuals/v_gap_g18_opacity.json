@@ -1,0 +1,37 @@
+{
+  "id": "v_gap_g18_opacity",
+  "title": "G18 — Stacked Layout with Per-Layer Opacity",
+  "visual_type": "combo",
+  "page_id": "page_combo_gaps",
+  "layout": {"x": 20, "y": 760, "w": 660, "h": 350},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "DimDate", "column": "MonthName"},
+    "layout_mode": "stacked",
+    "layers": [
+      {
+        "type": "bar",
+        "y": {"type": "MeasureRef", "name": "Total Sales"},
+        "secondary_y": false,
+        "name": "Sales (faded)",
+        "format": {"opacity": 0.4}
+      },
+      {
+        "type": "bar",
+        "y": {"type": "MeasureRef", "name": "Total Qty"},
+        "secondary_y": false,
+        "name": "Qty (solid)",
+        "format": {"opacity": 1.0}
+      },
+      {
+        "type": "line",
+        "y": {"type": "MeasureRef", "name": "Price"},
+        "secondary_y": false,
+        "name": "Price (semi-transparent)",
+        "format": {"opacity": 0.6, "lineWidth": 3, "showMarkers": true}
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

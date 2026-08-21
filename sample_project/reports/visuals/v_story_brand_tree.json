@@ -1,0 +1,36 @@
+{
+  "id": "v_story_brand_tree",
+  "title": "Category \u2192 Brand Treemap",
+  "visual_type": "treemap",
+  "page_id": "story_brands",
+  "layout": {
+    "x": 540,
+    "y": 20,
+    "w": 500,
+    "h": 350
+  },
+  "encodings": {
+    "path": [
+      {
+        "type": "ColumnRef",
+        "table": "Product",
+        "column": "Category"
+      },
+      {
+        "type": "ColumnRef",
+        "table": "Product",
+        "column": "Brand"
+      }
+    ],
+    "values": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

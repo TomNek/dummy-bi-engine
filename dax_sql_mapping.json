@@ -1,0 +1,4428 @@
+{
+	"source": "Compiled from Microsoft Learn / DAX Guide function name list (names only).",
+	"count": 481,
+	"entries": [
+		{
+			"name": "ABS",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "ABS({args})",
+			"example_dax": "ABS(1)",
+			"example_sql": "ABS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ACCRINT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ACCRINT({args})",
+			"example_dax": "ACCRINT(DATE(2024,1,1), DATE(2024,7,1), DATE(2024,12,31), 0.05, 1000, 2)",
+			"example_sql": "DAX_ACCRINT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ACCRINTM",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ACCRINTM({args})",
+			"example_dax": "ACCRINTM(DATE(2024,1,1), DATE(2024,12,31), 0.05, 1000)",
+			"example_sql": "DAX_ACCRINTM(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ACOS",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "ACOS({args})",
+			"example_dax": "ACOS(1)",
+			"example_sql": "ACOS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ACOSH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "ACOSH({args})",
+			"example_dax": "ACOSH(1)",
+			"example_sql": "ACOSH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ACOT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ACOT({args})",
+			"example_dax": "ACOT(1)",
+			"example_sql": "DAX_ACOT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ACOTH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ACOTH({args})",
+			"example_dax": "ACOTH(2)",
+			"example_sql": "DAX_ACOTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ADDCOLUMNS",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT t.*, {{expr}} AS {{name}} FROM {{table}} AS t)",
+			"example_dax": "ADDCOLUMNS(Sales, \"Amount2\", Sales[Amount] * 2)",
+			"example_sql": "SELECT t.*, (t.Amount * 2) AS Amount2 FROM Sales AS t",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ADDMISSINGITEMS",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_ADDMISSINGITEMS({args}) AS t)",
+			"example_dax": "ADDMISSINGITEMS(Sales[Region], SUMMARIZE(Sales, Sales[Region], \"Cnt\", COUNTROWS(Sales)), Sales[Region])",
+			"example_sql": "(SELECT * FROM DAX_ADDMISSINGITEMS(1) AS t)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "ALL",
+			"kind": "table",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "ALL(Sales)",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "ALLCROSSFILTERED",
+			"kind": "table",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "ALLCROSSFILTERED(Sales)",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "ALLEXCEPT",
+			"kind": "table",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "ALLEXCEPT(Sales, Sales[Region])",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "ALLNOBLANKROW",
+			"kind": "table",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "ALLNOBLANKROW(Sales)",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "ALLSELECTED",
+			"kind": "table",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "ALLSELECTED(Sales)",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "ALLSELECTEDAPPLY",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "ALLSELECTEDAPPLY(SUM(Sales[Amount]))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "ALLSELECTEDREMOVE",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "ALLSELECTEDREMOVE(SUM(Sales[Amount]))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "ALWAYSAPPLY",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "ALWAYSAPPLY(SUM(Sales[Amount]))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "AMORDEGRC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_AMORDEGRC({args})",
+			"example_dax": "AMORDEGRC(1000, DATE(2024,1,1), DATE(2024,12,31), 100, 1, 0.15)",
+			"example_sql": "DAX_AMORDEGRC(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "AMORLINC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_AMORLINC({args})",
+			"example_dax": "AMORLINC(1000, DATE(2024,1,1), DATE(2024,12,31), 100, 1, 0.15)",
+			"example_sql": "DAX_AMORLINC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "AND",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "({{a}} AND {{b}})",
+			"example_dax": "AND(TRUE(), FALSE())",
+			"example_sql": "(TRUE AND FALSE)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "APPROXIMATEDISTINCTCOUNT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_APPROXIMATEDISTINCTCOUNT({args})",
+			"example_dax": "APPROXIMATEDISTINCTCOUNT(Sales[Region])",
+			"example_sql": "DAX_APPROXIMATEDISTINCTCOUNT(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ASIN",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "ASIN({args})",
+			"example_dax": "ASIN(1)",
+			"example_sql": "ASIN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ASINH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "ASINH({args})",
+			"example_dax": "ASINH(1)",
+			"example_sql": "ASINH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ATAN",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "ATAN({args})",
+			"example_dax": "ATAN(1)",
+			"example_sql": "ATAN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ATANH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "ATANH({args})",
+			"example_dax": "ATANH(0.5)",
+			"example_sql": "ATANH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "AVERAGE",
+			"kind": "agg",
+			"strategy": "direct_sql_fn",
+			"sql_template": "AVG({{x}})",
+			"example_dax": "AVERAGE(Sales[Amount])",
+			"example_sql": "AVG(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "AVERAGEA",
+			"kind": "agg",
+			"strategy": "direct_sql_fn",
+			"sql_template": "AVG({{x}})",
+			"example_dax": "AVERAGEA(Sales[Amount])",
+			"example_sql": "AVG(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "AVERAGEX",
+			"kind": "iterator",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT AVG({{expr}}) FROM {{table}})",
+			"example_dax": "AVERAGEX(Sales, Sales[Amount])",
+			"example_sql": "(SELECT AVG(Sales.Amount) FROM Sales)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "BETA.DIST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_BETA_DIST({args})",
+			"example_dax": "BETA.DIST(0.5, 2, 3, 1)",
+			"example_sql": "DAX_BETA_DIST(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "BETA.INV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_BETA_INV({args})",
+			"example_dax": "BETA.INV(0.5, 2, 3)",
+			"example_sql": "DAX_BETA_INV(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "BITAND",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_BITAND({args})",
+			"example_dax": "BITAND(13, 7)",
+			"example_sql": "DAX_BITAND(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "BITLSHIFT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_BITLSHIFT({args})",
+			"example_dax": "BITLSHIFT(1, 3)",
+			"example_sql": "DAX_BITLSHIFT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "BITOR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_BITOR({args})",
+			"example_dax": "BITOR(13, 7)",
+			"example_sql": "DAX_BITOR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "BITRSHIFT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_BITRSHIFT({args})",
+			"example_dax": "BITRSHIFT(8, 2)",
+			"example_sql": "DAX_BITRSHIFT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "BITXOR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_BITXOR({args})",
+			"example_dax": "BITXOR(13, 7)",
+			"example_sql": "DAX_BITXOR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "BLANK",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "NULL",
+			"example_dax": "BLANK()",
+			"example_sql": "NULL",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CALCULATE",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "CALCULATE(SUM(Sales[Amount]))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "CALCULATETABLE",
+			"kind": "table",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "CALCULATETABLE(Sales, Sales[Region] = \"EU\")",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "CALENDAR",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_CALENDAR({args}) AS t)",
+			"example_dax": "CALENDAR(DATE(2024,1,1), DATE(2024,12,31))",
+			"example_sql": "(SELECT * FROM DAX_CALENDAR(1) AS t)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "CALENDARAUTO",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_CALENDARAUTO({args}) AS t)",
+			"example_dax": "CALENDARAUTO(1)",
+			"example_sql": "(SELECT * FROM DAX_CALENDARAUTO(1) AS t)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "CEILING",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "DAX_CEILING({args})",
+			"example_dax": "CEILING(4.3, 1)",
+			"example_sql": "CEIL(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CHISQ.DIST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CHISQ_DIST({args})",
+			"example_dax": "CHISQ.DIST(2, 5, 1)",
+			"example_sql": "DAX_CHISQ_DIST(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CHISQ.DIST.RT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CHISQ_DIST_RT({args})",
+			"example_dax": "CHISQ.DIST.RT(2, 5)",
+			"example_sql": "DAX_CHISQ_DIST_RT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CHISQ.INV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CHISQ_INV({args})",
+			"example_dax": "CHISQ.INV(0.05, 5)",
+			"example_sql": "DAX_CHISQ_INV(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CHISQ.INV.RT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CHISQ_INV_RT({args})",
+			"example_dax": "CHISQ.INV.RT(0.05, 5)",
+			"example_sql": "DAX_CHISQ_INV_RT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CLOSINGBALANCEMONTH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CLOSINGBALANCEMONTH({args})",
+			"example_dax": "CLOSINGBALANCEMONTH(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_CLOSINGBALANCEMONTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CLOSINGBALANCEQUARTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CLOSINGBALANCEQUARTER({args})",
+			"example_dax": "CLOSINGBALANCEQUARTER(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_CLOSINGBALANCEQUARTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CLOSINGBALANCEWEEK",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CLOSINGBALANCEWEEK({args})",
+			"example_dax": "CLOSINGBALANCEWEEK(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_CLOSINGBALANCEWEEK(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "CLOSINGBALANCEYEAR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CLOSINGBALANCEYEAR({args})",
+			"example_dax": "CLOSINGBALANCEYEAR(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_CLOSINGBALANCEYEAR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COALESCE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COALESCE({args})",
+			"example_dax": "COALESCE(BLANK(), 1)",
+			"example_sql": "DAX_COALESCE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COLLAPSE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COLLAPSE({args})",
+			"example_dax": "COLLAPSE(1)",
+			"example_sql": "DAX_COLLAPSE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "COLLAPSEALL",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COLLAPSEALL({args})",
+			"example_dax": "COLLAPSEALL(1)",
+			"example_sql": "DAX_COLLAPSEALL(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "COLUMNSTATISTICS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COLUMNSTATISTICS({args})",
+			"example_dax": "COLUMNSTATISTICS()",
+			"example_sql": "DAX_COLUMNSTATISTICS(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "COMBIN",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COMBIN({args})",
+			"example_dax": "COMBIN(10, 3)",
+			"example_sql": "DAX_COMBIN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COMBINA",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COMBINA({args})",
+			"example_dax": "COMBINA(10, 3)",
+			"example_sql": "DAX_COMBINA(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COMBINEVALUES",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COMBINEVALUES({args})",
+			"example_dax": "COMBINEVALUES(\",\", \"a\", \"b\")",
+			"example_sql": "DAX_COMBINEVALUES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONCAT",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "({{a}} || {{b}})",
+			"example_dax": "CONCATENATE(\"Hello\", \"World\")",
+			"example_sql": "('Hello' || 'World')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONCATENATE",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "({{text1}} || {{text2}})",
+			"example_dax": "CONCATENATE(\"a\", \"b\")",
+			"example_sql": "('a' || 'b')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONCATENATEX",
+			"kind": "iterator",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT STRING_AGG({{expr}}, {{delim}} ORDER BY {{order_by}}) FROM {{table}})",
+			"example_dax": "LEN(CONCATENATEX(Sales, Sales[Region], \",\"))",
+			"example_sql": "(SELECT LENGTH(STRING_AGG(Region, ',' ORDER BY Region)) FROM Sales)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONFIDENCE.NORM",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CONFIDENCE_NORM({args})",
+			"example_dax": "CONFIDENCE.NORM(0.05, 1, 100)",
+			"example_sql": "DAX_CONFIDENCE_NORM(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONFIDENCE.T",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CONFIDENCE_T({args})",
+			"example_dax": "CONFIDENCE.T(0.05, 1, 100)",
+			"example_sql": "DAX_CONFIDENCE_T(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONTAINS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CONTAINS({args})",
+			"example_dax": "CONTAINS(Sales, Sales[Region], \"EU\")",
+			"example_sql": "DAX_CONTAINS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONTAINSROW",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CONTAINSROW({args})",
+			"example_dax": "CONTAINSROW(VALUES(Sales[Region]), \"EU\")",
+			"example_sql": "DAX_CONTAINSROW(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONTAINSSTRING",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CONTAINSSTRING({args})",
+			"example_dax": "CONTAINSSTRING(\"hello world\", \"world\")",
+			"example_sql": "DAX_CONTAINSSTRING(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONTAINSSTRINGEXACT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CONTAINSSTRINGEXACT({args})",
+			"example_dax": "CONTAINSSTRINGEXACT(\"hello world\", \"world\")",
+			"example_sql": "DAX_CONTAINSSTRINGEXACT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CONVERT",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "DAX_CONVERT({args})",
+			"example_dax": "CONVERT(1, INTEGER)",
+			"example_sql": "CAST(1 AS VARCHAR)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COS",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "COS({args})",
+			"example_dax": "COS(1)",
+			"example_sql": "COS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COSH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "COSH({args})",
+			"example_dax": "COSH(1)",
+			"example_sql": "COSH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COT({args})",
+			"example_dax": "COT(1)",
+			"example_sql": "DAX_COT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COTH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COTH({args})",
+			"example_dax": "COTH(1)",
+			"example_sql": "DAX_COTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUNT",
+			"kind": "agg",
+			"strategy": "direct_sql_fn",
+			"sql_template": "COUNT({{x}})",
+			"example_dax": "COUNT(Sales[Amount])",
+			"example_sql": "COUNT(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUNTA",
+			"kind": "agg",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COUNTA({args})",
+			"example_dax": "COUNTA(Sales[Amount])",
+			"example_sql": "DAX_COUNTA(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUNTAX",
+			"kind": "iterator",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT COUNT({{expr}}) FROM {{table}})",
+			"example_dax": "COUNTAX(Sales, Sales[Amount])",
+			"example_sql": "(SELECT COUNT(Sales.Amount) FROM Sales)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUNTBLANK",
+			"kind": "agg",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COUNTBLANK({args})",
+			"example_dax": "COUNTBLANK(Sales[Amount])",
+			"example_sql": "DAX_COUNTBLANK(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUNTROWS",
+			"kind": "agg",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT COUNT(*) FROM {{table}})",
+			"example_dax": "COUNTROWS(Sales)",
+			"example_sql": "SELECT COUNT(*) FROM Sales",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUNTX",
+			"kind": "iterator",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT COUNT({{expr}}) FROM {{table}})",
+			"example_dax": "COUNTX(Sales, Sales[Amount])",
+			"example_sql": "(SELECT COUNT(Sales.Amount) FROM Sales)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUPDAYBS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COUPDAYBS({args})",
+			"example_dax": "COUPDAYBS(DATE(2024,1,1), DATE(2034,1,1), 2)",
+			"example_sql": "DAX_COUPDAYBS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUPDAYS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COUPDAYS({args})",
+			"example_dax": "COUPDAYS(DATE(2024,1,1), DATE(2034,1,1), 2)",
+			"example_sql": "DAX_COUPDAYS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUPDAYSNC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COUPDAYSNC({args})",
+			"example_dax": "COUPDAYSNC(DATE(2024,1,1), DATE(2034,1,1), 2)",
+			"example_sql": "DAX_COUPDAYSNC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUPNCD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COUPNCD({args})",
+			"example_dax": "COUPNCD(DATE(2024,1,1), DATE(2034,1,1), 2)",
+			"example_sql": "DAX_COUPNCD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUPNUM",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COUPNUM({args})",
+			"example_dax": "COUPNUM(DATE(2024,1,1), DATE(2034,1,1), 2)",
+			"example_sql": "DAX_COUPNUM(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "COUPPCD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_COUPPCD({args})",
+			"example_dax": "COUPPCD(DATE(2024,1,1), DATE(2034,1,1), 2)",
+			"example_sql": "DAX_COUPPCD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CROSSFILTER",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "CALCULATE(SUM(Sales[Amount]), CROSSFILTER(Sales[ProductKey], Product[ProductKey], BOTH))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "CROSSJOIN",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM ({{t1}}) AS t1 CROSS JOIN ({{t2}}) AS t2)",
+			"example_dax": "CROSSJOIN(VALUES(Sales[Region]), VALUES(Product[Category]))",
+			"example_sql": "SELECT * FROM (SELECT DISTINCT Sales.CustomerKey FROM Sales) AS t1 CROSS JOIN (SELECT DISTINCT Returns.CustomerKey FROM Returns) AS t2",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CUMIPMT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CUMIPMT({args})",
+			"example_dax": "CUMIPMT(0.05/12, 360, 100000, 1, 12, 0)",
+			"example_sql": "DAX_CUMIPMT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CUMPRINC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CUMPRINC({args})",
+			"example_dax": "CUMPRINC(0.05/12, 360, 100000, 1, 12, 0)",
+			"example_sql": "DAX_CUMPRINC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CURRENCY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CURRENCY({args})",
+			"example_dax": "CURRENCY(1)",
+			"example_sql": "DAX_CURRENCY(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "CURRENTGROUP",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CURRENTGROUP({args})",
+			"example_dax": "CURRENTGROUP(1)",
+			"example_sql": "DAX_CURRENTGROUP(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "CUSTOMDATA",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_CUSTOMDATA({args})",
+			"example_dax": "CUSTOMDATA()",
+			"example_sql": "DAX_CUSTOMDATA(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATATABLE",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_DATATABLE({args}) AS t)",
+			"example_dax": "DATATABLE(\"Name\", STRING, \"Value\", INTEGER, {{\"A\", 1}, {\"B\", 2}})",
+			"example_sql": "(SELECT * FROM DAX_DATATABLE(1) AS t)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "DATE",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "MAKE_DATE({{year}}, {{month}}, {{day}})",
+			"example_dax": "DATE(2025, 1, 2)",
+			"example_sql": "MAKE_DATE(2025, 1, 2)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATEADD",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DATEADD({args})",
+			"example_dax": "DATEADD(dim_date[Date], -1, YEAR)",
+			"example_sql": "DAX_DATEADD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATEDIFF",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "DAX_DATEDIFF({args})",
+			"example_dax": "DATEDIFF(DATE(2024,1,1), DATE(2025,1,1), DAY)",
+			"example_sql": "DATE_DIFF('day', DATE '2025-01-01', DATE '2025-01-02')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATESBETWEEN",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DATESBETWEEN({args})",
+			"example_dax": "DATESBETWEEN(dim_date[Date], DATE(2024,1,1), DATE(2024,6,30))",
+			"example_sql": "DAX_DATESBETWEEN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATESINPERIOD",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DATESINPERIOD({args})",
+			"example_dax": "DATESINPERIOD(dim_date[Date], DATE(2024,6,30), -3, MONTH)",
+			"example_sql": "DAX_DATESINPERIOD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATESMTD",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DATESMTD({args})",
+			"example_dax": "DATESMTD(dim_date[Date])",
+			"example_sql": "DAX_DATESMTD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATESQTD",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DATESQTD({args})",
+			"example_dax": "DATESQTD(dim_date[Date])",
+			"example_sql": "DAX_DATESQTD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATESWTD",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DATESWTD({args})",
+			"example_dax": "DATESWTD(dim_date[Date])",
+			"example_sql": "DAX_DATESWTD(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "DATESYTD",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DATESYTD({args})",
+			"example_dax": "DATESYTD(dim_date[Date])",
+			"example_sql": "DAX_DATESYTD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DATEVALUE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DATEVALUE({args})",
+			"example_dax": "DATEVALUE(\"2024-01-15\")",
+			"example_sql": "DAX_DATEVALUE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DAY",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "EXTRACT(DAY FROM {{date}})",
+			"example_dax": "DAY(DATE(2025, 1, 2))",
+			"example_sql": "EXTRACT(DAY FROM MAKE_DATE(2025, 1, 2))",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DB",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DB({args})",
+			"example_dax": "DB(1000, 100, 10, 1)",
+			"example_sql": "DAX_DB(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DDB",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DDB({args})",
+			"example_dax": "DDB(1000, 100, 10, 1)",
+			"example_sql": "DAX_DDB(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DEGREES",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DEGREES({args})",
+			"example_dax": "DEGREES(1)",
+			"example_sql": "DAX_DEGREES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DETAILROWS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DETAILROWS({args})",
+			"example_dax": "DETAILROWS(1)",
+			"example_sql": "DAX_DETAILROWS(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "DISC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DISC({args})",
+			"example_dax": "DISC(DATE(2024,1,1), DATE(2024,12,31), 99, 100)",
+			"example_sql": "DAX_DISC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DISTINCT",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT DISTINCT {{col}} FROM {{table}})",
+			"example_dax": "DISTINCT(Sales[Region])",
+			"example_sql": "SELECT DISTINCT Sales.CustomerKey FROM Sales",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DISTINCTCOUNT",
+			"kind": "agg",
+			"strategy": "direct_sql_fn",
+			"sql_template": "COUNT(DISTINCT {{x}})",
+			"example_dax": "DISTINCTCOUNT(Sales[Region])",
+			"example_sql": "COUNT(DISTINCT Sales.CustomerKey)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DISTINCTCOUNTNOBLANK",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DISTINCTCOUNTNOBLANK({args})",
+			"example_dax": "DISTINCTCOUNTNOBLANK(Sales[Region])",
+			"example_sql": "DAX_DISTINCTCOUNTNOBLANK(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DIVIDE",
+			"kind": "scalar",
+			"strategy": "case_rewrite",
+			"sql_template": "CASE WHEN {{denominator}} IS NULL OR {{denominator}} = 0 THEN {{alternate_result}} ELSE ({{numerator}} / {{denominator}}) END",
+			"example_dax": "DIVIDE(10, 2)",
+			"example_sql": "CASE WHEN 2 IS NULL OR 2 = 0 THEN NULL ELSE (10 / 2) END",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DOLLARDE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DOLLARDE({args})",
+			"example_dax": "DOLLARDE(1.02, 16)",
+			"example_sql": "DAX_DOLLARDE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DOLLARFR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DOLLARFR({args})",
+			"example_dax": "DOLLARFR(1.125, 16)",
+			"example_sql": "DAX_DOLLARFR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DT\"...\"",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DT({args})",
+			"example_dax": "DT\"...\"(1)",
+			"example_sql": "DAX_DT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "DURATION",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_DURATION({args})",
+			"example_dax": "DURATION(DATE(2024,1,1), DATE(2034,1,1), 0.05, 0.06, 2)",
+			"example_sql": "DAX_DURATION(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EARLIER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EARLIER({args})",
+			"example_dax": "EARLIER(1)",
+			"example_sql": "DAX_EARLIER(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "EARLIEST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EARLIEST({args})",
+			"example_dax": "EARLIEST(1)",
+			"example_sql": "DAX_EARLIEST(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "EDATE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EDATE({args})",
+			"example_dax": "EDATE(DATE(2024,1,1), 3)",
+			"example_sql": "DAX_EDATE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EFFECT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EFFECT({args})",
+			"example_dax": "EFFECT(0.05, 12)",
+			"example_sql": "DAX_EFFECT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ENDOFMONTH",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ENDOFMONTH({args})",
+			"example_dax": "ENDOFMONTH(dim_date[Date])",
+			"example_sql": "DAX_ENDOFMONTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ENDOFQUARTER",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ENDOFQUARTER({args})",
+			"example_dax": "ENDOFQUARTER(dim_date[Date])",
+			"example_sql": "DAX_ENDOFQUARTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ENDOFWEEK",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ENDOFWEEK({args})",
+			"example_dax": "ENDOFWEEK(dim_date[Date])",
+			"example_sql": "DAX_ENDOFWEEK(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ENDOFYEAR",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ENDOFYEAR({args})",
+			"example_dax": "ENDOFYEAR(dim_date[Date])",
+			"example_sql": "DAX_ENDOFYEAR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EOMONTH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "LAST_DAY({{start_date}} + ({{months}} || ' months')::INTERVAL)",
+			"example_dax": "EOMONTH(DATE(2025, 1, 15), 1)",
+			"example_sql": "LAST_DAY(MAKE_DATE(2025, 1, 15) + INTERVAL '1 month')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ERROR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ERROR({args})",
+			"example_dax": "ERROR(1)",
+			"example_sql": "DAX_ERROR(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "EVALUATEANDLOG",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EVALUATEANDLOG({args})",
+			"example_dax": "EVALUATEANDLOG(1)",
+			"example_sql": "DAX_EVALUATEANDLOG(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EVEN",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EVEN({args})",
+			"example_dax": "EVEN(1)",
+			"example_sql": "DAX_EVEN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EXACT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EXACT({args})",
+			"example_dax": "EXACT(\"abc\", \"abc\")",
+			"example_sql": "DAX_EXACT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EXCEPT",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "({{t1}}) EXCEPT ({{t2}})",
+			"example_dax": "EXCEPT(ALL(Sales[Region]), FILTER(ALL(Sales[Region]), Sales[Region] = \"EU\"))",
+			"example_sql": "(SELECT DISTINCT Sales.CustomerKey FROM Sales) EXCEPT (SELECT DISTINCT Returns.CustomerKey FROM Returns)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EXP",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "EXP({args})",
+			"example_dax": "EXP(1)",
+			"example_sql": "EXP(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EXPAND",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EXPAND({args})",
+			"example_dax": "EXPAND(1)",
+			"example_sql": "DAX_EXPAND(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "EXPANDALL",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EXPANDALL({args})",
+			"example_dax": "EXPANDALL(1)",
+			"example_sql": "DAX_EXPANDALL(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "EXPON.DIST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EXPON_DIST({args})",
+			"example_dax": "EXPON.DIST(1, 0.5, 1)",
+			"example_sql": "DAX_EXPON_DIST(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "EXTERNALMEASURE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_EXTERNALMEASURE({args})",
+			"example_dax": "EXTERNALMEASURE(1)",
+			"example_sql": "DAX_EXTERNALMEASURE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "FACT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FACT({args})",
+			"example_dax": "FACT(1)",
+			"example_sql": "DAX_FACT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FALSE",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "FALSE",
+			"example_dax": "FALSE()",
+			"example_sql": "FALSE",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FILTER",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM {{table}} WHERE {{predicate}})",
+			"example_dax": "FILTER(Sales, Sales[Amount] > 0)",
+			"example_sql": "SELECT * FROM Sales WHERE Sales.Amount > 0",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FILTERCLUSTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FILTERCLUSTER({args})",
+			"example_dax": "FILTERCLUSTER(SUM(Sales[Amount]), Sales[Region])",
+			"example_sql": "DAX_FILTERCLUSTER(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "FILTERS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FILTERS({args})",
+			"example_dax": "FILTERS(Sales[Region])",
+			"example_sql": "DAX_FILTERS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FIND",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "STRPOS({{within_text}}, {{find_text}})",
+			"example_dax": "FIND(\"ell\", \"hello\")",
+			"example_sql": "STRPOS('hello', 'ell')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FIRST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FIRST({args})",
+			"example_dax": "FIRST(1)",
+			"example_sql": "DAX_FIRST(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "FIRSTDATE",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FIRSTDATE({args})",
+			"example_dax": "FIRSTDATE(dim_date[Date])",
+			"example_sql": "DAX_FIRSTDATE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FIRSTNONBLANK",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FIRSTNONBLANK({args})",
+			"example_dax": "FIRSTNONBLANK(Sales[Region], 1)",
+			"example_sql": "DAX_FIRSTNONBLANK(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FIRSTNONBLANKVALUE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FIRSTNONBLANKVALUE({args})",
+			"example_dax": "FIRSTNONBLANKVALUE(Sales[Region], COUNTROWS(Sales))",
+			"example_sql": "DAX_FIRSTNONBLANKVALUE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FIXED",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "FIXED({args})",
+			"example_dax": "FIXED(1234.567, 2, 0)",
+			"example_sql": "FIXED(1234.567, 2, 0)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FLOOR",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "DAX_FLOOR({args})",
+			"example_dax": "FLOOR(4.7, 1)",
+			"example_sql": "FLOOR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FORMAT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FORMAT({args})",
+			"example_dax": "FORMAT(1234.56, \"#,##0.00\")",
+			"example_sql": "DAX_FORMAT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "FV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_FV({args})",
+			"example_dax": "FV(0.05/12, 120, -100)",
+			"example_sql": "DAX_FV(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "GCD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_GCD({args})",
+			"example_dax": "GCD(24, 36)",
+			"example_sql": "DAX_GCD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "GENERATE",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_GENERATE({args}) AS t)",
+			"example_dax": "GENERATE(VALUES(Sales[Region]), ROW(\"Amt\", SUM(Sales[Amount])))",
+			"example_sql": "(SELECT * FROM DAX_GENERATE(1) AS t)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "GENERATEALL",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_GENERATEALL({args}) AS t)",
+			"example_dax": "GENERATEALL(VALUES(Sales[Region]), ROW(\"Amt\", SUM(Sales[Amount])))",
+			"example_sql": "(SELECT * FROM DAX_GENERATEALL(1) AS t)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "GENERATESERIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_GENERATESERIES({args})",
+			"example_dax": "GENERATESERIES(1, 10)",
+			"example_sql": "DAX_GENERATESERIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "GEOMEAN",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_GEOMEAN({args})",
+			"example_dax": "GEOMEAN(Sales[Amount])",
+			"example_sql": "DAX_GEOMEAN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "GEOMEANX",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_GEOMEANX({args})",
+			"example_dax": "GEOMEANX(Sales, Sales[Amount])",
+			"example_sql": "DAX_GEOMEANX(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "GROUPBY",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_GROUPBY({args}) AS t)",
+			"example_dax": "GROUPBY(Sales, Sales[Region])",
+			"example_sql": "(SELECT * FROM DAX_GROUPBY(1) AS t)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "GROUPCROSSAPPLY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_GROUPCROSSAPPLY({args})",
+			"example_dax": "GROUPCROSSAPPLY(1)",
+			"example_sql": "DAX_GROUPCROSSAPPLY(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "GROUPCROSSAPPLYTABLE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_GROUPCROSSAPPLYTABLE({args})",
+			"example_dax": "GROUPCROSSAPPLYTABLE(1)",
+			"example_sql": "DAX_GROUPCROSSAPPLYTABLE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "HASH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_HASH({args})",
+			"example_dax": "IF(HASH(1) = HASH(1), 1, 0)",
+			"example_sql": "CASE WHEN HASH(1) = HASH(1) THEN 1 ELSE 0 END",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "HASONEFILTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_HASONEFILTER({args})",
+			"example_dax": "HASONEFILTER(Sales[Region])",
+			"example_sql": "DAX_HASONEFILTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "HASONEVALUE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_HASONEVALUE({args})",
+			"example_dax": "HASONEVALUE(Sales[Region])",
+			"example_sql": "DAX_HASONEVALUE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "HOUR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_HOUR({args})",
+			"example_dax": "HOUR(TIME(14, 30, 45))",
+			"example_sql": "EXTRACT(HOUR FROM TIME '14:30:45')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "IF",
+			"kind": "scalar",
+			"strategy": "case_rewrite",
+			"sql_template": "CASE WHEN {{condition}} THEN {{value_if_true}} ELSE {{value_if_false}} END",
+			"example_dax": "IF(1=1, 10, 20)",
+			"example_sql": "CASE WHEN 1 = 1 THEN 10 ELSE 20 END",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "IF.EAGER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_IF_EAGER({args})",
+			"example_dax": "IF.EAGER(1, 1, 0)",
+			"example_sql": "DAX_IF_EAGER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "IFERROR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_IFERROR({args})",
+			"example_dax": "IFERROR(1/0, 0)",
+			"example_sql": "DAX_IFERROR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "IGNORE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_IGNORE({args})",
+			"example_dax": "IGNORE(1)",
+			"example_sql": "DAX_IGNORE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "INDEX",
+			"kind": "table",
+			"strategy": "window_rewrite",
+			"sql_template": "ROW_NUMBER() OVER (PARTITION BY {{partition_by}} ORDER BY {{order_by}})",
+			"example_dax": "INDEX(1, ALLSELECTED(Sales[Region]), ORDERBY(Sales[Region]))",
+			"example_sql": "SELECT ROW_NUMBER() OVER (ORDER BY Amount) AS idx FROM Sales",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.ALTERNATEOFDEFINITIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_ALTERNATEOFDEFINITIONS({args})",
+			"example_dax": "INFO.ALTERNATEOFDEFINITIONS()",
+			"example_sql": "DAX_INFO_ALTERNATEOFDEFINITIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.ANNOTATIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_ANNOTATIONS({args})",
+			"example_dax": "INFO.ANNOTATIONS()",
+			"example_sql": "DAX_INFO_ANNOTATIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.ATTRIBUTEHIERARCHIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_ATTRIBUTEHIERARCHIES({args})",
+			"example_dax": "INFO.ATTRIBUTEHIERARCHIES()",
+			"example_sql": "DAX_INFO_ATTRIBUTEHIERARCHIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.ATTRIBUTEHIERARCHYSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_ATTRIBUTEHIERARCHYSTORAGES({args})",
+			"example_dax": "INFO.ATTRIBUTEHIERARCHYSTORAGES()",
+			"example_sql": "DAX_INFO_ATTRIBUTEHIERARCHYSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.CALCDEPENDENCY",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_CALCDEPENDENCY({args})",
+			"example_dax": "INFO.CALCDEPENDENCY()",
+			"example_sql": "DAX_INFO_CALCDEPENDENCY(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.CALCULATIONGROUPS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_CALCULATIONGROUPS({args})",
+			"example_dax": "INFO.CALCULATIONGROUPS()",
+			"example_sql": "DAX_INFO_CALCULATIONGROUPS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.CALCULATIONITEMS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_CALCULATIONITEMS({args})",
+			"example_dax": "INFO.CALCULATIONITEMS()",
+			"example_sql": "DAX_INFO_CALCULATIONITEMS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.CATALOGS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_CATALOGS({args})",
+			"example_dax": "INFO.CATALOGS()",
+			"example_sql": "DAX_INFO_CATALOGS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.CHANGEDPROPERTIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_CHANGEDPROPERTIES({args})",
+			"example_dax": "INFO.CHANGEDPROPERTIES()",
+			"example_sql": "DAX_INFO_CHANGEDPROPERTIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.COLUMNPARTITIONSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_COLUMNPARTITIONSTORAGES({args})",
+			"example_dax": "INFO.COLUMNPARTITIONSTORAGES()",
+			"example_sql": "DAX_INFO_COLUMNPARTITIONSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.COLUMNPERMISSIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_COLUMNPERMISSIONS({args})",
+			"example_dax": "INFO.COLUMNPERMISSIONS()",
+			"example_sql": "DAX_INFO_COLUMNPERMISSIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.COLUMNS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_COLUMNS({args})",
+			"example_dax": "INFO.COLUMNS()",
+			"example_sql": "DAX_INFO_COLUMNS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.COLUMNSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_COLUMNSTORAGES({args})",
+			"example_dax": "INFO.COLUMNSTORAGES()",
+			"example_sql": "DAX_INFO_COLUMNSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.CSDLMETADATA",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_CSDLMETADATA({args})",
+			"example_dax": "INFO.CSDLMETADATA()",
+			"example_sql": "DAX_INFO_CSDLMETADATA(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.CULTURES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_CULTURES({args})",
+			"example_dax": "INFO.CULTURES()",
+			"example_sql": "DAX_INFO_CULTURES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.DATACOVERAGEDEFINITIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_DATACOVERAGEDEFINITIONS({args})",
+			"example_dax": "INFO.DATACOVERAGEDEFINITIONS()",
+			"example_sql": "DAX_INFO_DATACOVERAGEDEFINITIONS(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "INFO.DATASOURCES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_DATASOURCES({args})",
+			"example_dax": "INFO.DATASOURCES()",
+			"example_sql": "DAX_INFO_DATASOURCES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.DELTATABLEMETADATASTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_DELTATABLEMETADATASTORAGES({args})",
+			"example_dax": "INFO.DELTATABLEMETADATASTORAGES()",
+			"example_sql": "DAX_INFO_DELTATABLEMETADATASTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.DEPENDENCIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_DEPENDENCIES({args})",
+			"example_dax": "INFO.DEPENDENCIES()",
+			"example_sql": "DAX_INFO_DEPENDENCIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.DETAILROWSDEFINITIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_DETAILROWSDEFINITIONS({args})",
+			"example_dax": "INFO.DETAILROWSDEFINITIONS()",
+			"example_sql": "DAX_INFO_DETAILROWSDEFINITIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.DICTIONARYSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_DICTIONARYSTORAGES({args})",
+			"example_dax": "INFO.DICTIONARYSTORAGES()",
+			"example_sql": "DAX_INFO_DICTIONARYSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.EXCLUDEDARTIFACTS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_EXCLUDEDARTIFACTS({args})",
+			"example_dax": "INFO.EXCLUDEDARTIFACTS()",
+			"example_sql": "DAX_INFO_EXCLUDEDARTIFACTS(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "INFO.EXPRESSIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_EXPRESSIONS({args})",
+			"example_dax": "INFO.EXPRESSIONS()",
+			"example_sql": "DAX_INFO_EXPRESSIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.EXTENDEDPROPERTIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_EXTENDEDPROPERTIES({args})",
+			"example_dax": "INFO.EXTENDEDPROPERTIES()",
+			"example_sql": "DAX_INFO_EXTENDEDPROPERTIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.FORMATSTRINGDEFINITIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_FORMATSTRINGDEFINITIONS({args})",
+			"example_dax": "INFO.FORMATSTRINGDEFINITIONS()",
+			"example_sql": "DAX_INFO_FORMATSTRINGDEFINITIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.FUNCTIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_FUNCTIONS({args})",
+			"example_dax": "INFO.FUNCTIONS()",
+			"example_sql": "DAX_INFO_FUNCTIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.GENERALSEGMENTMAPSEGMENTMETADATASTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_GENERALSEGMENTMAPSEGMENTMETADATASTORAGES({args})",
+			"example_dax": "INFO.GENERALSEGMENTMAPSEGMENTMETADATASTORAGES()",
+			"example_sql": "DAX_INFO_GENERALSEGMENTMAPSEGMENTMETADATASTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.GROUPBYCOLUMNS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_GROUPBYCOLUMNS({args})",
+			"example_dax": "INFO.GROUPBYCOLUMNS()",
+			"example_sql": "DAX_INFO_GROUPBYCOLUMNS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.HIERARCHIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_HIERARCHIES({args})",
+			"example_dax": "INFO.HIERARCHIES()",
+			"example_sql": "DAX_INFO_HIERARCHIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.HIERARCHYSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_HIERARCHYSTORAGES({args})",
+			"example_dax": "INFO.HIERARCHYSTORAGES()",
+			"example_sql": "DAX_INFO_HIERARCHYSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.KPIS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_KPIS({args})",
+			"example_dax": "INFO.KPIS()",
+			"example_sql": "DAX_INFO_KPIS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.LEVELS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_LEVELS({args})",
+			"example_dax": "INFO.LEVELS()",
+			"example_sql": "DAX_INFO_LEVELS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.LINGUISTICMETADATA",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_LINGUISTICMETADATA({args})",
+			"example_dax": "INFO.LINGUISTICMETADATA()",
+			"example_sql": "DAX_INFO_LINGUISTICMETADATA(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.MEASURES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_MEASURES({args})",
+			"example_dax": "INFO.MEASURES()",
+			"example_sql": "DAX_INFO_MEASURES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.MODEL",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_MODEL({args})",
+			"example_dax": "INFO.MODEL()",
+			"example_sql": "DAX_INFO_MODEL(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.OBJECTTRANSLATIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_OBJECTTRANSLATIONS({args})",
+			"example_dax": "INFO.OBJECTTRANSLATIONS()",
+			"example_sql": "DAX_INFO_OBJECTTRANSLATIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PARQUETFILESTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PARQUETFILESTORAGES({args})",
+			"example_dax": "INFO.PARQUETFILESTORAGES()",
+			"example_sql": "DAX_INFO_PARQUETFILESTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PARTITIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PARTITIONS({args})",
+			"example_dax": "INFO.PARTITIONS()",
+			"example_sql": "DAX_INFO_PARTITIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PARTITIONSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PARTITIONSTORAGES({args})",
+			"example_dax": "INFO.PARTITIONSTORAGES()",
+			"example_sql": "DAX_INFO_PARTITIONSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PERSPECTIVECOLUMNS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PERSPECTIVECOLUMNS({args})",
+			"example_dax": "INFO.PERSPECTIVECOLUMNS()",
+			"example_sql": "DAX_INFO_PERSPECTIVECOLUMNS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PERSPECTIVEHIERARCHIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PERSPECTIVEHIERARCHIES({args})",
+			"example_dax": "INFO.PERSPECTIVEHIERARCHIES()",
+			"example_sql": "DAX_INFO_PERSPECTIVEHIERARCHIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PERSPECTIVEMEASURES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PERSPECTIVEMEASURES({args})",
+			"example_dax": "INFO.PERSPECTIVEMEASURES()",
+			"example_sql": "DAX_INFO_PERSPECTIVEMEASURES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PERSPECTIVES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PERSPECTIVES({args})",
+			"example_dax": "INFO.PERSPECTIVES()",
+			"example_sql": "DAX_INFO_PERSPECTIVES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PERSPECTIVETABLES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PERSPECTIVETABLES({args})",
+			"example_dax": "INFO.PERSPECTIVETABLES()",
+			"example_sql": "DAX_INFO_PERSPECTIVETABLES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.PROPERTIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_PROPERTIES({args})",
+			"example_dax": "INFO.PROPERTIES()",
+			"example_sql": "DAX_INFO_PROPERTIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.QUERYGROUPS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_QUERYGROUPS({args})",
+			"example_dax": "INFO.QUERYGROUPS()",
+			"example_sql": "DAX_INFO_QUERYGROUPS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.REFRESHPOLICIES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_REFRESHPOLICIES({args})",
+			"example_dax": "INFO.REFRESHPOLICIES()",
+			"example_sql": "DAX_INFO_REFRESHPOLICIES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.RELATEDCOLUMNDETAILS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_RELATEDCOLUMNDETAILS({args})",
+			"example_dax": "INFO.RELATEDCOLUMNDETAILS()",
+			"example_sql": "DAX_INFO_RELATEDCOLUMNDETAILS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.RELATIONSHIPINDEXSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_RELATIONSHIPINDEXSTORAGES({args})",
+			"example_dax": "INFO.RELATIONSHIPINDEXSTORAGES()",
+			"example_sql": "DAX_INFO_RELATIONSHIPINDEXSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.RELATIONSHIPS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_RELATIONSHIPS({args})",
+			"example_dax": "INFO.RELATIONSHIPS()",
+			"example_sql": "DAX_INFO_RELATIONSHIPS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.RELATIONSHIPSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_RELATIONSHIPSTORAGES({args})",
+			"example_dax": "INFO.RELATIONSHIPSTORAGES()",
+			"example_sql": "DAX_INFO_RELATIONSHIPSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.ROLEMEMBERSHIPS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_ROLEMEMBERSHIPS({args})",
+			"example_dax": "INFO.ROLEMEMBERSHIPS()",
+			"example_sql": "DAX_INFO_ROLEMEMBERSHIPS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.ROLES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_ROLES({args})",
+			"example_dax": "INFO.ROLES()",
+			"example_sql": "DAX_INFO_ROLES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.SEGMENTMAPSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_SEGMENTMAPSTORAGES({args})",
+			"example_dax": "INFO.SEGMENTMAPSTORAGES()",
+			"example_sql": "DAX_INFO_SEGMENTMAPSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.SEGMENTSTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_SEGMENTSTORAGES({args})",
+			"example_dax": "INFO.SEGMENTSTORAGES()",
+			"example_sql": "DAX_INFO_SEGMENTSTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.STORAGEFILES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_STORAGEFILES({args})",
+			"example_dax": "INFO.STORAGEFILES()",
+			"example_sql": "DAX_INFO_STORAGEFILES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.STORAGEFOLDERS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_STORAGEFOLDERS({args})",
+			"example_dax": "INFO.STORAGEFOLDERS()",
+			"example_sql": "DAX_INFO_STORAGEFOLDERS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.STORAGETABLECOLUMNS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_STORAGETABLECOLUMNS({args})",
+			"example_dax": "INFO.STORAGETABLECOLUMNS()",
+			"example_sql": "DAX_INFO_STORAGETABLECOLUMNS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.STORAGETABLECOLUMNSEGMENTS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_STORAGETABLECOLUMNSEGMENTS({args})",
+			"example_dax": "INFO.STORAGETABLECOLUMNSEGMENTS()",
+			"example_sql": "DAX_INFO_STORAGETABLECOLUMNSEGMENTS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.STORAGETABLES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_STORAGETABLES({args})",
+			"example_dax": "INFO.STORAGETABLES()",
+			"example_sql": "DAX_INFO_STORAGETABLES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.TABLEPERMISSIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_TABLEPERMISSIONS({args})",
+			"example_dax": "INFO.TABLEPERMISSIONS()",
+			"example_sql": "DAX_INFO_TABLEPERMISSIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.TABLES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_TABLES({args})",
+			"example_dax": "INFO.TABLES()",
+			"example_sql": "DAX_INFO_TABLES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.TABLESTORAGES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_TABLESTORAGES({args})",
+			"example_dax": "INFO.TABLESTORAGES()",
+			"example_sql": "DAX_INFO_TABLESTORAGES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.VARIATIONS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_VARIATIONS({args})",
+			"example_dax": "INFO.VARIATIONS()",
+			"example_sql": "DAX_INFO_VARIATIONS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.VIEW.COLUMNS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_VIEW_COLUMNS({args})",
+			"example_dax": "INFO.VIEW.COLUMNS()",
+			"example_sql": "DAX_INFO_VIEW_COLUMNS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.VIEW.MEASURES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_VIEW_MEASURES({args})",
+			"example_dax": "INFO.VIEW.MEASURES()",
+			"example_sql": "DAX_INFO_VIEW_MEASURES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.VIEW.RELATIONSHIPS",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_VIEW_RELATIONSHIPS({args})",
+			"example_dax": "INFO.VIEW.RELATIONSHIPS()",
+			"example_sql": "DAX_INFO_VIEW_RELATIONSHIPS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INFO.VIEW.TABLES",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INFO_VIEW_TABLES({args})",
+			"example_dax": "INFO.VIEW.TABLES()",
+			"example_sql": "DAX_INFO_VIEW_TABLES(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INT({args})",
+			"example_dax": "INT(1)",
+			"example_sql": "DAX_INT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INTERSECT",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "({{t1}}) INTERSECT ({{t2}})",
+			"example_dax": "INTERSECT(ALL(Sales[Region]), FILTER(ALL(Sales[Region]), Sales[Region] = \"EU\"))",
+			"example_sql": "(SELECT DISTINCT Sales.CustomerKey FROM Sales) INTERSECT (SELECT DISTINCT Returns.CustomerKey FROM Returns)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "INTRATE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_INTRATE({args})",
+			"example_dax": "INTRATE(DATE(2024,1,1), DATE(2024,12,31), 99, 100)",
+			"example_sql": "DAX_INTRATE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "IPMT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_IPMT({args})",
+			"example_dax": "IPMT(0.05/12, 1, 120, -100000)",
+			"example_sql": "DAX_IPMT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISAFTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISAFTER({args})",
+			"example_dax": "ISAFTER(\"B\", \"A\", ASC)",
+			"example_sql": "DAX_ISAFTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISATLEVEL",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISATLEVEL({args})",
+			"example_dax": "ISATLEVEL(1)",
+			"example_sql": "DAX_ISATLEVEL(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ISBLANK",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISBLANK({args})",
+			"example_dax": "ISBLANK(1)",
+			"example_sql": "DAX_ISBLANK(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISBOOLEAN",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISBOOLEAN({args})",
+			"example_dax": "ISBOOLEAN(1)",
+			"example_sql": "DAX_ISBOOLEAN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISCROSSFILTERED",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISCROSSFILTERED({args})",
+			"example_dax": "ISCROSSFILTERED(Sales[Region])",
+			"example_sql": "DAX_ISCROSSFILTERED(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISCURRENCY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISCURRENCY({args})",
+			"example_dax": "ISCURRENCY(1)",
+			"example_sql": "DAX_ISCURRENCY(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISDATETIME",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISDATETIME({args})",
+			"example_dax": "ISDATETIME(1)",
+			"example_sql": "DAX_ISDATETIME(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISDECIMAL",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISDECIMAL({args})",
+			"example_dax": "ISDECIMAL(1)",
+			"example_sql": "DAX_ISDECIMAL(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISDOUBLE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISDOUBLE({args})",
+			"example_dax": "ISDOUBLE(1)",
+			"example_sql": "DAX_ISDOUBLE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISEMPTY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISEMPTY({args})",
+			"example_dax": "ISEMPTY(Sales)",
+			"example_sql": "DAX_ISEMPTY(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISERROR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISERROR({args})",
+			"example_dax": "ISERROR(1)",
+			"example_sql": "DAX_ISERROR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISEVEN",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISEVEN({args})",
+			"example_dax": "ISEVEN(1)",
+			"example_sql": "DAX_ISEVEN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISFILTERED",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISFILTERED({args})",
+			"example_dax": "ISFILTERED(Sales[Region])",
+			"example_sql": "DAX_ISFILTERED(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISINSCOPE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISINSCOPE({args})",
+			"example_dax": "ISINSCOPE(Sales[Region])",
+			"example_sql": "DAX_ISINSCOPE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISINT64",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISINT64({args})",
+			"example_dax": "ISINT64(1)",
+			"example_sql": "DAX_ISINT64(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISINTEGER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISINTEGER({args})",
+			"example_dax": "ISINTEGER(1)",
+			"example_sql": "DAX_ISINTEGER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISLOGICAL",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISLOGICAL({args})",
+			"example_dax": "ISLOGICAL(1)",
+			"example_sql": "DAX_ISLOGICAL(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISNONTEXT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISNONTEXT({args})",
+			"example_dax": "ISNONTEXT(1)",
+			"example_sql": "DAX_ISNONTEXT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISNUMBER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISNUMBER({args})",
+			"example_dax": "ISNUMBER(1)",
+			"example_sql": "DAX_ISNUMBER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISNUMERIC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISNUMERIC({args})",
+			"example_dax": "ISNUMERIC(1)",
+			"example_sql": "DAX_ISNUMERIC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISO.CEILING",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISO_CEILING({args})",
+			"example_dax": "ISO.CEILING(4.3, 1)",
+			"example_sql": "DAX_ISO_CEILING(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISODD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISODD({args})",
+			"example_dax": "ISODD(1)",
+			"example_sql": "DAX_ISODD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISONORAFTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISONORAFTER({args})",
+			"example_dax": "ISONORAFTER(\"B\", \"A\", ASC)",
+			"example_sql": "DAX_ISONORAFTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISPMT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISPMT({args})",
+			"example_dax": "ISPMT(0.05/12, 1, 120, 100000)",
+			"example_sql": "DAX_ISPMT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISSELECTEDMEASURE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISSELECTEDMEASURE({args})",
+			"example_dax": "ISSELECTEDMEASURE(1)",
+			"example_sql": "DAX_ISSELECTEDMEASURE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ISSTRING",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISSTRING({args})",
+			"example_dax": "ISSTRING(1)",
+			"example_sql": "DAX_ISSTRING(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ISSUBTOTAL",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISSUBTOTAL({args})",
+			"example_dax": "ISSUBTOTAL(Sales[Region])",
+			"example_sql": "DAX_ISSUBTOTAL(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ISTEXT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ISTEXT({args})",
+			"example_dax": "ISTEXT(1)",
+			"example_sql": "DAX_ISTEXT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "KEEPFILTERS",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "KEEPFILTERS(SUM(Sales[Amount]))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "KEYWORDMATCH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_KEYWORDMATCH({args})",
+			"example_dax": "KEYWORDMATCH(\"hello world\", \"hello\")",
+			"example_sql": "DAX_KEYWORDMATCH(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "LAST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LAST({args})",
+			"example_dax": "LAST(1)",
+			"example_sql": "DAX_LAST(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "LASTDATE",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LASTDATE({args})",
+			"example_dax": "LASTDATE(dim_date[Date])",
+			"example_sql": "DAX_LASTDATE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LASTNONBLANK",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LASTNONBLANK({args})",
+			"example_dax": "LASTNONBLANK(Sales[Region], 1)",
+			"example_sql": "DAX_LASTNONBLANK(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LASTNONBLANKVALUE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LASTNONBLANKVALUE({args})",
+			"example_dax": "LASTNONBLANKVALUE(Sales[Region], COUNTROWS(Sales))",
+			"example_sql": "DAX_LASTNONBLANKVALUE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LCM",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LCM({args})",
+			"example_dax": "LCM(12, 18)",
+			"example_sql": "DAX_LCM(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LEFT",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "SUBSTR({{text}}, 1, {{num_chars}})",
+			"example_dax": "LEFT(\"abcdef\", 2)",
+			"example_sql": "SUBSTR('abcdef', 1, 2)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LEN",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "LENGTH({{text}})",
+			"example_dax": "LEN(\"abc\")",
+			"example_sql": "LENGTH('abc')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LINEST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LINEST({args})",
+			"example_dax": "LINEST(Sales[Amount], Sales[Quantity])",
+			"example_sql": "DAX_LINEST(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "LINESTX",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LINESTX({args})",
+			"example_dax": "LINESTX(Sales, Sales[Amount], Sales[Quantity])",
+			"example_sql": "DAX_LINESTX(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "LN",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "LN({args})",
+			"example_dax": "LN(1)",
+			"example_sql": "LN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LOG",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "LOG({args})",
+			"example_dax": "LOG(1)",
+			"example_sql": "LOG(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LOG10",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "LOG10({args})",
+			"example_dax": "LOG10(1)",
+			"example_sql": "LOG10(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LOOKUP",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LOOKUP({args})",
+			"example_dax": "LOOKUP(1)",
+			"example_sql": "DAX_LOOKUP(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "LOOKUPVALUE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LOOKUPVALUE({args})",
+			"example_dax": "LOOKUPVALUE(Product[Category], Product[ProductKey], 1)",
+			"example_sql": "DAX_LOOKUPVALUE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LOOKUPWITHTOTALS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LOOKUPWITHTOTALS({args})",
+			"example_dax": "LOOKUPWITHTOTALS(1)",
+			"example_sql": "DAX_LOOKUPWITHTOTALS(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "LOWER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_LOWER({args})",
+			"example_dax": "LOWER(\"HELLO\")",
+			"example_sql": "LOWER('HELLO')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "LTRIM",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "LTRIM({{text}})",
+			"example_dax": "LTRIM(\"  abc\")",
+			"example_sql": "LTRIM('  abc')",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "MATCHBY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MATCHBY({args})",
+			"example_dax": "MATCHBY(1)",
+			"example_sql": "DAX_MATCHBY(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "MAX",
+			"kind": "agg",
+			"strategy": "direct_sql_fn",
+			"sql_template": "MAX({{x}})",
+			"example_dax": "MAX(Sales[Amount])",
+			"example_sql": "MAX(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MAXA",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MAXA({args})",
+			"example_dax": "MAXA(Sales[Amount])",
+			"example_sql": "DAX_MAXA(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MAXX",
+			"kind": "iterator",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT MAX({{expr}}) FROM {{table}})",
+			"example_dax": "MAXX(Sales, Sales[Amount])",
+			"example_sql": "(SELECT MAX(Sales.Amount) FROM Sales)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MDURATION",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MDURATION({args})",
+			"example_dax": "MDURATION(DATE(2024,1,1), DATE(2034,1,1), 0.05, 0.06, 2)",
+			"example_sql": "DAX_MDURATION(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MEDIAN",
+			"kind": "agg",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MEDIAN({args})",
+			"example_dax": "MEDIAN(Sales[Amount])",
+			"example_sql": "DAX_MEDIAN(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MEDIANX",
+			"kind": "agg",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MEDIANX({args})",
+			"example_dax": "MEDIANX(Sales, Sales[Amount])",
+			"example_sql": "DAX_MEDIANX(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MID",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "SUBSTR({{text}}, {{start_num}}, {{num_chars}})",
+			"example_dax": "MID(\"abcdef\", 2, 3)",
+			"example_sql": "SUBSTR('abcdef', 2, 3)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MIN",
+			"kind": "agg",
+			"strategy": "direct_sql_fn",
+			"sql_template": "MIN({{x}})",
+			"example_dax": "MIN(Sales[Amount])",
+			"example_sql": "MIN(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MINA",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MINA({args})",
+			"example_dax": "MINA(Sales[Amount])",
+			"example_sql": "DAX_MINA(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MINUTE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MINUTE({args})",
+			"example_dax": "MINUTE(TIME(14, 30, 45))",
+			"example_sql": "EXTRACT(MINUTE FROM TIME '14:30:45')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MINX",
+			"kind": "iterator",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT MIN({{expr}}) FROM {{table}})",
+			"example_dax": "MINX(Sales, Sales[Amount])",
+			"example_sql": "(SELECT MIN(Sales.Amount) FROM Sales)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MOD",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "({{a}} % {{b}})",
+			"example_dax": "MOD(10, 3)",
+			"example_sql": "(10 % 3)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MONTH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "EXTRACT(MONTH FROM {{date}})",
+			"example_dax": "MONTH(DATE(2025, 1, 2))",
+			"example_sql": "EXTRACT(MONTH FROM MAKE_DATE(2025, 1, 2))",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "MOVINGAVERAGE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MOVINGAVERAGE({args})",
+			"example_dax": "MOVINGAVERAGE(SUM(Sales[Amount]), 3, dim_date[Date])",
+			"example_sql": "DAX_MOVINGAVERAGE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "MROUND",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_MROUND({args})",
+			"example_dax": "MROUND(10, 3)",
+			"example_sql": "DAX_MROUND(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NAMEOF",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NAMEOF({args})",
+			"example_dax": "IF(LEN(NAMEOF(Sales[Amount])) > 0, 1, 0)",
+			"example_sql": "CASE WHEN LENGTH(DAX_NAMEOF(1)) > 0 THEN 1 ELSE 0 END",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NATURALINNERJOIN",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_NATURALINNERJOIN({args}) AS t)",
+			"example_dax": "NATURALINNERJOIN(SELECTCOLUMNS(Sales, \"Key\", Sales[ProductKey]), SELECTCOLUMNS(Product, \"Key\", Product[ProductKey]))",
+			"example_sql": "(SELECT * FROM DAX_NATURALINNERJOIN(1) AS t)",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "NATURALJOINUSAGE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NATURALJOINUSAGE({args})",
+			"example_dax": "NATURALJOINUSAGE(1)",
+			"example_sql": "DAX_NATURALJOINUSAGE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "NATURALLEFTOUTERJOIN",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_NATURALLEFTOUTERJOIN({args}) AS t)",
+			"example_dax": "NATURALLEFTOUTERJOIN(SELECTCOLUMNS(Sales, \"Key\", Sales[ProductKey]), SELECTCOLUMNS(Product, \"Key\", Product[ProductKey]))",
+			"example_sql": "(SELECT * FROM DAX_NATURALLEFTOUTERJOIN(1) AS t)",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "NETWORKDAYS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NETWORKDAYS({args})",
+			"example_dax": "NETWORKDAYS(DATE(2024,1,1), DATE(2024,12,31))",
+			"example_sql": "DAX_NETWORKDAYS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NEXT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NEXT({args})",
+			"example_dax": "NEXT(1)",
+			"example_sql": "DAX_NEXT(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "NEXTDAY",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NEXTDAY({args})",
+			"example_dax": "NEXTDAY(dim_date[Date])",
+			"example_sql": "DAX_NEXTDAY(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NEXTMONTH",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NEXTMONTH({args})",
+			"example_dax": "NEXTMONTH(dim_date[Date])",
+			"example_sql": "DAX_NEXTMONTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NEXTQUARTER",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NEXTQUARTER({args})",
+			"example_dax": "NEXTQUARTER(dim_date[Date])",
+			"example_sql": "DAX_NEXTQUARTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NEXTWEEK",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NEXTWEEK({args})",
+			"example_dax": "NEXTWEEK(dim_date[Date])",
+			"example_sql": "DAX_NEXTWEEK(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "NEXTYEAR",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NEXTYEAR({args})",
+			"example_dax": "NEXTYEAR(dim_date[Date])",
+			"example_sql": "DAX_NEXTYEAR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NOMINAL",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NOMINAL({args})",
+			"example_dax": "NOMINAL(0.05, 12)",
+			"example_sql": "DAX_NOMINAL(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NONFILTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NONFILTER({args})",
+			"example_dax": "NONFILTER(1)",
+			"example_sql": "DAX_NONFILTER(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "NONVISUAL",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NONVISUAL({args})",
+			"example_dax": "NONVISUAL(1)",
+			"example_sql": "DAX_NONVISUAL(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "NORM.DIST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NORM_DIST({args})",
+			"example_dax": "NORM.DIST(1, 0, 1, 1)",
+			"example_sql": "DAX_NORM_DIST(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NORM.INV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NORM_INV({args})",
+			"example_dax": "NORM.INV(0.5, 0, 1)",
+			"example_sql": "DAX_NORM_INV(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NORM.S.DIST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NORM_S_DIST({args})",
+			"example_dax": "NORM.S.DIST(1, 1)",
+			"example_sql": "DAX_NORM_S_DIST(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NORM.S.INV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NORM_S_INV({args})",
+			"example_dax": "NORM.S.INV(0.5)",
+			"example_sql": "DAX_NORM_S_INV(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NOT",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "(NOT {{x}})",
+			"example_dax": "NOT(TRUE())",
+			"example_sql": "(NOT TRUE)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "NOW",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "CURRENT_TIMESTAMP",
+			"example_dax": "IF(NOW() > DATE(2020, 1, 1), 1, 0)",
+			"example_sql": "CASE WHEN CURRENT_TIMESTAMP > DATE '2020-01-01' THEN 1 ELSE 0 END",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "NPER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_NPER({args})",
+			"example_dax": "NPER(0.05, -100, 1000)",
+			"example_sql": "DAX_NPER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ODD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ODD({args})",
+			"example_dax": "ODD(1)",
+			"example_sql": "DAX_ODD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ODDFPRICE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ODDFPRICE({args})",
+			"example_dax": "ODDFPRICE(DATE(2024,2,15), DATE(2034,7,15), DATE(2024,1,15), DATE(2025,1,15), 0.05, 0.06, 100, 2)",
+			"example_sql": "DAX_ODDFPRICE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ODDFYIELD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ODDFYIELD({args})",
+			"example_dax": "ODDFYIELD(DATE(2024,2,15), DATE(2034,7,15), DATE(2024,1,15), DATE(2025,1,15), 0.05, 100, 100, 2)",
+			"example_sql": "DAX_ODDFYIELD(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ODDLPRICE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ODDLPRICE({args})",
+			"example_dax": "ODDLPRICE(DATE(2033,11,1), DATE(2034,3,1), DATE(2033,7,1), 0.05, 0.06, 100, 2)",
+			"example_sql": "DAX_ODDLPRICE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ODDLYIELD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ODDLYIELD({args})",
+			"example_dax": "ODDLYIELD(DATE(2033,11,1), DATE(2034,3,1), DATE(2033,7,1), 0.05, 100, 100, 2)",
+			"example_sql": "DAX_ODDLYIELD(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "OFFSET",
+			"kind": "table",
+			"strategy": "window_rewrite",
+			"sql_template": "LAG({{expr}}, {{offset}}) OVER (PARTITION BY {{partition_by}} ORDER BY {{order_by}})",
+			"example_dax": "OFFSET(-1, ALLSELECTED(Sales[Region]), ORDERBY(Sales[Region]))",
+			"example_sql": "SELECT LAG(Amount, 1) OVER (ORDER BY Amount) AS prev FROM Sales",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "OPENINGBALANCEMONTH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_OPENINGBALANCEMONTH({args})",
+			"example_dax": "OPENINGBALANCEMONTH(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_OPENINGBALANCEMONTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "OPENINGBALANCEQUARTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_OPENINGBALANCEQUARTER({args})",
+			"example_dax": "OPENINGBALANCEQUARTER(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_OPENINGBALANCEQUARTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "OPENINGBALANCEWEEK",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_OPENINGBALANCEWEEK({args})",
+			"example_dax": "OPENINGBALANCEWEEK(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_OPENINGBALANCEWEEK(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "OPENINGBALANCEYEAR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_OPENINGBALANCEYEAR({args})",
+			"example_dax": "OPENINGBALANCEYEAR(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_OPENINGBALANCEYEAR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "OR",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "({{a}} OR {{b}})",
+			"example_dax": "OR(TRUE(), FALSE())",
+			"example_sql": "(TRUE OR FALSE)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ORDERBY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ORDERBY({args})",
+			"example_dax": "ORDERBY(1)",
+			"example_sql": "DAX_ORDERBY(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "PARALLELPERIOD",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PARALLELPERIOD({args})",
+			"example_dax": "PARALLELPERIOD(dim_date[Date], -1, YEAR)",
+			"example_sql": "DAX_PARALLELPERIOD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PARTITIONBY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PARTITIONBY({args})",
+			"example_dax": "PARTITIONBY(1)",
+			"example_sql": "DAX_PARTITIONBY(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "PATH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PATH({args})",
+			"example_dax": "PATH(Sales[SaleId], Sales[ProductKey])",
+			"example_sql": "DAX_PATH(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "PATHCONTAINS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PATHCONTAINS({args})",
+			"example_dax": "PATHCONTAINS(\"1|2|3\", \"2\")",
+			"example_sql": "DAX_PATHCONTAINS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PATHITEM",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PATHITEM({args})",
+			"example_dax": "PATHITEM(\"1|2|3\", 2)",
+			"example_sql": "DAX_PATHITEM(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PATHITEMREVERSE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PATHITEMREVERSE({args})",
+			"example_dax": "PATHITEMREVERSE(\"1|2|3\", 2)",
+			"example_sql": "DAX_PATHITEMREVERSE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PATHLENGTH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PATHLENGTH({args})",
+			"example_dax": "PATHLENGTH(1)",
+			"example_sql": "DAX_PATHLENGTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PDURATION",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PDURATION({args})",
+			"example_dax": "PDURATION(0.05, 1000, 2000)",
+			"example_sql": "DAX_PDURATION(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PERCENTILE.EXC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PERCENTILE_EXC({args})",
+			"example_dax": "PERCENTILE.EXC(Sales[Amount], 0.5)",
+			"example_sql": "DAX_PERCENTILE_EXC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PERCENTILE.INC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PERCENTILE_INC({args})",
+			"example_dax": "PERCENTILE.INC(Sales[Amount], 0.5)",
+			"example_sql": "DAX_PERCENTILE_INC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PERCENTILEX.EXC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PERCENTILEX_EXC({args})",
+			"example_dax": "PERCENTILEX.EXC(Sales, Sales[Amount], 0.5)",
+			"example_sql": "DAX_PERCENTILEX_EXC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PERCENTILEX.INC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PERCENTILEX_INC({args})",
+			"example_dax": "PERCENTILEX.INC(Sales, Sales[Amount], 0.5)",
+			"example_sql": "DAX_PERCENTILEX_INC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PERMUT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PERMUT({args})",
+			"example_dax": "PERMUT(10, 3)",
+			"example_sql": "DAX_PERMUT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PI",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "PI()",
+			"example_dax": "PI()",
+			"example_sql": "PI()",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PMT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PMT({args})",
+			"example_dax": "PMT(0.05/12, 120, -100000)",
+			"example_sql": "DAX_PMT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "POISSON.DIST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_POISSON_DIST({args})",
+			"example_dax": "POISSON.DIST(5, 3, 1)",
+			"example_sql": "DAX_POISSON_DIST(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "POWER",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "POW({{number}}, {{power}})",
+			"example_dax": "POWER(2, 3)",
+			"example_sql": "POW(2, 3)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PPMT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PPMT({args})",
+			"example_dax": "PPMT(0.05/12, 1, 120, -100000)",
+			"example_sql": "DAX_PPMT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PREVIOUS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PREVIOUS({args})",
+			"example_dax": "PREVIOUS(1)",
+			"example_sql": "DAX_PREVIOUS(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "PREVIOUSDAY",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PREVIOUSDAY({args})",
+			"example_dax": "PREVIOUSDAY(dim_date[Date])",
+			"example_sql": "DAX_PREVIOUSDAY(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PREVIOUSMONTH",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PREVIOUSMONTH({args})",
+			"example_dax": "PREVIOUSMONTH(dim_date[Date])",
+			"example_sql": "DAX_PREVIOUSMONTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PREVIOUSQUARTER",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PREVIOUSQUARTER({args})",
+			"example_dax": "PREVIOUSQUARTER(dim_date[Date])",
+			"example_sql": "DAX_PREVIOUSQUARTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PREVIOUSWEEK",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PREVIOUSWEEK({args})",
+			"example_dax": "PREVIOUSWEEK(dim_date[Date])",
+			"example_sql": "DAX_PREVIOUSWEEK(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "PREVIOUSYEAR",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PREVIOUSYEAR({args})",
+			"example_dax": "PREVIOUSYEAR(dim_date[Date])",
+			"example_sql": "DAX_PREVIOUSYEAR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PRICE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PRICE({args})",
+			"example_dax": "PRICE(DATE(2024,1,1), DATE(2034,1,1), 0.05, 0.06, 100, 2)",
+			"example_sql": "DAX_PRICE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PRICEDISC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PRICEDISC({args})",
+			"example_dax": "PRICEDISC(DATE(2024,1,1), DATE(2024,12,31), 0.05, 100)",
+			"example_sql": "DAX_PRICEDISC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PRICEMAT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PRICEMAT({args})",
+			"example_dax": "PRICEMAT(DATE(2024,1,1), DATE(2024,12,31), DATE(2023,7,1), 0.05, 0.06)",
+			"example_sql": "DAX_PRICEMAT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PRODUCT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PRODUCT({args})",
+			"example_dax": "PRODUCT(Sales[Quantity])",
+			"example_sql": "DAX_PRODUCT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "PRODUCTX",
+			"kind": "iterator",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT DAX_PRODUCTX({{expr}}) FROM {{table}})",
+			"example_dax": "PRODUCTX(Sales, Sales[Amount])",
+			"example_sql": "(SELECT DAX_PRODUCTX(Sales.Amount) FROM Sales)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "PV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_PV({args})",
+			"example_dax": "PV(0.05/12, 120, -100)",
+			"example_sql": "DAX_PV(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "QUARTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_QUARTER({args})",
+			"example_dax": "QUARTER(DATE(2024,3,15))",
+			"example_sql": "EXTRACT(QUARTER FROM MAKE_DATE(2024, 3, 15))",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "QUOTIENT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_QUOTIENT({args})",
+			"example_dax": "QUOTIENT(7, 2)",
+			"example_sql": "DAX_QUOTIENT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RADIANS",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RADIANS({args})",
+			"example_dax": "RADIANS(1)",
+			"example_sql": "DAX_RADIANS(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RAND",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RAND({args})",
+			"example_dax": "INT(RAND())",
+			"example_sql": "DAX_RAND(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "RANDBETWEEN",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RANDBETWEEN({args})",
+			"example_dax": "RANDBETWEEN(42, 42)",
+			"example_sql": "DAX_RANDBETWEEN(42, 42)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "RANGE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RANGE({args})",
+			"example_dax": "RANGE(1)",
+			"example_sql": "DAX_RANGE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "RANK",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RANK({args})",
+			"example_dax": "RANK(1)",
+			"example_sql": "DAX_RANK(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "RANK.EQ",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RANK_EQ({args})",
+			"example_dax": "RANK.EQ(10, Sales[Amount])",
+			"example_sql": "DAX_RANK_EQ(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RANKX",
+			"kind": "scalar",
+			"strategy": "window_rewrite",
+			"sql_template": "RANK() OVER (PARTITION BY {{partition_by}} ORDER BY {{order_by}})",
+			"example_dax": "RANKX(ALL(Sales), Sales[Amount], 10)",
+			"example_sql": "SELECT RANK() OVER (ORDER BY Amount) AS r FROM Sales",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RATE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RATE({args})",
+			"example_dax": "RATE(120, -100, 100000)",
+			"example_sql": "DAX_RATE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RECEIVED",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RECEIVED({args})",
+			"example_dax": "RECEIVED(DATE(2024,1,1), DATE(2024,12,31), 100000, 0.05)",
+			"example_sql": "DAX_RECEIVED(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RELATED",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RELATED({args})",
+			"example_dax": "MAXX(Sales, RELATED(Product[Category]))",
+			"example_sql": "DAX_RELATED(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RELATEDTABLE",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_RELATEDTABLE({args}) AS t)",
+			"example_dax": "SUMX(Product, COUNTROWS(RELATEDTABLE(Sales)))",
+			"example_sql": "(SELECT * FROM DAX_RELATEDTABLE(1) AS t)",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "REMOVEFILTERS",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "CALCULATE(SUM(Sales[Amount]), REMOVEFILTERS(Sales))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "REPLACE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_REPLACE({args})",
+			"example_dax": "REPLACE(\"hello\", 1, 2, \"HE\")",
+			"example_sql": "DAX_REPLACE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "REPT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_REPT({args})",
+			"example_dax": "REPT(\"abc\", 3)",
+			"example_sql": "DAX_REPT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RIGHT",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "SUBSTR({{text}}, LENGTH({{text}}) - {{num_chars}} + 1, {{num_chars}})",
+			"example_dax": "RIGHT(\"abcdef\", 2)",
+			"example_sql": "SUBSTR('abcdef', LENGTH('abcdef') - 2 + 1, 2)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ROLLUP",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ROLLUP({args})",
+			"example_dax": "SUMMARIZE(Sales, ROLLUP(Sales[Region]))",
+			"example_sql": "DAX_ROLLUP(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ROLLUPADDISSUBTOTAL",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ROLLUPADDISSUBTOTAL({args})",
+			"example_dax": "SUMMARIZECOLUMNS(ROLLUPADDISSUBTOTAL(Sales[Region], \"IsSubtotal\"), \"Total\", SUM(Sales[Amount]))",
+			"example_sql": "DAX_ROLLUPADDISSUBTOTAL(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ROLLUPGROUP",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ROLLUPGROUP({args})",
+			"example_dax": "SUMMARIZE(Sales, ROLLUPGROUP(Sales[Region], Sales[ProductKey]))",
+			"example_sql": "DAX_ROLLUPGROUP(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ROLLUPISSUBTOTAL",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ROLLUPISSUBTOTAL({args})",
+			"example_dax": "SUMMARIZECOLUMNS(ROLLUPISSUBTOTAL(Sales[Region], \"IsSubtotal\"), \"Total\", SUM(Sales[Amount]))",
+			"example_sql": "DAX_ROLLUPISSUBTOTAL(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "ROUND",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "ROUND({args})",
+			"example_dax": "ROUND(3.14159, 2)",
+			"example_sql": "ROUND(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ROUNDDOWN",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "(CASE WHEN {{number}} >= 0 THEN FLOOR({{number}} * POW(10, {{num_digits}})) / POW(10, {{num_digits}}) ELSE CEIL({{number}} * POW(10, {{num_digits}})) / POW(10, {{num_digits}}) END)",
+			"example_dax": "ROUNDDOWN(12.34, 1)",
+			"example_sql": "(CASE WHEN 12.34 >= 0 THEN FLOOR(12.34 * POW(10, 1)) / POW(10, 1) ELSE CEIL(12.34 * POW(10, 1)) / POW(10, 1) END)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ROUNDUP",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "(CASE WHEN {{number}} >= 0 THEN CEIL({{number}} * POW(10, {{num_digits}})) / POW(10, {{num_digits}}) ELSE FLOOR({{number}} * POW(10, {{num_digits}})) / POW(10, {{num_digits}}) END)",
+			"example_dax": "ROUNDUP(12.34, 1)",
+			"example_sql": "(CASE WHEN 12.34 >= 0 THEN CEIL(12.34 * POW(10, 1)) / POW(10, 1) ELSE FLOOR(12.34 * POW(10, 1)) / POW(10, 1) END)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ROW",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ROW({args})",
+			"example_dax": "ROW(\"x\", 1)",
+			"example_sql": "DAX_ROW(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "ROWNUMBER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_ROWNUMBER({args})",
+			"example_dax": "ROWNUMBER(1)",
+			"example_sql": "DAX_ROWNUMBER(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "RRI",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RRI({args})",
+			"example_dax": "RRI(120, 1000, 2000)",
+			"example_sql": "DAX_RRI(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "RTRIM",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "RTRIM({{text}})",
+			"example_dax": "RTRIM(\"abc  \")",
+			"example_sql": "RTRIM('abc  ')",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "RUNNINGSUM",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_RUNNINGSUM({args})",
+			"example_dax": "RUNNINGSUM(1)",
+			"example_sql": "DAX_RUNNINGSUM(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "SAMEPERIODLASTYEAR",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SAMEPERIODLASTYEAR({args})",
+			"example_dax": "SAMEPERIODLASTYEAR(dim_date[Date])",
+			"example_sql": "DAX_SAMEPERIODLASTYEAR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SAMPLE",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SAMPLE({args})",
+			"example_dax": "SAMPLE(3, Sales, Sales[Amount])",
+			"example_sql": "DAX_SAMPLE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SAMPLEAXISWITHLOCALMINMAX",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SAMPLEAXISWITHLOCALMINMAX({args})",
+			"example_dax": "SAMPLEAXISWITHLOCALMINMAX(10, dim_date[Date], Sales[Amount], Sales[Quantity], dim_date[Date])",
+			"example_sql": "DAX_SAMPLEAXISWITHLOCALMINMAX(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "SAMPLECARTESIANPOINTSBYCOVER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SAMPLECARTESIANPOINTSBYCOVER({args})",
+			"example_dax": "SAMPLECARTESIANPOINTSBYCOVER(10, dim_date[Date], Sales[Amount], Sales[Quantity])",
+			"example_sql": "DAX_SAMPLECARTESIANPOINTSBYCOVER(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "SEARCH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "STRPOS(LOWER({{within_text}}), LOWER({{find_text}}))",
+			"example_dax": "SEARCH(\"ELL\", \"hello\")",
+			"example_sql": "STRPOS(LOWER('hello'), LOWER('ELL'))",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SECOND",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SECOND({args})",
+			"example_dax": "SECOND(TIME(14, 30, 45))",
+			"example_sql": "EXTRACT(SECOND FROM TIME '14:30:45')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SELECTCOLUMNS",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT {{expr}} AS {{name}} FROM {{table}})",
+			"example_dax": "SELECTCOLUMNS(Sales, \"Amount\", Sales[Amount])",
+			"example_sql": "SELECT Sales.Amount AS Amount FROM Sales",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SELECTEDMEASURE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SELECTEDMEASURE({args})",
+			"example_dax": "SELECTEDMEASURE(1)",
+			"example_sql": "DAX_SELECTEDMEASURE(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "SELECTEDMEASUREFORMATSTRING",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SELECTEDMEASUREFORMATSTRING({args})",
+			"example_dax": "SELECTEDMEASUREFORMATSTRING(1)",
+			"example_sql": "DAX_SELECTEDMEASUREFORMATSTRING(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "SELECTEDMEASURENAME",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SELECTEDMEASURENAME({args})",
+			"example_dax": "SELECTEDMEASURENAME(1)",
+			"example_sql": "DAX_SELECTEDMEASURENAME(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "SELECTEDVALUE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SELECTEDVALUE({args})",
+			"example_dax": "SELECTEDVALUE(Sales[Region], \"None\")",
+			"example_sql": "DAX_SELECTEDVALUE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SHADOWCLUSTER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SHADOWCLUSTER({args})",
+			"example_dax": "SHADOWCLUSTER(1)",
+			"example_sql": "DAX_SHADOWCLUSTER(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "SIGN",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "SIGN({args})",
+			"example_dax": "SIGN(1)",
+			"example_sql": "SIGN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SIN",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "SIN({args})",
+			"example_dax": "SIN(1)",
+			"example_sql": "SIN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SINH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "SINH({args})",
+			"example_dax": "SINH(1)",
+			"example_sql": "SINH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SLN",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SLN({args})",
+			"example_dax": "SLN(1000, 100, 10)",
+			"example_sql": "DAX_SLN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SQRT",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "SQRT({args})",
+			"example_dax": "SQRT(1)",
+			"example_sql": "SQRT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SQRTPI",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SQRTPI({args})",
+			"example_dax": "SQRTPI(1)",
+			"example_sql": "DAX_SQRTPI(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "STARTOFMONTH",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_STARTOFMONTH({args})",
+			"example_dax": "STARTOFMONTH(dim_date[Date])",
+			"example_sql": "DAX_STARTOFMONTH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "STARTOFQUARTER",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_STARTOFQUARTER({args})",
+			"example_dax": "STARTOFQUARTER(dim_date[Date])",
+			"example_sql": "DAX_STARTOFQUARTER(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "STARTOFWEEK",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_STARTOFWEEK({args})",
+			"example_dax": "STARTOFWEEK(dim_date[Date])",
+			"example_sql": "DAX_STARTOFWEEK(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "STARTOFYEAR",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_STARTOFYEAR({args})",
+			"example_dax": "STARTOFYEAR(dim_date[Date])",
+			"example_sql": "DAX_STARTOFYEAR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "STDEV.P",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_STDEV_P({args})",
+			"example_dax": "STDEV.P(Sales[Amount])",
+			"example_sql": "DAX_STDEV_P(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "STDEV.S",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_STDEV_S({args})",
+			"example_dax": "STDEV.S(Sales[Amount])",
+			"example_sql": "DAX_STDEV_S(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "STDEVX.P",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_STDEVX_P({args})",
+			"example_dax": "STDEVX.P(Sales, Sales[Amount])",
+			"example_sql": "DAX_STDEVX_P(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "STDEVX.S",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_STDEVX_S({args})",
+			"example_dax": "STDEVX.S(Sales, Sales[Amount])",
+			"example_sql": "DAX_STDEVX_S(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SUBSTITUTE",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "REPLACE({{text}}, {{old_text}}, {{new_text}})",
+			"example_dax": "SUBSTITUTE(\"a-b\", \"-\", \"_\")",
+			"example_sql": "REPLACE('a-b', '-', '_')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SUBSTITUTEWITHINDEX",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SUBSTITUTEWITHINDEX({args})",
+			"example_dax": "SUBSTITUTEWITHINDEX(SUMMARIZE(Sales, Sales[Region]), \"Idx\", ALL(Sales[Region]), Sales[Region])",
+			"example_sql": "DAX_SUBSTITUTEWITHINDEX(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SUM",
+			"kind": "agg",
+			"strategy": "direct_sql_fn",
+			"sql_template": "SUM({{x}})",
+			"example_dax": "SUM(Sales[Amount])",
+			"example_sql": "SUM(Sales.Amount)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SUMMARIZE",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM DAX_SUMMARIZE({args}) AS t)",
+			"example_dax": "SUMMARIZE(Sales, Sales[Region])",
+			"example_sql": "(SELECT * FROM DAX_SUMMARIZE(1) AS t)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "SUMMARIZECOLUMNS",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT {{dim_cols}}, {{measure_expr}} AS {{measure_name}} FROM {{table}} GROUP BY {{dim_cols}})",
+			"example_dax": "SUMMARIZECOLUMNS(Sales[Region], \"TotalAmount\", SUM(Sales[Amount]))",
+			"example_sql": "SELECT Category, SUM(Amount) AS TotalAmount FROM Sales GROUP BY Category",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SUMX",
+			"kind": "iterator",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT SUM({{expr}}) FROM {{table}})",
+			"example_dax": "SUMX(Sales, Sales[Amount])",
+			"example_sql": "(SELECT SUM(Sales.Amount) FROM Sales)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SWITCH",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SWITCH({args})",
+			"example_dax": "SWITCH(1, 1, \"one\", 2, \"two\", \"other\")",
+			"example_sql": "DAX_SWITCH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "SYD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_SYD({args})",
+			"example_dax": "SYD(1000, 100, 10, 1)",
+			"example_sql": "DAX_SYD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "T.DIST",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_T_DIST({args})",
+			"example_dax": "T.DIST(1.5, 10, 1)",
+			"example_sql": "DAX_T_DIST(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "T.DIST.2T",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_T_DIST_2T({args})",
+			"example_dax": "T.DIST.2T(1.5, 10)",
+			"example_sql": "DAX_T_DIST_2T(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "T.DIST.RT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_T_DIST_RT({args})",
+			"example_dax": "T.DIST.RT(1.5, 10)",
+			"example_sql": "DAX_T_DIST_RT(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "T.INV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_T_INV({args})",
+			"example_dax": "T.INV(0.05, 10)",
+			"example_sql": "DAX_T_INV(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "T.INV.2T",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_T_INV_2T({args})",
+			"example_dax": "T.INV.2T(0.05, 10)",
+			"example_sql": "DAX_T_INV_2T(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TABLE CONSTRUCTOR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TABLE_CONSTRUCTOR({args})",
+			"example_dax": "TABLE CONSTRUCTOR(1)",
+			"example_sql": "DAX_TABLE_CONSTRUCTOR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TAN",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "TAN({args})",
+			"example_dax": "TAN(1)",
+			"example_sql": "TAN(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TANH",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "TANH({args})",
+			"example_dax": "TANH(1)",
+			"example_sql": "TANH(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TBILLEQ",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TBILLEQ({args})",
+			"example_dax": "TBILLEQ(DATE(2024,1,1), DATE(2024,12,31), 0.05)",
+			"example_sql": "DAX_TBILLEQ(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TBILLPRICE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TBILLPRICE({args})",
+			"example_dax": "TBILLPRICE(DATE(2024,1,1), DATE(2024,12,31), 0.05)",
+			"example_sql": "DAX_TBILLPRICE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TBILLYIELD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TBILLYIELD({args})",
+			"example_dax": "TBILLYIELD(DATE(2024,1,1), DATE(2024,12,31), 99)",
+			"example_sql": "DAX_TBILLYIELD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TIME",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TIME({args})",
+			"example_dax": "TIME(12, 30, 0)",
+			"example_sql": "DAX_TIME(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TIMEVALUE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TIMEVALUE({args})",
+			"example_dax": "TIMEVALUE(\"12:30:00\")",
+			"example_sql": "DAX_TIMEVALUE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TOCSV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TOCSV({args})",
+			"example_dax": "TOCSV(Sales)",
+			"example_sql": "DAX_TOCSV(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TODAY",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "CURRENT_DATE",
+			"example_dax": "TODAY()",
+			"example_sql": "CURRENT_DATE",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TOJSON",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TOJSON({args})",
+			"example_dax": "TOJSON(Sales)",
+			"example_sql": "DAX_TOJSON(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TOPN",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT * FROM {{table}} ORDER BY {{order_by}} {{order_dir}} LIMIT {{n}})",
+			"example_dax": "TOPN(5, Sales, Sales[Amount], DESC)",
+			"example_sql": "SELECT * FROM Sales ORDER BY Sales.Amount DESC LIMIT 5",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TOPNPERLEVEL",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TOPNPERLEVEL({args})",
+			"example_dax": "TOPNPERLEVEL(2, Sales, Sales[Region], Sales[Amount], Sales[Region])",
+			"example_sql": "DAX_TOPNPERLEVEL(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TOPNSKIP",
+			"kind": "table",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TOPNSKIP({args})",
+			"example_dax": "TOPNSKIP(3, 1, Sales, Sales[Amount])",
+			"example_sql": "DAX_TOPNSKIP(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TOTALMTD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TOTALMTD({args})",
+			"example_dax": "TOTALMTD(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_TOTALMTD(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TOTALQTD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TOTALQTD({args})",
+			"example_dax": "TOTALQTD(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_TOTALQTD(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TOTALWTD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TOTALWTD({args})",
+			"example_dax": "TOTALWTD(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_TOTALWTD(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TOTALYTD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TOTALYTD({args})",
+			"example_dax": "TOTALYTD(SUM(Sales[Amount]), dim_date[Date])",
+			"example_sql": "DAX_TOTALYTD(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "TREATAS",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "CALCULATE(SUM(Sales[Amount]), TREATAS({\"EU\"}, Sales[Region]))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "TRIM",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "TRIM({{text}})",
+			"example_dax": "TRIM(\"  abc  \")",
+			"example_sql": "TRIM('  abc  ')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TRUE",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "TRUE",
+			"example_dax": "TRUE()",
+			"example_sql": "TRUE",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "TRUNC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_TRUNC({args})",
+			"example_dax": "TRUNC(12.345, 1)",
+			"example_sql": "DAX_TRUNC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "UNICHAR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_UNICHAR({args})",
+			"example_dax": "UNICHAR(65)",
+			"example_sql": "DAX_UNICHAR(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "UNICODE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_UNICODE({args})",
+			"example_dax": "UNICODE(\"A\")",
+			"example_sql": "UNICODE('A')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "UNION",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "({{t1}}) UNION ALL ({{t2}})",
+			"example_dax": "UNION(ROW(\"x\", 1), ROW(\"x\", 2))",
+			"example_sql": "(SELECT DISTINCT Sales.CustomerKey FROM Sales) UNION ALL (SELECT DISTINCT Returns.CustomerKey FROM Returns)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "UPPER",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_UPPER({args})",
+			"example_dax": "UPPER(\"hello\")",
+			"example_sql": "UPPER('hello')",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "USERCULTURE",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_USERCULTURE({args})",
+			"example_dax": "USERCULTURE()",
+			"example_sql": "DAX_USERCULTURE(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "USERELATIONSHIP",
+			"kind": "context",
+			"strategy": "context_rewrite",
+			"sql_template": "<context_rewrite>",
+			"example_dax": "CALCULATE(SUM(Sales[Amount]), USERELATIONSHIP(Sales[OrderDate], dim_date[Date]))",
+			"example_sql": "SELECT 1",
+			"is_verified_duckdb": false,
+			"skip_conformance": true
+		},
+		{
+			"name": "USERNAME",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_USERNAME({args})",
+			"example_dax": "IF(LEN(USERNAME()) >= 0, 1, 0)",
+			"example_sql": "CASE WHEN LENGTH(DAX_USERNAME()) >= 0 THEN 1 ELSE 0 END",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "USEROBJECTID",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_USEROBJECTID({args})",
+			"example_dax": "IF(LEN(USEROBJECTID()) >= 0, 1, 0)",
+			"example_sql": "CASE WHEN LENGTH(DAX_USEROBJECTID()) >= 0 THEN 1 ELSE 0 END",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "USERPRINCIPALNAME",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_USERPRINCIPALNAME({args})",
+			"example_dax": "IF(LEN(USERPRINCIPALNAME()) >= 0, 1, 0)",
+			"example_sql": "CASE WHEN LENGTH(DAX_USERPRINCIPALNAME()) >= 0 THEN 1 ELSE 0 END",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "UTCNOW",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_UTCNOW({args})",
+			"example_dax": "IF(UTCNOW() > DATE(2020, 1, 1), 1, 0)",
+			"example_sql": "CASE WHEN CURRENT_TIMESTAMP > DATE '2020-01-01' THEN 1 ELSE 0 END",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "UTCTODAY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_UTCTODAY({args})",
+			"example_dax": "UTCTODAY()",
+			"example_sql": "DAX_UTCTODAY(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "VALUE",
+			"kind": "scalar",
+			"strategy": "sql_template",
+			"sql_template": "CAST({{value}} AS DOUBLE)",
+			"example_dax": "VALUE(1)",
+			"example_sql": "CAST(1 AS DOUBLE)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "VALUES",
+			"kind": "table",
+			"strategy": "subquery_rewrite",
+			"sql_template": "(SELECT DISTINCT {{col}} FROM {{table}})",
+			"example_dax": "VALUES(Sales[Region])",
+			"example_sql": "SELECT DISTINCT Sales.CustomerKey FROM Sales",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "VAR.P",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_VAR_P({args})",
+			"example_dax": "VAR.P(Sales[Amount])",
+			"example_sql": "DAX_VAR_P(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "VAR.S",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_VAR_S({args})",
+			"example_dax": "VAR.S(Sales[Amount])",
+			"example_sql": "DAX_VAR_S(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "VARX.P",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_VARX_P({args})",
+			"example_dax": "VARX.P(Sales, Sales[Amount])",
+			"example_sql": "DAX_VARX_P(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "VARX.S",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_VARX_S({args})",
+			"example_dax": "VARX.S(Sales, Sales[Amount])",
+			"example_sql": "DAX_VARX_S(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "VDB",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_VDB({args})",
+			"example_dax": "VDB(1000, 100, 10, 0, 1)",
+			"example_sql": "DAX_VDB(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "WEEKDAY",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_WEEKDAY({args})",
+			"example_dax": "WEEKDAY(DATE(2024,1,15))",
+			"example_sql": "WEEKDAY(MAKE_DATE(2024, 1, 15))",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "WEEKNUM",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_WEEKNUM({args})",
+			"example_dax": "WEEKNUM(DATE(2024,1,15))",
+			"example_sql": "WEEKNUM(MAKE_DATE(2024, 1, 15))",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "WINDOW",
+			"kind": "table",
+			"strategy": "window_rewrite",
+			"sql_template": "<window_rewrite>",
+			"example_dax": "WINDOW(0, ABS, 1, REL, ALLSELECTED(Sales[Region]), ORDERBY(Sales[Region]))",
+			"example_sql": "SELECT DAX_WINDOW(1) OVER (PARTITION BY 1 ORDER BY 1)",
+			"is_verified_duckdb": false
+		},
+		{
+			"name": "XIRR",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_XIRR({args})",
+			"example_dax": "XIRR(DATATABLE(\"Value\", DOUBLE, \"Date\", DATETIME, {{-100, DATE(2024,1,1)}, {110, DATE(2025,1,1)}}), [Value], [Date])",
+			"example_sql": "DAX_XIRR(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "XNPV",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_XNPV({args})",
+			"example_dax": "XNPV(0.05, DATATABLE(\"Value\", DOUBLE, \"Date\", DATETIME, {{-100, DATE(2024,1,1)}, {110, DATE(2025,1,1)}}), [Value], [Date])",
+			"example_sql": "DAX_XNPV(1)",
+			"is_verified_duckdb": true,
+			"skip_conformance": true
+		},
+		{
+			"name": "YEAR",
+			"kind": "scalar",
+			"strategy": "direct_sql_fn",
+			"sql_template": "EXTRACT(YEAR FROM {{date}})",
+			"example_dax": "YEAR(DATE(2025, 1, 2))",
+			"example_sql": "EXTRACT(YEAR FROM MAKE_DATE(2025, 1, 2))",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "YEARFRAC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_YEARFRAC({args})",
+			"example_dax": "YEARFRAC(DATE(2024,1,1), DATE(2024,12,31))",
+			"example_sql": "DAX_YEARFRAC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "YIELD",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_YIELD({args})",
+			"example_dax": "YIELD(DATE(2024,1,1), DATE(2034,1,1), 0.05, 99, 100, 2)",
+			"example_sql": "DAX_YIELD(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "YIELDDISC",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_YIELDDISC({args})",
+			"example_dax": "YIELDDISC(DATE(2024,1,1), DATE(2024,12,31), 99, 100)",
+			"example_sql": "DAX_YIELDDISC(1)",
+			"is_verified_duckdb": true
+		},
+		{
+			"name": "YIELDMAT",
+			"kind": "scalar",
+			"strategy": "generic_fallback",
+			"sql_template": "DAX_YIELDMAT({args})",
+			"example_dax": "YIELDMAT(DATE(2024,1,1), DATE(2024,12,31), DATE(2023,7,1), 0.05, 99)",
+			"example_sql": "DAX_YIELDMAT(1)",
+			"is_verified_duckdb": true
+		}
+	]
+}

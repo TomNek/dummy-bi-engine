@@ -1,0 +1,17 @@
+{
+  "id": "v_treemap",
+  "title": "Sales Treemap",
+  "visual_type": "treemap",
+  "page_id": "page4",
+  "layout": {"x": 20, "y": 20, "w": 420, "h": 300},
+  "encodings": {
+    "path": [
+      {"type": "ColumnRef", "table": "Product", "column": "Category"},
+      {"type": "ColumnRef", "table": "Product", "column": "Brand"}
+    ],
+    "values": {"type": "MeasureRef", "name": "Total Sales"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

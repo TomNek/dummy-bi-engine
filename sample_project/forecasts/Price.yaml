@@ -1,0 +1,240 @@
+- version: 1
+  measure_name: Price
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 13.249437446915868
+  cv_mape: 0.820524536935169
+  generated_ts: '2026-02-15T20:14:35.277109+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.008558493964266
+    forecast_upper: 70.755314673903
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.0068398680243433
+    forecast_upper: 70.75703329984292
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.005121328004975
+    forecast_upper: 70.75875183986228
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.003402873893279
+    forecast_upper: 70.76047029397398
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.00168450567638
+    forecast_upper: 70.76218866219088
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.9999662233413744
+    forecast_upper: 70.76390694452589
+    confidence_level: 0.95
+- version: 2
+  measure_name: Price
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 13.249437446915868
+  cv_mape: 0.820524536935169
+  generated_ts: '2026-02-16T21:16:03.757933+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.008558493964266
+    forecast_upper: 70.755314673903
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.0068398680243433
+    forecast_upper: 70.75703329984292
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.005121328004975
+    forecast_upper: 70.75875183986228
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.003402873893279
+    forecast_upper: 70.76047029397398
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.00168450567638
+    forecast_upper: 70.76218866219088
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.9999662233413744
+    forecast_upper: 70.76390694452589
+    confidence_level: 0.95
+- version: 3
+  measure_name: Price
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 13.249437446915868
+  cv_mape: 0.820524536935169
+  generated_ts: '2026-02-16T22:05:08.660474+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.008558493964266
+    forecast_upper: 70.755314673903
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.0068398680243433
+    forecast_upper: 70.75703329984292
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.005121328004975
+    forecast_upper: 70.75875183986228
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.003402873893279
+    forecast_upper: 70.76047029397398
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.00168450567638
+    forecast_upper: 70.76218866219088
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.9999662233413744
+    forecast_upper: 70.76390694452589
+    confidence_level: 0.95
+  - grain_value: T+7
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.998248026875423
+    forecast_upper: 70.76562514099183
+    confidence_level: 0.95
+  - grain_value: T+8
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.9965299162656294
+    forecast_upper: 70.76734325160163
+    confidence_level: 0.95
+  - grain_value: T+9
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.9948118914991255
+    forecast_upper: 70.76906127636813
+    confidence_level: 0.95
+  - grain_value: T+10
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.9930939525630578
+    forecast_upper: 70.7707792153042
+    confidence_level: 0.95
+  - grain_value: T+11
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.991376099444551
+    forecast_upper: 70.77249706842271
+    confidence_level: 0.95
+  - grain_value: T+12
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.9896583321307446
+    forecast_upper: 70.77421483573652
+    confidence_level: 0.95
+- version: 4
+  measure_name: Price
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 13.249437446915868
+  cv_mape: 0.820524536935169
+  generated_ts: '2026-02-16T22:36:15.140831+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.008558493964266
+    forecast_upper: 70.755314673903
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.0068398680243433
+    forecast_upper: 70.75703329984292
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.005121328004975
+    forecast_upper: 70.75875183986228
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.003402873893279
+    forecast_upper: 70.76047029397398
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 36.38193658393363
+    forecast_lower: 2.00168450567638
+    forecast_upper: 70.76218866219088
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 36.38193658393363
+    forecast_lower: 1.9999662233413744
+    forecast_upper: 70.76390694452589
+    confidence_level: 0.95
+- version: 5
+  measure_name: Price
+  grain_column: Date
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2023-01-01'
+  training_end: '2024-12-15'
+  cv_rmse: 43.557099277722216
+  cv_mape: 1.092086397413424
+  generated_ts: '2026-02-16T22:36:15.277215+00:00'
+  is_active: true
+  rows:
+  - grain_value: T+1
+    forecast_value: 22.407448626890965
+    forecast_lower: -49.307435404215624
+    forecast_upper: 94.12233265799756
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 22.407448626890965
+    forecast_lower: -54.31071964257045
+    forecast_upper: 99.12561689635238
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 22.407448626890965
+    forecast_lower: -59.0071083862607
+    forecast_upper: 103.82200564004263
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 22.407448626890965
+    forecast_lower: -63.446979591309
+    forecast_upper: 108.26187684509094
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 22.407448626890965
+    forecast_lower: -67.66827282845114
+    forecast_upper: 112.48317008223307
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 22.407448626890965
+    forecast_lower: -71.7004062351061
+    forecast_upper: 116.51530348888804
+    confidence_level: 0.95

@@ -1,0 +1,29 @@
+{
+  "id": "v_story_shift_bar",
+  "title": "Sales by Category",
+  "visual_type": "bar",
+  "page_id": "story_shift",
+  "layout": {
+    "x": 20,
+    "y": 20,
+    "w": 500,
+    "h": 350
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Category"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

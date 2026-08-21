@@ -1,0 +1,18 @@
+field_parameters:
+  AxisField:
+    items:
+    - name: Brand
+      ref:
+        type: ColumnRef
+        column: Brand
+        table: Product
+      sort: 0
+      locale: de
+    - name: Category
+      ref:
+        type: ColumnRef
+        column: Category
+        table: Product
+      sort: 1
+      locale: en
+    default_item: Brand

@@ -1,0 +1,51 @@
+name: Open-core CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: dax_ui/frontend/package-lock.json
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Create and validate public source tree
+        run: |
+          python tools/publish_open_core_mvp.py --output dist/open-core-ci
+          python tools/validate_open_core_mvp.py dist/open-core-ci
+      - name: Run public core tests
+        working-directory: dist/open-core-ci
+        run: >-
+          python -m pytest -q -p no:cacheprovider
+          tests/test_open_core_mvp.py
+          tests/test_compiler_mapping_load.py
+          tests/test_connectors.py
+          tests/test_runtime_import_connectors.py
+          tests/test_semantic_model_loader_duckdb.py
+          tests/test_semantic_model_validation.py
+      - name: Install frontend dependencies
+        working-directory: dist/open-core-ci/dax_ui/frontend
+        run: npm ci
+      - name: Audit frontend dependencies
+        working-directory: dist/open-core-ci/dax_ui/frontend
+        run: npm audit --audit-level=low
+      - name: Build public frontend
+        working-directory: dist/open-core-ci/dax_ui/frontend
+        run: npm run build

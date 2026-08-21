@@ -1,0 +1,29 @@
+{
+  "id": "v_story_reg_pie",
+  "title": "Sales Share by Region",
+  "visual_type": "pie",
+  "page_id": "story_regions",
+  "layout": {
+    "x": 20,
+    "y": 20,
+    "w": 450,
+    "h": 350
+  },
+  "encodings": {
+    "names": {
+      "type": "ColumnRef",
+      "table": "Sales",
+      "column": "Region"
+    },
+    "values": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

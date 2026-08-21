@@ -1,0 +1,16 @@
+version: 1
+relationships:
+  - from: { table: Sales, column: ProductKey }
+    to:   { table: Product, column: ProductKey }
+    active: true
+measures:
+  - name: Total
+    dax: SUM(Sales[Amount])
+    description: "Total sales amount"
+    folder: "Sales"
+    format: "0.00"
+  - name: EU Total
+    dax: CALCULATE([Total], Sales[Region]="EU")
+    description: "EU total sales"
+    folder: "Sales"
+    format: "0.00"

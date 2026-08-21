@@ -1,0 +1,17 @@
+name: StockOHLC
+source:
+  type: csv
+  path: data/stock_ohlc.csv
+columns:
+- name: Date
+  type: DATE
+- name: Open
+  type: DECIMAL(18,2)
+- name: High
+  type: DECIMAL(18,2)
+- name: Low
+  type: DECIMAL(18,2)
+- name: Close
+  type: DECIMAL(18,2)
+- name: Volume
+  type: INTEGER

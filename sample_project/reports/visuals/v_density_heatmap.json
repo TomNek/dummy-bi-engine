@@ -1,0 +1,31 @@
+{
+  "id": "v_density_heatmap",
+  "title": "Density Heatmap",
+  "visual_type": "density_heatmap",
+  "page_id": "page7",
+  "layout": {
+    "x": 460,
+    "y": 20,
+    "w": 420,
+    "h": 300
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "Sales",
+      "column": "Amount"
+    },
+    "y": {
+      "type": "ColumnRef",
+      "table": "Sales",
+      "column": "Quantity"
+    }
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

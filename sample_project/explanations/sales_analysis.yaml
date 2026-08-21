@@ -1,0 +1,64 @@
+# Sample P&L Explanation Playbook
+#
+# This playbook demonstrates the deterministic explanation engine
+# using the sample_project's Sales data.
+#
+# Decision tree:
+#   Total Sales (entry EDU)
+#     ├── Additive driver → Total Qty, Price
+#     └── Dimensional driver → by Product.Category
+
+name: sales_analysis
+version: "1.0"
+description: |
+  Explains Total Sales deviations by decomposing into
+  quantity and price components, and by product category.
+
+default_materiality:
+  abs_threshold: 10
+  rel_threshold: 0.01
+  top_n: 10
+
+entry_edus:
+  - id: total_sales
+    metric: Total Sales
+    comparator: previous_period
+    description: Total sales amount — the primary KPI to explain
+
+drivers:
+  - id: sales_additive
+    parent_edu_id: total_sales
+    mode: additive
+    child_metrics:
+      - Total Qty
+      - Price
+    priority: 0
+    description: Decompose Total Sales into quantity and price components
+
+  - id: sales_by_category
+    parent_edu_id: total_sales
+    mode: dimensional
+    dimension_table: Product
+    dimension_column: Category
+    priority: 1
+    description: Break down Total Sales by product category
+    materiality:
+      abs_threshold: 5
+      top_n: 5
+
+evidence_providers:
+  - id: sales_detail
+    name: Sales Detail
+    description: Detailed sales transactions for evidence
+    table: Sales
+    columns:
+      - Amount
+      - Quantity
+      - ProductKey
+      - OrderDate
+    grain:
+      - OrderDate
+
+metadata:
+  author: sample
+  created: "2026-02-08"

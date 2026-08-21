@@ -1,0 +1,20 @@
+calculation_groups:
+  Multiplier:
+    precedence: 0
+    items:
+    - name: Base
+      expression: SELECTEDMEASURE()
+    - name: Double
+      expression: SELECTEDMEASURE() * 2
+    - name: cool
+      expression: SELECTEDMEASURE()
+  NewGroup:
+    precedence: 0
+    items:
+    - name: Item1
+      expression: SELECTEDMEASURE()
+  NewGroup2:
+    precedence: 0
+    items:
+    - name: Item1
+      expression: SELECTEDMEASURE()

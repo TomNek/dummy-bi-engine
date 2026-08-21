@@ -1,0 +1,36 @@
+{
+  "id": "v7",
+  "title": "Line",
+  "visual_type": "line",
+  "page_id": "page1",
+  "layout": {
+    "x": 20,
+    "y": 660,
+    "w": 827.1666259765625,
+    "h": 349.8333740234375
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "DimDate",
+      "column": "Date"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    },
+    "color": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Category"
+    },
+    "tooltip": []
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

@@ -1,0 +1,4 @@
+roles:
+- name: global_save_role
+- name: Test
+- name: Test2

@@ -1,0 +1,15 @@
+{
+  "id": "v_combo",
+  "title": "Sales vs Quantity (Combo)",
+  "visual_type": "combo",
+  "page_id": "page7",
+  "layout": {"x": 460, "y": 340, "w": 420, "h": 300},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Product", "column": "Category"},
+    "y": {"type": "MeasureRef", "name": "Total Sales"},
+    "y2": {"type": "MeasureRef", "name": "Total Qty"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

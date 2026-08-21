@@ -1,0 +1,31 @@
+{
+  "id": "v_gap_g12_tooltip",
+  "title": "G12 — Custom Tooltip Template",
+  "visual_type": "combo",
+  "page_id": "page_combo_gaps",
+  "layout": {"x": 20, "y": 390, "w": 450, "h": 350},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Product", "column": "Category"},
+    "layers": [
+      {
+        "type": "bar",
+        "y": {"type": "MeasureRef", "name": "Total Sales"},
+        "secondary_y": false,
+        "name": "Sales",
+        "format": {}
+      },
+      {
+        "type": "line",
+        "y": {"type": "MeasureRef", "name": "Price"},
+        "secondary_y": true,
+        "name": "Avg Price",
+        "format": {"showMarkers": true, "lineWidth": 3}
+      }
+    ]
+  },
+  "format": {
+    "comboTooltipTemplate": "<b>%{x}</b><br>Value: %{y:,.0f}<extra>%{fullData.name}</extra>"
+  },
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

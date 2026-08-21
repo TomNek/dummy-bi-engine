@@ -1,0 +1,11 @@
+name: Product
+columns:
+- name: ProductKey
+  type: INTEGER
+- name: Category
+  type: VARCHAR
+- name: Brand
+  type: VARCHAR
+source:
+  type: csv
+  path: data/product.csv

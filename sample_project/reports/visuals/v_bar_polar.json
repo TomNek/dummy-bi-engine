@@ -1,0 +1,14 @@
+{
+  "id": "v_bar_polar",
+  "title": "Sales Wind Rose",
+  "visual_type": "bar_polar",
+  "page_id": "page5",
+  "layout": {"x": 900, "y": 20, "w": 420, "h": 300},
+  "encodings": {
+    "r": {"type": "MeasureRef", "name": "Total Sales"},
+    "theta": {"type": "ColumnRef", "table": "DimDate", "column": "MonthName"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

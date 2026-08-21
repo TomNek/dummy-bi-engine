@@ -1,0 +1,32 @@
+id: 725fbc165713
+name: QA Full Bundle Test
+version: 2
+author: QA Agent
+created_at: 2026-02-12T11:17:00+00:00Z
+model_references:
+- table: Sales
+  columns:
+  - Amount
+  - Date
+  - ProductID
+- table: Products
+  columns:
+  - ProductID
+  - Name
+  - Price
+layout: {}
+measures:
+- name: Total Sales v2
+  table: Sales
+  expression: SUM(Sales[Revenue])
+visuals:
+- id: chart1
+  type: bar_chart
+  measures:
+  - Total Sales
+- id: table1
+  type: table
+  columns:
+  - Name
+  - Amount
+parameters: {}

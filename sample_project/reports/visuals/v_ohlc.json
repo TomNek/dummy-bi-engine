@@ -1,0 +1,17 @@
+{
+  "id": "v_ohlc",
+  "title": "Stock OHLC",
+  "visual_type": "ohlc",
+  "page_id": "page6",
+  "layout": {"x": 660, "y": 20, "w": 620, "h": 300},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "StockOHLC", "column": "Date"},
+    "open": {"type": "ColumnRef", "table": "StockOHLC", "column": "Open"},
+    "high": {"type": "ColumnRef", "table": "StockOHLC", "column": "High"},
+    "low": {"type": "ColumnRef", "table": "StockOHLC", "column": "Low"},
+    "close": {"type": "ColumnRef", "table": "StockOHLC", "column": "Close"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

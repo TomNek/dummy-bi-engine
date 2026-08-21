@@ -1,0 +1,11 @@
+id: 6726efd8c06a
+name: DelTest
+version: 1
+author: QA
+created_at: 2026-02-12T16:08:49+00:00Z
+model_references: []
+layout: {}
+measures:
+- X
+visuals: []
+parameters: {}

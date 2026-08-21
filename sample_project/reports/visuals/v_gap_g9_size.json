@@ -1,0 +1,30 @@
+{
+  "id": "v_gap_g9_size",
+  "title": "G9 — Size Encoding (Bubble Scatter)",
+  "visual_type": "combo",
+  "page_id": "page_combo_gaps",
+  "layout": {"x": 20, "y": 20, "w": 450, "h": 350},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Product", "column": "Category"},
+    "layers": [
+      {
+        "type": "bar",
+        "y": {"type": "MeasureRef", "name": "Total Sales"},
+        "secondary_y": false,
+        "name": "Revenue (bars)",
+        "format": {"opacity": 0.3}
+      },
+      {
+        "type": "scatter",
+        "y": {"type": "MeasureRef", "name": "Price"},
+        "secondary_y": true,
+        "size": "Total Qty",
+        "name": "Price (bubble by Qty)",
+        "format": {"markerSymbol": "circle", "markerOpacity": 0.85}
+      }
+    ]
+  },
+  "format": {"y2AxisLabel": "Avg Price"},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

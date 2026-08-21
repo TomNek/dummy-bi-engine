@@ -1,0 +1,29 @@
+{
+  "id": "v_gap_g15_date",
+  "title": "G15 — Smart Date Axis (auto-detect)",
+  "visual_type": "combo",
+  "page_id": "page_combo_gaps",
+  "layout": {"x": 960, "y": 390, "w": 450, "h": 350},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "DimDate", "column": "Date"},
+    "layers": [
+      {
+        "type": "line",
+        "y": {"type": "MeasureRef", "name": "Total Sales"},
+        "secondary_y": false,
+        "name": "Sales over time",
+        "format": {"lineWidth": 2, "showMarkers": false}
+      },
+      {
+        "type": "scatter",
+        "y": {"type": "MeasureRef", "name": "Total Qty"},
+        "secondary_y": true,
+        "name": "Qty (scatter)",
+        "format": {"markerSize": 5, "markerOpacity": 0.6}
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

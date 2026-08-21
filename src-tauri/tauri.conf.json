@@ -1,0 +1,52 @@
+{
+  "productName": "DAX to SQL Open Core",
+  "version": "0.1.0-alpha.2",
+  "identifier": "com.dax-to-sql.open-core",
+  "build": {
+    "beforeBuildCommand": "",
+    "beforeDevCommand": "",
+    "frontendDist": "../dax_ui/frontend/dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "DAX to SQL Open Core",
+        "width": 1536,
+        "height": 960,
+        "minWidth": 1120,
+        "minHeight": 680,
+        "resizable": true,
+        "maximizable": true,
+        "fullscreen": false,
+        "center": true,
+        "url": "index.html"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://127.0.0.1:* http://localhost:*; img-src 'self' data: blob:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "externalBin": [
+      "binaries/dax_backend"
+    ],
+    "windows": {
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "http://timestamp.digicert.com",
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      },
+      "nsis": {
+        "displayLanguageSelector": false,
+        "installMode": "currentUser",
+        "languages": [
+          "English"
+        ]
+      }
+    }
+  }
+}

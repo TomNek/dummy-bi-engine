@@ -1,0 +1,56 @@
+measures:
+- name: Total Sales
+  dax: SUM(Sales[Amount])
+  description: Total sales amount
+  format: '#,0.00'
+- name: Total Qty
+  dax: SUM(Sales[Quantity])
+  description: Total quantity sold
+  format: '#,0'
+- name: Price
+  dax: DIVIDE([Total Sales], [Total Qty])
+  format: '#,0.00'
+- name: Total Sales Adjusted
+  dax: '[Total Sales] * (1 - WHATIFVALUE("DiscountPct"))'
+  description: Total sales with discount applied from What-If parameter
+  format: '#,0.00'
+- name: Forecast Total Sales (Active)
+  dax: SUM(Forecast_Total_Sales[forecast_value])
+  description: Active forecast baseline for Total Sales
+  folder: Forecasts
+  format: '#,0.00'
+- name: Forecast Price (Active)
+  dax: SUM(Forecast_Price[forecast_value])
+  description: Active forecast baseline for Price
+  folder: Forecasts
+  format: '#,0.00'
+- name: Forecast Total Qty (Active)
+  dax: SUM(Forecast_Total_Qty[forecast_value])
+  description: Active forecast baseline for Total Qty
+  folder: Forecasts
+  format: '#,0.00'
+- name: Stock Open
+  dax: AVERAGE(StockOHLC[Open])
+  description: Average opening price
+  folder: Financial
+  format: '#,0.00'
+- name: Stock High
+  dax: MAX(StockOHLC[High])
+  description: Max high price
+  folder: Financial
+  format: '#,0.00'
+- name: Stock Low
+  dax: MIN(StockOHLC[Low])
+  description: Min low price
+  folder: Financial
+  format: '#,0.00'
+- name: Stock Close
+  dax: AVERAGE(StockOHLC[Close])
+  description: Average closing price
+  folder: Financial
+  format: '#,0.00'
+- name: Flow Value
+  dax: SUM(SankeyFlow[Value])
+  description: Flow value for Sankey diagrams
+  folder: Flow
+  format: '#,0'

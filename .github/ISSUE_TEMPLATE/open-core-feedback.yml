@@ -1,0 +1,51 @@
+name: Open-core MVP feedback
+description: Report a reproducible compiler, connector, semantic-model, or Plotly workflow problem.
+title: "[Open-core feedback]: "
+labels: ["open-core-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for testing. Remove credentials and anonymize private names or data.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - DAX compiler / generated SQL
+        - Data connector
+        - Semantic model / relationships
+        - Plotly visual
+        - Left or right panel UX
+        - Setup / documentation
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Shortest reproduction
+      description: List the steps, safe model shape, DAX, connector type, and visual field assignments needed to reproduce it.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Windows 11, Python 3.12, Node 22
+    validations:
+      required: true
+  - type: textarea
+    id: blocker
+    attributes:
+      label: One missing capability that would block a second use

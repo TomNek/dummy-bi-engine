@@ -1,0 +1,23 @@
+name: Forecast_Total_Sales
+columns:
+- name: confidence_level
+  type: DOUBLE
+- name: forecast_lower
+  type: DOUBLE
+- name: forecast_upper
+  type: BIGINT
+- name: forecast_value
+  type: DOUBLE
+- name: grain_value
+  type: VARCHAR
+- name: measure_name
+  type: VARCHAR
+- name: version
+  type: INTEGER
+source:
+  type: csv
+  path: data/forecast_Total_Sales.csv
+description: Auto-generated active forecast baseline for Total Sales
+folder: Forecasts
+table_type: fact
+is_calculated: false

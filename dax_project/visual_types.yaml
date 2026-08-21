@@ -1,0 +1,605 @@
+visual_types:
+  bar:
+    label: Bar
+    renderer: plotly_express
+    px_func: bar
+    slots:
+      x:
+        kind: dimension
+        required: true
+      y:
+        kind: measure
+        required: true
+        multi: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+      tooltip:
+        kind: any
+        required: false
+        multi: true
+  column:
+    label: Column
+    renderer: plotly_express
+    px_func: bar
+    slots:
+      x:
+        kind: dimension
+        required: true
+      y:
+        kind: measure
+        required: true
+        multi: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+      tooltip:
+        kind: any
+        required: false
+        multi: true
+  line:
+    label: Line
+    renderer: plotly_express
+    px_func: line
+    slots:
+      x:
+        kind: dimension
+        required: true
+      y:
+        kind: measure
+        required: true
+        multi: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+      tooltip:
+        kind: any
+        required: false
+        multi: true
+  scatter:
+    label: Scatter
+    renderer: plotly_express
+    px_func: scatter
+    slots:
+      x:
+        kind: dimension
+        required: true
+      y:
+        kind: measure
+        required: true
+        multi: true
+      color:
+        kind: dimension
+        required: false
+      size:
+        kind: measure
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+      tooltip:
+        kind: any
+        required: false
+        multi: true
+  area:
+    label: Area
+    renderer: plotly_express
+    px_func: area
+    slots:
+      x:
+        kind: dimension
+        required: true
+      y:
+        kind: measure
+        required: true
+        multi: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+      tooltip:
+        kind: any
+        required: false
+        multi: true
+  pie:
+    label: Pie
+    renderer: plotly_express
+    px_func: pie
+    slots:
+      names:
+        kind: dimension
+        required: false
+      values:
+        kind: measure
+        required: true
+      color:
+        kind: dimension
+        required: false
+  combo:
+    label: Combo
+    renderer: graph_objects
+    go_type: combo
+    slots:
+      x:
+        kind: dimension
+        required: true
+      y:
+        kind: measure
+        required: false
+      y2:
+        kind: measure
+        required: false
+      color:
+        kind: dimension
+        required: false
+      tooltip:
+        kind: any
+        required: false
+        multi: true
+      detail:
+        kind: any
+        required: false
+        multi: true
+      size:
+        kind: measure
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+    supports_layers: true
+  histogram:
+    label: Histogram
+    renderer: plotly_express
+    px_func: histogram
+    slots:
+      x:
+        kind: any
+        required: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+  box:
+    label: Box Plot
+    renderer: plotly_express
+    px_func: box
+    slots:
+      x:
+        kind: dimension
+        required: false
+      y:
+        kind: any
+        required: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+  violin:
+    label: Violin
+    renderer: plotly_express
+    px_func: violin
+    slots:
+      x:
+        kind: dimension
+        required: false
+      y:
+        kind: any
+        required: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+  strip:
+    label: Strip
+    renderer: plotly_express
+    px_func: strip
+    slots:
+      x:
+        kind: dimension
+        required: false
+      y:
+        kind: any
+        required: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+  ecdf:
+    label: ECDF
+    renderer: plotly_express
+    px_func: ecdf
+    slots:
+      x:
+        kind: any
+        required: true
+      color:
+        kind: dimension
+        required: false
+      small_multiples:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+  funnel:
+    label: Funnel
+    renderer: plotly_express
+    px_func: funnel
+    slots:
+      x:
+        kind: measure
+        required: true
+      y:
+        kind: dimension
+        required: true
+      color:
+        kind: dimension
+        required: false
+  funnel_area:
+    label: Funnel Area
+    renderer: plotly_express
+    px_func: funnel_area
+    slots:
+      names:
+        kind: dimension
+        required: true
+      values:
+        kind: measure
+        required: true
+  density_contour:
+    label: Density Contour
+    renderer: plotly_express
+    px_func: density_contour
+    slots:
+      x:
+        kind: any
+        required: true
+      y:
+        kind: any
+        required: true
+      color:
+        kind: dimension
+        required: false
+  density_heatmap:
+    label: Density Heatmap
+    renderer: plotly_express
+    px_func: density_heatmap
+    slots:
+      x:
+        kind: any
+        required: true
+      y:
+        kind: any
+        required: true
+  treemap:
+    label: Treemap
+    renderer: plotly_express
+    px_func: treemap
+    slots:
+      path:
+        kind: dimension
+        required: true
+        multi: true
+      values:
+        kind: measure
+        required: false
+      color:
+        kind: measure
+        required: false
+  sunburst:
+    label: Sunburst
+    renderer: plotly_express
+    px_func: sunburst
+    slots:
+      path:
+        kind: dimension
+        required: true
+        multi: true
+      values:
+        kind: measure
+        required: false
+      color:
+        kind: measure
+        required: false
+  icicle:
+    label: Icicle
+    renderer: plotly_express
+    px_func: icicle
+    slots:
+      path:
+        kind: dimension
+        required: true
+        multi: true
+      values:
+        kind: measure
+        required: false
+      color:
+        kind: measure
+        required: false
+  scatter_polar:
+    label: Polar Scatter
+    renderer: plotly_express
+    px_func: scatter_polar
+    slots:
+      r:
+        kind: measure
+        required: true
+      theta:
+        kind: dimension
+        required: true
+      color:
+        kind: dimension
+        required: false
+  line_polar:
+    label: Radar
+    renderer: plotly_express
+    px_func: line_polar
+    slots:
+      r:
+        kind: measure
+        required: true
+      theta:
+        kind: dimension
+        required: true
+      color:
+        kind: dimension
+        required: false
+  bar_polar:
+    label: Wind Rose
+    renderer: plotly_express
+    px_func: bar_polar
+    slots:
+      r:
+        kind: measure
+        required: true
+      theta:
+        kind: dimension
+        required: true
+      color:
+        kind: dimension
+        required: false
+  bubble:
+    label: Bubble
+    renderer: plotly_express
+    px_func: scatter
+    slots:
+      x:
+        kind: dimension
+        required: true
+      y:
+        kind: measure
+        required: true
+      size:
+        kind: measure
+        required: true
+      color:
+        kind: dimension
+        required: false
+      facet_row:
+        kind: dimension
+        required: false
+      facet_col:
+        kind: dimension
+        required: false
+      tooltip:
+        kind: any
+        required: false
+        multi: true
+  bubble_3d:
+    label: 3D Bubble
+    renderer: plotly_express
+    px_func: scatter_3d
+    slots:
+      x:
+        kind: any
+        required: true
+      y:
+        kind: any
+        required: true
+      z:
+        kind: any
+        required: true
+      size:
+        kind: measure
+        required: true
+      color:
+        kind: dimension
+        required: false
+  scatter_3d:
+    label: 3D Scatter
+    renderer: plotly_express
+    px_func: scatter_3d
+    slots:
+      x:
+        kind: any
+        required: true
+      y:
+        kind: any
+        required: true
+      z:
+        kind: any
+        required: true
+      color:
+        kind: dimension
+        required: false
+      size:
+        kind: measure
+        required: false
+  line_3d:
+    label: 3D Line
+    renderer: plotly_express
+    px_func: line_3d
+    slots:
+      x:
+        kind: any
+        required: true
+      y:
+        kind: any
+        required: true
+      z:
+        kind: any
+        required: true
+      color:
+        kind: dimension
+        required: false
+  candlestick:
+    label: Candlestick
+    renderer: graph_objects
+    go_type: candlestick
+    slots:
+      x:
+        kind: dimension
+        required: true
+      open:
+        kind: any
+        required: true
+      high:
+        kind: any
+        required: true
+      low:
+        kind: any
+        required: true
+      close:
+        kind: any
+        required: true
+  ohlc:
+    label: OHLC
+    renderer: graph_objects
+    go_type: ohlc
+    slots:
+      x:
+        kind: dimension
+        required: true
+      open:
+        kind: any
+        required: true
+      high:
+        kind: any
+        required: true
+      low:
+        kind: any
+        required: true
+      close:
+        kind: any
+        required: true
+  waterfall:
+    label: Waterfall
+    renderer: graph_objects
+    go_type: waterfall
+    slots:
+      x:
+        kind: dimension
+        required: true
+      y:
+        kind: measure
+        required: true
+      measure:
+        kind: dimension
+        required: false
+  gauge:
+    label: Gauge
+    renderer: graph_objects
+    go_type: indicator
+    slots:
+      value:
+        kind: measure
+        required: true
+      reference:
+        kind: measure
+        required: false
+  sankey:
+    label: Sankey
+    renderer: graph_objects
+    go_type: sankey
+    slots:
+      source:
+        kind: dimension
+        required: true
+      target:
+        kind: dimension
+        required: true
+      value:
+        kind: any
+        required: true

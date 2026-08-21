@@ -1,0 +1,15 @@
+{
+  "id": "v_area",
+  "title": "Sales Area",
+  "visual_type": "area",
+  "page_id": "page7",
+  "layout": {"x": 20, "y": 340, "w": 420, "h": 300},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Product", "column": "Category"},
+    "y": {"type": "MeasureRef", "name": "Total Sales"},
+    "color": {"type": "ColumnRef", "table": "Sales", "column": "Region"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

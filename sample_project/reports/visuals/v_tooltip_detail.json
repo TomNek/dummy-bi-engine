@@ -1,0 +1,50 @@
+{
+  "id": "v_tooltip_detail",
+  "title": "Sales Detail",
+  "visual_type": "combo",
+  "page_id": "tooltip_detail",
+  "layout": {
+    "x": 0,
+    "y": 0,
+    "w": 1280,
+    "h": 720
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Category"
+    },
+    "layers": [
+      {
+        "type": "bar",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Total Sales"
+        },
+        "secondary_y": false,
+        "name": "Sales",
+        "format": {}
+      },
+      {
+        "type": "line",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Price"
+        },
+        "secondary_y": true,
+        "name": "Avg Price",
+        "format": {
+          "showMarkers": true
+        }
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": false,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

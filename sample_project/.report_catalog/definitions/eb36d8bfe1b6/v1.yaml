@@ -1,0 +1,11 @@
+id: eb36d8bfe1b6
+name: __qdel
+version: 1
+author: q
+created_at: 2026-02-12T16:21:35+00:00Z
+model_references: []
+layout: {}
+measures:
+- X
+visuals: []
+parameters: {}

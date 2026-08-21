@@ -1,0 +1,17 @@
+{
+  "id": "v_icicle",
+  "title": "Sales Icicle",
+  "visual_type": "icicle",
+  "page_id": "page4",
+  "layout": {"x": 900, "y": 20, "w": 420, "h": 300},
+  "encodings": {
+    "path": [
+      {"type": "ColumnRef", "table": "Product", "column": "Category"},
+      {"type": "ColumnRef", "table": "Product", "column": "Brand"}
+    ],
+    "values": {"type": "MeasureRef", "name": "Total Sales"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

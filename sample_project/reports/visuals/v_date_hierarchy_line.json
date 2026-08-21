@@ -1,0 +1,29 @@
+{
+  "id": "v_date_hierarchy_line",
+  "title": "Sales over Time",
+  "visual_type": "line",
+  "page_id": "page1",
+  "layout": {
+    "x": 1240,
+    "y": 670,
+    "w": 600,
+    "h": 350
+  },
+  "encodings": {
+    "x": {
+      "type": "HierarchyRef",
+      "name": "Date Hierarchy"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

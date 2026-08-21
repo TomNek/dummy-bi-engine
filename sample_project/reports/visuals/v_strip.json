@@ -1,0 +1,36 @@
+{
+  "id": "v_strip",
+  "title": "Sales by Brand (Strip)",
+  "visual_type": "strip",
+  "page_id": "page3",
+  "layout": {
+    "x": 20,
+    "y": 340,
+    "w": 420,
+    "h": 300
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Brand"
+    },
+    "y": {
+      "type": "ColumnRef",
+      "table": "Sales",
+      "column": "Amount"
+    },
+    "color": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Brand"
+    }
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

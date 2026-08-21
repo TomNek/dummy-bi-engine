@@ -1,0 +1,12 @@
+id: bbf048b5cd2c
+name: QA Test Definition
+version: 1
+author: QA Bot
+created_at: 2026-02-12T16:08:16+00:00Z
+model_references: []
+layout: {}
+measures:
+- Sales Amount
+- Total Cost
+visuals: []
+parameters: {}

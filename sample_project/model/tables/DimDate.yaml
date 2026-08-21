@@ -1,0 +1,18 @@
+name: DimDate
+columns:
+- name: Date
+  type: DATE
+- name: DayOfWeek
+  type: INTEGER
+- name: Month
+  type: INTEGER
+- name: MonthName
+  type: VARCHAR
+- name: Quarter
+  type: INTEGER
+- name: Year
+  type: INTEGER
+source:
+  type: csv
+  path: data/dim_date.csv
+storage_mode: import

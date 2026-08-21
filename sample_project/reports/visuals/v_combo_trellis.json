@@ -1,0 +1,55 @@
+{
+  "id": "v_combo_trellis",
+  "title": "Sales by Month — Trellis by Brand",
+  "visual_type": "combo",
+  "page_id": "page8",
+  "layout": {
+    "x": 1210,
+    "y": 305,
+    "w": 890,
+    "h": 670
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "DimDate",
+      "column": "Month"
+    },
+    "facet_col": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Brand"
+    },
+    "layers": [
+      {
+        "type": "bar",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Total Sales"
+        },
+        "secondary_y": false,
+        "name": "Revenue",
+        "format": {}
+      },
+      {
+        "type": "line",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Total Qty"
+        },
+        "secondary_y": true,
+        "name": "Quantity",
+        "format": {
+          "showMarkers": true
+        }
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

@@ -1,0 +1,13 @@
+id: 2e96cd71a74c
+name: QA Fresh Report 1770892680
+version: 1
+author: QA Tester
+created_at: 2026-02-12T10:38:00+00:00Z
+model_references: []
+layout: {}
+measures:
+- Revenue
+- Cost
+- Profit
+visuals: []
+parameters: {}

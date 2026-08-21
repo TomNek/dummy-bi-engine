@@ -1,0 +1,20 @@
+name: Sales
+columns:
+- name: Amount
+  type: BIGINT
+- name: Discount
+  type: DOUBLE
+- name: OrderDate
+  type: DATE
+- name: ProductKey
+  type: BIGINT
+- name: Quantity
+  type: BIGINT
+- name: Region
+  type: VARCHAR
+- name: SaleId
+  type: BIGINT
+source:
+  type: csv
+  path: data/Sales.csv
+is_calculated: false

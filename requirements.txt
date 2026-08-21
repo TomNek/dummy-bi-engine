@@ -1,0 +1,9 @@
+duckdb
+openpyxl
+pandas
+PyYAML
+sqlglot
+pytest
+numpy
+PyNaCl
+ruptures

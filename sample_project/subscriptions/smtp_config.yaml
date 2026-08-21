@@ -1,0 +1,7 @@
+host: smtp.office365.com
+port: 587
+user: thomas.nekam@live.at
+from_addr: thomas.nekam@live.at
+use_ssl: false
+starttls: true
+password: Fogveteran1995!

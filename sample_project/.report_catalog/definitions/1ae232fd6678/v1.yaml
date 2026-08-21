@@ -1,0 +1,11 @@
+id: 1ae232fd6678
+name: Param Test
+version: 1
+author: QA
+created_at: 2026-02-12T16:13:14+00:00Z
+model_references: []
+layout: {}
+measures:
+- Y
+visuals: []
+parameters: {}

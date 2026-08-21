@@ -1,0 +1,17 @@
+hierarchies:
+  Date Hierarchy:
+    table: DimDate
+    levels:
+      - column: Year
+        name: Year
+      - column: Quarter
+        name: Quarter
+      - column: MonthName
+        name: Month
+  Product Hierarchy:
+    table: Product
+    levels:
+      - column: Category
+        name: Category
+      - column: Brand
+        name: Brand

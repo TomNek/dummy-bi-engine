@@ -1,0 +1,36 @@
+{
+  "id": "v1",
+  "title": "Sales by Category",
+  "visual_type": "bar",
+  "page_id": "page1",
+  "layout": {
+    "x": 1280,
+    "y": 20,
+    "w": 420,
+    "h": 300
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Brand"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Total Qty"
+    },
+    "tooltip": [
+      {
+        "type": "MeasureRef",
+        "name": "Price"
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "highlight"
+  }
+}

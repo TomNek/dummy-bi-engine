@@ -1,0 +1,6 @@
+name: Sales2
+columns:
+- name: Amount2
+  type: BIGINT
+expression: SELECTCOLUMNS(Sales, "Amount2", Sales[Amount] * 2)
+is_calculated: true

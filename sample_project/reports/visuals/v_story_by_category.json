@@ -1,0 +1,29 @@
+{
+  "id": "v_story_by_category",
+  "title": "Sales by Category",
+  "visual_type": "bar",
+  "page_id": "story_sales_review",
+  "layout": {
+    "x": 20,
+    "y": 500,
+    "w": 700,
+    "h": 300
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "Product",
+      "column": "Category"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

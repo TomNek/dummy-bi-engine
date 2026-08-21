@@ -1,0 +1,11 @@
+-r requirements.txt
+fastapi
+uvicorn
+jinja2
+python-multipart
+plotly
+pandas
+openpyxl
+httpx
+playwright
+pytest-playwright

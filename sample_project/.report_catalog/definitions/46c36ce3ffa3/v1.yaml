@@ -1,0 +1,11 @@
+id: 46c36ce3ffa3
+name: Filter Test Def
+version: 1
+author: QA
+created_at: 2026-02-12T10:39:05+00:00Z
+model_references: []
+layout: {}
+measures:
+- X
+visuals: []
+parameters: {}

@@ -1,0 +1,240 @@
+- version: 1
+  measure_name: Total Qty
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 4.573063467929602
+  cv_mape: 0.18885333706539228
+  generated_ts: '2026-02-16T20:46:46.701835+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 14.751514210964396
+    forecast_lower: 3.4451336499417398
+    forecast_upper: 26.05789477198705
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 14.751514210964396
+    forecast_lower: 1.901973122653473
+    forecast_upper: 27.60105529927532
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 14.751514210964396
+    forecast_lower: 0.5252297006043438
+    forecast_upper: 28.977798721324447
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 14.751514210964396
+    forecast_lower: -0.7295592582505197
+    forecast_upper: 30.232587680179314
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 14.751514210964396
+    forecast_lower: -1.8900031642255737
+    forecast_upper: 31.393031586154365
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 14.751514210964396
+    forecast_lower: -2.974640626965611
+    forecast_upper: 32.477669048894406
+    confidence_level: 0.95
+- version: 2
+  measure_name: Total Qty
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 4.573063467929602
+  cv_mape: 0.18885333706539228
+  generated_ts: '2026-02-16T22:05:42.884150+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 14.751514210964396
+    forecast_lower: 3.4451336499417398
+    forecast_upper: 26.05789477198705
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 14.751514210964396
+    forecast_lower: 1.901973122653473
+    forecast_upper: 27.60105529927532
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 14.751514210964396
+    forecast_lower: 0.5252297006043438
+    forecast_upper: 28.977798721324447
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 14.751514210964396
+    forecast_lower: -0.7295592582505197
+    forecast_upper: 30.232587680179314
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 14.751514210964396
+    forecast_lower: -1.8900031642255737
+    forecast_upper: 31.393031586154365
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 14.751514210964396
+    forecast_lower: -2.974640626965611
+    forecast_upper: 32.477669048894406
+    confidence_level: 0.95
+  - grain_value: T+7
+    forecast_value: 14.751514210964396
+    forecast_lower: -3.996633167584479
+    forecast_upper: 33.49966158951327
+    confidence_level: 0.95
+  - grain_value: T+8
+    forecast_value: 14.751514210964396
+    forecast_lower: -4.965724310626518
+    forecast_upper: 34.46875273255531
+    confidence_level: 0.95
+  - grain_value: T+9
+    forecast_value: 14.751514210964396
+    forecast_lower: -5.889366577093762
+    forecast_upper: 35.39239499902256
+    confidence_level: 0.95
+  - grain_value: T+10
+    forecast_value: 14.751514210964396
+    forecast_lower: -6.773411445036091
+    forecast_upper: 36.276439866964886
+    confidence_level: 0.95
+  - grain_value: T+11
+    forecast_value: 14.751514210964396
+    forecast_lower: -7.622553127940877
+    forecast_upper: 37.12558154986967
+    confidence_level: 0.95
+  - grain_value: T+12
+    forecast_value: 14.751514210964396
+    forecast_lower: -8.440625709176379
+    forecast_upper: 37.94365413110517
+    confidence_level: 0.95
+- version: 3
+  measure_name: Total Qty
+  grain_column: Month
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 4.573063467929602
+  cv_mape: 0.18885333706539228
+  generated_ts: '2026-02-16T22:36:14.911842+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 14.751514210964396
+    forecast_lower: 3.4451336499417398
+    forecast_upper: 26.05789477198705
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 14.751514210964396
+    forecast_lower: 1.901973122653473
+    forecast_upper: 27.60105529927532
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 14.751514210964396
+    forecast_lower: 0.5252297006043438
+    forecast_upper: 28.977798721324447
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 14.751514210964396
+    forecast_lower: -0.7295592582505197
+    forecast_upper: 30.232587680179314
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 14.751514210964396
+    forecast_lower: -1.8900031642255737
+    forecast_upper: 31.393031586154365
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 14.751514210964396
+    forecast_lower: -2.974640626965611
+    forecast_upper: 32.477669048894406
+    confidence_level: 0.95
+- version: 4
+  measure_name: Total Qty
+  grain_column: Date
+  algorithm: ses
+  model_params_json: '{}'
+  training_start: '2023-01-01'
+  training_end: '2024-12-15'
+  cv_rmse: 3.0823669670707945
+  cv_mape: 1.0700409455286797
+  generated_ts: '2026-02-16T22:36:15.025486+00:00'
+  is_active: false
+  rows:
+  - grain_value: T+1
+    forecast_value: 5.044619267569312
+    forecast_lower: -1.6612861677017827
+    forecast_upper: 11.750524702840405
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 5.044619267569312
+    forecast_lower: -1.7574963337362757
+    forecast_upper: 11.846734868874899
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 5.044619267569312
+    forecast_lower: -1.8523645369825994
+    forecast_upper: 11.941603072121222
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 5.044619267569312
+    forecast_lower: -1.9459454125533062
+    forecast_upper: 12.03518394769193
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 5.044619267569312
+    forecast_lower: -2.0382899859581034
+    forecast_upper: 12.127528521096727
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 5.044619267569312
+    forecast_lower: -2.1294459984030283
+    forecast_upper: 12.218684533541651
+    confidence_level: 0.95
+- version: 5
+  measure_name: Total Qty
+  grain_column: Month
+  algorithm: ets
+  model_params_json: '{}'
+  training_start: '1'
+  training_end: '9'
+  cv_rmse: 0.14749851188833613
+  cv_mape: 0.04704067064195814
+  generated_ts: '2026-02-16T22:55:26.682263+00:00'
+  is_active: true
+  rows:
+  - grain_value: T+1
+    forecast_value: 19.028919680345478
+    forecast_lower: 10.933597739556811
+    forecast_upper: 33.118081790314434
+    confidence_level: 0.95
+  - grain_value: T+2
+    forecast_value: 18.8200034794183
+    forecast_lower: 10.606481594798941
+    forecast_upper: 33.39397026239134
+    confidence_level: 0.95
+  - grain_value: T+3
+    forecast_value: 18.61338094411917
+    forecast_lower: 10.26866598922919
+    forecast_upper: 33.739333866180736
+    confidence_level: 0.95
+  - grain_value: T+4
+    forecast_value: 18.4090268925714
+    forecast_lower: 9.923863095264698
+    forecast_upper: 34.14922877091321
+    confidence_level: 0.95
+  - grain_value: T+5
+    forecast_value: 18.206916419367047
+    forecast_lower: 9.575363616231018
+    forecast_upper: 34.61923941352075
+    confidence_level: 0.95
+  - grain_value: T+6
+    forecast_value: 18.00702489253163
+    forecast_lower: 9.226017643996085
+    forecast_upper: 35.14549375388028
+    confidence_level: 0.95

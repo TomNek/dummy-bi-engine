@@ -1,0 +1,29 @@
+{
+  "id": "v5",
+  "title": "Sales by AxisField",
+  "visual_type": "bar",
+  "page_id": "page1",
+  "layout": {
+    "x": 440,
+    "y": 340,
+    "w": 400,
+    "h": 300
+  },
+  "encodings": {
+    "x": {
+      "type": "ParamRef",
+      "name": "AxisField"
+    },
+    "y": {
+      "type": "MeasureRef",
+      "name": "Total Sales"
+    }
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "highlight"
+  }
+}

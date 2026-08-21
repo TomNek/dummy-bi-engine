@@ -1,0 +1,14 @@
+{
+  "id": "v_waterfall",
+  "title": "Sales Waterfall",
+  "visual_type": "waterfall",
+  "page_id": "page6",
+  "layout": {"x": 20, "y": 340, "w": 620, "h": 300},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Product", "column": "Category"},
+    "y": {"type": "MeasureRef", "name": "Total Sales"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

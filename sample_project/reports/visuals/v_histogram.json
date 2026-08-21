@@ -1,0 +1,13 @@
+{
+  "id": "v_histogram",
+  "title": "Sales Distribution",
+  "visual_type": "histogram",
+  "page_id": "page3",
+  "layout": {"x": 20, "y": 20, "w": 420, "h": 300},
+  "encodings": {
+    "x": {"type": "ColumnRef", "table": "Sales", "column": "Amount"}
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {"affects_others": true, "is_affected": true, "mode": "filter"}
+}

@@ -1,0 +1,4 @@
+# Development and testing dependencies
+-r requirements.txt
+-r requirements-ui.txt
+pytest-xdist

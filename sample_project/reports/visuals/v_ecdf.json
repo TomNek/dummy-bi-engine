@@ -1,0 +1,31 @@
+{
+  "id": "v_ecdf",
+  "title": "Sales ECDF",
+  "visual_type": "ecdf",
+  "page_id": "page3",
+  "layout": {
+    "x": 460,
+    "y": 340,
+    "w": 420,
+    "h": 300
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "Sales",
+      "column": "Amount"
+    },
+    "color": {
+      "type": "ColumnRef",
+      "table": "Sales",
+      "column": "Region"
+    }
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

@@ -1,0 +1,11 @@
+name: SankeyFlow
+source:
+  type: csv
+  path: data/sankey_flow.csv
+columns:
+- name: Source
+  type: VARCHAR
+- name: Target
+  type: VARCHAR
+- name: Value
+  type: INTEGER

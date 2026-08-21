@@ -1,0 +1,68 @@
+{
+  "id": "v_combo_multilayer",
+  "title": "Monthly Revenue, Quantity & Avg Price",
+  "visual_type": "combo",
+  "page_id": "page8",
+  "layout": {
+    "x": 500,
+    "y": 20,
+    "w": 930,
+    "h": 640
+  },
+  "encodings": {
+    "x": {
+      "type": "ColumnRef",
+      "table": "DimDate",
+      "column": "MonthName"
+    },
+    "layout_mode": "stacked",
+    "layers": [
+      {
+        "type": "bar",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Total Sales"
+        },
+        "secondary_y": false,
+        "name": "Revenue",
+        "format": {}
+      },
+      {
+        "type": "line",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Total Qty"
+        },
+        "secondary_y": true,
+        "name": "Quantity",
+        "format": {
+          "lineDash": "solid",
+          "showMarkers": true,
+          "markerSymbol": "circle"
+        }
+      },
+      {
+        "type": "scatter",
+        "y": {
+          "type": "MeasureRef",
+          "name": "Price"
+        },
+        "secondary_y": true,
+        "name": "Avg Price",
+        "format": {
+          "markerSize": 10,
+          "markerSymbol": "diamond",
+          "markerOpacity": 0.9
+        }
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "tooltip_page_id": "tooltip_detail",
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}
