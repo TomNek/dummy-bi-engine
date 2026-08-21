@@ -10,6 +10,8 @@
 
 This is an early feedback build. The installer is not yet Authenticode-signed, so Windows SmartScreen may display a warning.
 
+Security model and vulnerability reporting: [SECURITY.md](SECURITY.md).
+
 1. Connect data with any of the project's existing connectors.
 2. Inspect tables, columns, measures, and relationships in the semantic model.
 3. Compile supported DAX expressions to DuckDB SQL and evaluate the result.

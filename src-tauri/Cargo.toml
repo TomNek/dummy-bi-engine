@@ -1,6 +1,6 @@
 [package]
 name = "dummy-bi-engine"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 description = "Dummy BI Engine — desktop shell"
 homepage = "https://www.dummy-bi.com/engine"

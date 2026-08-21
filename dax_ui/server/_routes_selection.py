@@ -62,7 +62,11 @@ def _ok(data: Any) -> dict:
 
 def _err(status: int, msg: str, error_code: str = "E_SELECTION_STATE") -> dict:
     from fastapi.responses import JSONResponse
-    return JSONResponse(status_code=status, content={"ok": False, "error": error_code, "message": msg})
+    logger.warning("Selection request failed (%s): %s", error_code, msg)
+    return JSONResponse(
+        status_code=status,
+        content={"ok": False, "error": error_code, "message": "Selection request failed"},
+    )
 
 
 def register_selection_routes(app: Any) -> None:

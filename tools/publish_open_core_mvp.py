@@ -57,6 +57,7 @@ PUBLIC_TESTS = {
     "tests/test_semantic_model_loader_duckdb.py",
     "tests/test_semantic_model_validation.py",
     "tests/test_open_core_mvp.py",
+    "tests/test_open_core_security_contract.py",
 }
 PUBLIC_TOOLS = {
     "tools/check_open_core_boundary.py",

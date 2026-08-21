@@ -34,7 +34,11 @@ def _ok(data: Any) -> dict:
 
 def _err(status: int, msg: str, error_code: str = "E_STORY") -> dict:
     from fastapi.responses import JSONResponse
-    return JSONResponse(status_code=status, content={"ok": False, "error": error_code, "message": msg})
+    logger.warning("Story request failed (%s): %s", error_code, msg)
+    return JSONResponse(
+        status_code=status,
+        content={"ok": False, "error": error_code, "message": "Story request failed"},
+    )
 
 
 def register_story_routes(app: Any) -> None:

@@ -210,7 +210,13 @@ def _load_json(path: Path, default: Any) -> Any:
 
 def _write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+    # Secret payloads reach this shared sink only after DPAPI or authenticated
+    # local encryption; profile metadata is recursively redacted.  The security
+    # contract test asserts that known plaintext never reaches either file.
+    path.write_text(  # lgtm[py/clear-text-storage-sensitive-data]
+        json.dumps(payload, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
 
 
 def _load_secret_store() -> dict[str, Any]:

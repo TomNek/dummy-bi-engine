@@ -657,7 +657,8 @@ def create_app() -> "FastAPI":
             raise RuntimeError("Measure save failed: measure not found after reload")
 
         url = request.url_for("get_measure", name=name)
-        return RedirectResponse(url=f"{url}?project={project_path}&msg=Saved", status_code=303)
+        redirect_url = url.include_query_params(project=project_path, msg="Saved")
+        return RedirectResponse(url=str(redirect_url), status_code=303)
 
     @app.post("/measure/{name}/validate", response_class=HTMLResponse)
     def validate_measure(

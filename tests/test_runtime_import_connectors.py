@@ -200,7 +200,9 @@ def test_import_connector_coverage(tmp_path: Path) -> None:
         assert data.get("rows", [[None, None]])[0][1].get("kind") == "binary_ref"
     else:
         detail = str(data.get("detail") or data.get("error") or "").lower()
-        if "read_blob" in detail:
+        if data.get("error_code") == "E_CONNECTOR_EXTENSION_UNAVAILABLE":
+            assert status == 400
+        elif "read_blob" in detail:
             assert status == 400
         elif "non-json" in detail and "bytes" in detail:
             assert status == 400
@@ -213,7 +215,9 @@ def test_import_connector_coverage(tmp_path: Path) -> None:
             assert (data.get("row_count") or 0) >= 2
         else:
             detail = str(data.get("detail") or data.get("error") or "").lower()
-            if "read_excel" in detail:
+            if data.get("error_code") == "E_CONNECTOR_EXTENSION_UNAVAILABLE":
+                assert status == 400
+            elif "read_excel" in detail:
                 assert status == 400
             else:
                 assert status == 200

@@ -58,7 +58,7 @@ def _parse_one_calc(name: str, expr: str) -> VisualCalc:
 
     # RANK(DENSE, ROWS, ORDERBY([Measure], DESC|ASC))
     m = re.match(
-        r'RANK\s*\(\s*DENSE\s*,\s*ROWS\s*,\s*ORDERBY\s*\(\s*\[([^\]]+)\]\s*,\s*(ASC|DESC)\s*\)\s*\)',
+        r'RANK\s*+\(\s*+DENSE\s*+,\s*+ROWS\s*+,\s*+ORDERBY\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+(ASC|DESC)\s*+\)\s*+\)',
         norm, re.IGNORECASE
     )
     if m:
@@ -71,7 +71,7 @@ def _parse_one_calc(name: str, expr: str) -> VisualCalc:
     # Cumulative/Running total:
     # SUMX(WINDOW(0, ABS, 0, REL, ROWS, ORDERBY([Measure], DESC)), [Measure])
     m = re.match(
-        r'SUMX\s*\(\s*WINDOW\s*\(\s*0\s*,\s*ABS\s*,\s*0\s*,\s*REL\s*,\s*ROWS\s*,\s*ORDERBY\s*\(\s*\[([^\]]+)\]\s*,\s*(ASC|DESC)\s*\)\s*\)\s*,\s*\[([^\]]+)\]\s*\)',
+        r'SUMX\s*+\(\s*+WINDOW\s*+\(\s*+0\s*+,\s*+ABS\s*+,\s*+0\s*+,\s*+REL\s*+,\s*+ROWS\s*+,\s*+ORDERBY\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+(ASC|DESC)\s*+\)\s*+\)\s*+,\s*+\[([^\]]++)\]\s*+\)',
         norm, re.IGNORECASE
     )
     if m:
@@ -84,7 +84,7 @@ def _parse_one_calc(name: str, expr: str) -> VisualCalc:
     # Grand total percentage:
     # FORMAT(DIVIDE([Measure], COLLAPSEALL([Measure], ROWS)), "percent")
     m = re.match(
-        r'FORMAT\s*\(\s*DIVIDE\s*\(\s*\[([^\]]+)\]\s*,\s*COLLAPSEALL\s*\(\s*\[([^\]]+)\]\s*,\s*ROWS\s*\)\s*\)\s*,\s*"percent"\s*\)',
+        r'FORMAT\s*+\(\s*+DIVIDE\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+COLLAPSEALL\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+ROWS\s*+\)\s*+\)\s*+,\s*+"percent"\s*+\)',
         norm, re.IGNORECASE
     )
     if m:
@@ -97,7 +97,7 @@ def _parse_one_calc(name: str, expr: str) -> VisualCalc:
     # Cumulative percentage:
     # FORMAT(DIVIDE([CumulativeCalc], COLLAPSEALL([Measure], ROWS)), "percent")
     m = re.match(
-        r'FORMAT\s*\(\s*DIVIDE\s*\(\s*\[([^\]]+)\]\s*,\s*COLLAPSEALL\s*\(\s*\[([^\]]+)\]\s*,\s*ROWS\s*\)\s*\)\s*,\s*"percent"\s*\)',
+        r'FORMAT\s*+\(\s*+DIVIDE\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+COLLAPSEALL\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+ROWS\s*+\)\s*+\)\s*+,\s*+"percent"\s*+\)',
         norm, re.IGNORECASE
     )
     if m:

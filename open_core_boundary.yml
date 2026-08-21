@@ -104,6 +104,7 @@ edition_rules:
       # Community README (renamed to readme.md during publish)
       - README_community.md
       - README_OPEN_CORE.md
+      - SECURITY.md
       - REDDIT_FEEDBACK.md
       - OPEN_CORE_RELEASE.md
 

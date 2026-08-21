@@ -4278,7 +4278,14 @@ def register_model_ext_routes(app):
             result = _preview_from_source(project_path=project_path, src=src, limit=limit)
             return _ok({"source": src, **result})
         except Exception as exc:  # noqa: BLE001
-            return _err(400, str(exc))
+            detail = str(exc).lower()
+            unavailable_markers = ("read_blob", "read_excel", "read_parquet", "read_json")
+            error_code = (
+                "E_CONNECTOR_EXTENSION_UNAVAILABLE"
+                if any(marker in detail for marker in unavailable_markers)
+                else "E_CONNECTOR_PREVIEW_FAILED"
+            )
+            return _err(400, str(exc), error_code=error_code)
 
     @app.get("/runtime/tables/sources")
     def runtime_tables_sources(project: Optional[str] = None):
