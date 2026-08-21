@@ -1,6 +1,6 @@
 [package]
 name = "dax-to-sql-open-core"
-version = "0.1.0-alpha.2"
+version = "0.1.0"
 edition = "2021"
 description = "Semantic Migration Workbench — desktop shell"
 authors = ["Thomas"]

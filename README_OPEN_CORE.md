@@ -2,6 +2,14 @@
 
 This is a deliberately focused, local-first workbench for testing the project's core idea:
 
+## Download the Windows desktop app
+
+**[Download the latest Windows x64 installer](https://github.com/TomNek/dax-to-sql-open-core/releases/latest/download/DAX-to-SQL-Open-Core-Windows-x64-Setup.exe)**
+
+[Release notes and checksums](https://github.com/TomNek/dax-to-sql-open-core/releases/latest) · [All releases](https://github.com/TomNek/dax-to-sql-open-core/releases)
+
+This is an early feedback build. The installer is not yet Authenticode-signed, so Windows SmartScreen may display a warning.
+
 1. Connect data with any of the project's existing connectors.
 2. Inspect tables, columns, measures, and relationships in the semantic model.
 3. Compile supported DAX expressions to DuckDB SQL and evaluate the result.
