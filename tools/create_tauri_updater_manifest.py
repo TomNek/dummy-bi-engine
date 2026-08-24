@@ -26,6 +26,10 @@ def create_manifest(
     if repository.count("/") != 1:
         raise ValueError("repository must be owner/name")
 
+    # GitHub normalizes spaces to periods when it stores release asset names.
+    # Generate the URL for the stored name, not Tauri's local bundle filename.
+    release_asset_name = installer.name.replace(" ", ".")
+
     payload = {
         "version": version,
         "notes": notes,
@@ -34,7 +38,7 @@ def create_manifest(
                 "signature": signature.read_text(encoding="utf-8").strip(),
                 "url": (
                     f"https://github.com/{repository}/releases/download/"
-                    f"{quote(tag, safe='')}/{quote(installer.name, safe='')}"
+                    f"{quote(tag, safe='')}/{quote(release_asset_name, safe='')}"
                 ),
             }
         },

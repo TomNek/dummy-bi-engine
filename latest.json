@@ -4,7 +4,7 @@
   "platforms": {
     "windows-x86_64": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTanJiQWhoQkVVc2szWHFER1pDWnU0TGtxUTExcU50RFNkS1hvMEhidDZOMWNuTHBzN2hzTDlMM1d0dHlCNXJhdG1wRG8xNGxaN0hJUVJWcFdHWXVscmVVQWdIeHlweXdrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg3NTYwMjEzCWZpbGU6U2VtYW50aWMgTWlncmF0aW9uIFdvcmtiZW5jaF8wLjIuM194NjQtc2V0dXAuZXhlCklOTFg0bU1tcEhCS0RuTGdTWVpwRTNjaDYwbXNyVWFUYVF5TGZWbTlrTmNsUFNKb1liZndtOFIzWitLSmZpQWM1VGt3Rmlrc1NuTm5aTUp4L3pKZ0RRPT0K",
-      "url": "https://github.com/TomNek/dummy-bi-engine/releases/download/v0.2.3/Semantic%20Migration%20Workbench_0.2.3_x64-setup.exe"
+      "url": "https://github.com/TomNek/dummy-bi-engine/releases/download/v0.2.3/Semantic.Migration.Workbench_0.2.3_x64-setup.exe"
     }
   }
 }

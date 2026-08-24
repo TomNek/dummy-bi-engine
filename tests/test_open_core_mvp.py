@@ -92,4 +92,4 @@ def test_updater_manifest_targets_signed_public_release_asset(tmp_path: Path) ->
     platform = payload["platforms"]["windows-x86_64"]
     assert payload["version"] == "0.2.0"
     assert platform["signature"] == "signed-payload"
-    assert platform["url"].endswith("Semantic%20Migration%20Workbench_0.2.0_x64-setup.exe")
+    assert platform["url"].endswith("Semantic.Migration.Workbench_0.2.0_x64-setup.exe")

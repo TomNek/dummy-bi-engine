@@ -420,7 +420,7 @@ def publish(output_dir: Path, *, dry_run: bool = False) -> bool:
     readme_source = ROOT / "README_OPEN_CORE.md"
     if not readme_source.is_file():
         readme_source = ROOT / "readme.md"
-    shutil.copy2(readme_source, output_dir / "readme.md")
+    shutil.copy2(readme_source, output_dir / "README.md")
     _write_filtered_visual_registry(output_dir)
     _write_excluded_feature_stubs(output_dir)
     _strip_excluded_backend_exports(output_dir)

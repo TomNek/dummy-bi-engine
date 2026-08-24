@@ -12,7 +12,7 @@ import yaml
 
 
 REQUIRED = {
-    "readme.md",
+    "README.md",
     "LICENSE",
     "open_core_mvp.yml",
     "dax_compiler.py",
