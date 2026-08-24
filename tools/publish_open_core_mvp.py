@@ -66,6 +66,7 @@ PUBLIC_TESTS = {
     "tests/test_semantic_model_loader_duckdb.py",
     "tests/test_semantic_model_validation.py",
     "tests/test_open_core_mvp.py",
+    "tests/test_open_core_frontend_e2e.py",
 }
 PUBLIC_TOOLS = {
     "tools/check_open_core_boundary.py",
@@ -76,6 +77,7 @@ PUBLIC_TOOLS = {
     "tools/set_open_core_release_version.py",
     "tools/smoke_packaged_backend.ps1",
     "tools/smoke_windows_installer.ps1",
+    "tools/validate_open_core_frontend_build.py",
     "tools/validate_open_core_mvp.py",
 }
 def _is_public_sample_file(rel: str) -> bool:
@@ -271,7 +273,7 @@ def _strip_excluded_backend_exports(output_dir: Path) -> None:
 def _write_public_package(output_dir: Path) -> None:
     target = output_dir / "dax_ui" / "frontend" / "package.json"
     package = json.loads(target.read_text(encoding="utf-8"))
-    package["name"] = "dax-to-sql-open-core-ui"
+    package["name"] = "dummy-bi-engine-ui"
     package["private"] = False
     package["license"] = "AGPL-3.0-only"
     package["homepage"] = "https://www.dummy-bi.com/engine"
@@ -337,17 +339,18 @@ def _write_public_cargo_identity(output_dir: Path) -> None:
     cargo_toml = output_dir / "src-tauri" / "Cargo.toml"
     cargo_text = cargo_toml.read_text(encoding="utf-8")
     cargo_text, count = re.subn(
-        r'(^\[package\][\s\S]*?^name\s*=\s*)"semantic-migration-workbench"',
-        r'\g<1>"dax-to-sql-open-core"',
+        r'(^\[package\][\s\S]*?^name\s*=\s*)"(?:semantic-migration-workbench|dummy-bi-engine)"',
+        r'\g<1>"dummy-bi-engine"',
         cargo_text,
         count=1,
         flags=re.MULTILINE,
     )
-    if count != 1 and 'name = "dax-to-sql-open-core"' not in cargo_text:
+    if count != 1 and 'name = "dummy-bi-engine"' not in cargo_text:
         raise ValueError("Could not rewrite the public Cargo package name")
+    # Keep the published package identity aligned with the desktop product.
     cargo_text = re.sub(
         r'^description\s*=\s*"[^"]*"',
-        'description = "Semantic Migration Workbench — open-core desktop shell"',
+        'description = "Dummy BI Engine — open-core desktop shell"',
         cargo_text,
         count=1,
         flags=re.MULTILINE,
@@ -380,12 +383,12 @@ def _write_public_cargo_identity(output_dir: Path) -> None:
     cargo_lock = output_dir / "src-tauri" / "Cargo.lock"
     lock_text = cargo_lock.read_text(encoding="utf-8")
     lock_text, count = re.subn(
-        r'(\[\[package\]\]\r?\nname = )"semantic-migration-workbench"',
-        r'\g<1>"dax-to-sql-open-core"',
+        r'(\[\[package\]\]\r?\nname = )"(?:semantic-migration-workbench|dummy-bi-engine)"',
+        r'\g<1>"dummy-bi-engine"',
         lock_text,
         count=1,
     )
-    if count != 1 and 'name = "dax-to-sql-open-core"' not in lock_text:
+    if count != 1 and 'name = "dummy-bi-engine"' not in lock_text:
         raise ValueError("Could not rewrite the public Cargo.lock package name")
     cargo_lock.write_text(lock_text, encoding="utf-8")
 

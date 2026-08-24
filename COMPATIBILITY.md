@@ -1,6 +1,6 @@
 # Alpha compatibility contract
 
-This contract applies to **Semantic Migration Workbench 0.1.0-alpha.1** on
+This contract applies to **Dummy BI Engine 0.1.0-alpha.1** on
 Windows. “Certified” means the behavior is exercised by `tools/run_alpha_gate.py`;
 it does not mean full Power BI compatibility.
 

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "./**/*.{ts,tsx}";
 
 @theme {
   /* Colors - Modern subtle UI chrome */

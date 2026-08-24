@@ -147,7 +147,7 @@ def validate(root: Path) -> list[str]:
     tauri_path = root / "src-tauri" / "tauri.conf.json"
     if tauri_path.exists():
         tauri = json.loads(tauri_path.read_text(encoding="utf-8"))
-        if tauri.get("productName") != "Semantic Migration Workbench":
+        if tauri.get("productName") != "Dummy BI Engine":
             errors.append("Public Tauri product name is incorrect")
         if tauri.get("bundle", {}).get("externalBin") != ["binaries/dax_backend"]:
             errors.append("Public Tauri config does not bundle the backend sidecar")
@@ -164,7 +164,7 @@ def validate(root: Path) -> list[str]:
     cargo_toml = root / "src-tauri" / "Cargo.toml"
     if cargo_toml.exists():
         cargo_text = cargo_toml.read_text(encoding="utf-8")
-        if 'name = "dax-to-sql-open-core"' not in cargo_text:
+        if 'name = "dummy-bi-engine"' not in cargo_text:
             errors.append("Public Cargo package name is incorrect")
         if "tauri-plugin-updater" not in cargo_text or "tauri-plugin-process" not in cargo_text:
             errors.append("Public Cargo package is missing updater and restart plugins")

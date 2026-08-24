@@ -1,6 +1,6 @@
 schema_version: 1
 product:
-  name: Semantic Migration Workbench
+  name: Dummy BI Engine
   audience: BI and data engineers evaluating local semantic-model migration
   promise: >
     Use the same local desktop workbench shell for projects, data, semantic

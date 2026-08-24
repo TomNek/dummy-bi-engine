@@ -17,7 +17,7 @@ def create_manifest(
     repository: str,
     tag: str,
     output: Path,
-    notes: str = "A new Semantic Migration Workbench version is available.",
+    notes: str = "A new Dummy BI Engine version is available.",
 ) -> Path:
     if not installer.is_file():
         raise FileNotFoundError(installer)
@@ -56,7 +56,7 @@ def main() -> int:
     parser.add_argument("--repository", required=True)
     parser.add_argument("--tag", required=True)
     parser.add_argument("--output", required=True, type=Path)
-    parser.add_argument("--notes", default="A new Semantic Migration Workbench version is available.")
+    parser.add_argument("--notes", default="A new Dummy BI Engine version is available.")
     args = parser.parse_args()
     print(create_manifest(
         args.installer,

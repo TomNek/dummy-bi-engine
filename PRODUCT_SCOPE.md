@@ -1,6 +1,6 @@
-# Semantic Migration Workbench 0.1.0-alpha.1
+# Dummy BI Engine 0.1.0-alpha.1
 
-Semantic Migration Workbench is a local Windows technical preview for inspecting,
+Dummy BI Engine is a local Windows technical preview for inspecting,
 adapting, and validating DAX-style semantic models and Power Query M workflows on
 DuckDB. It is not a Power BI replacement and does not claim complete DAX, M, or
 Power BI compatibility.

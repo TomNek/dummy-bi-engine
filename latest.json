@@ -1,10 +1,10 @@
 {
-  "version": "0.2.3",
-  "notes": "A new Semantic Migration Workbench version is available.",
+  "version": "0.2.4",
+  "notes": "A new Dummy BI Engine version is available.",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTanJiQWhoQkVVc2szWHFER1pDWnU0TGtxUTExcU50RFNkS1hvMEhidDZOMWNuTHBzN2hzTDlMM1d0dHlCNXJhdG1wRG8xNGxaN0hJUVJWcFdHWXVscmVVQWdIeHlweXdrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg3NTYwMjEzCWZpbGU6U2VtYW50aWMgTWlncmF0aW9uIFdvcmtiZW5jaF8wLjIuM194NjQtc2V0dXAuZXhlCklOTFg0bU1tcEhCS0RuTGdTWVpwRTNjaDYwbXNyVWFUYVF5TGZWbTlrTmNsUFNKb1liZndtOFIzWitLSmZpQWM1VGt3Rmlrc1NuTm5aTUp4L3pKZ0RRPT0K",
-      "url": "https://github.com/TomNek/dummy-bi-engine/releases/download/v0.2.3/Semantic.Migration.Workbench_0.2.3_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTanJiQWhoQkVVc2lNSDdEbWVaUWxrQXFLNW93Ykw1QW81OERpVnVyMmQvZng1Q2xsQ1FiSDVLeDVPS1hPYm9XdG1HMFFUb0J5YkFQaTZya2UrNmJkbVk3SHJKWkljdlFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg3NTkwNDI3CWZpbGU6RHVtbXkgQkkgRW5naW5lXzAuMi40X3g2NC1zZXR1cC5leGUKMmdqaXY4Ujg4M1hrSmhxZldlQ3hCZGhKb21BK3JFMUV1YXVxcHRsQzJJZlI3LzVPYjFwcnZ0S3VIQXZNVTBaWmZYY1crM2FIK3hhcUVpM0dEaUFSRHc9PQo=",
+      "url": "https://github.com/TomNek/dummy-bi-engine/releases/download/v0.2.4/Dummy.BI.Engine_0.2.4_x64-setup.exe"
     }
   }
 }

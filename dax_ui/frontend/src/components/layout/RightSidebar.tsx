@@ -208,12 +208,13 @@ function FilterSection({ title, filters, onAdd, onRemove, onEdit, onClearAll }: 
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-      <CollapsibleTrigger asChild>
-        <Button
-          variant="ghost"
-          className="w-full justify-between px-2 h-8 font-medium hover:bg-accent"
-          data-testid={`filter-section-${slug}`}
-        >
+      <div className="flex items-center w-full hover:bg-accent">
+        <CollapsibleTrigger asChild>
+          <Button
+            variant="ghost"
+            className="flex-1 justify-start px-2 h-8 font-medium hover:bg-transparent"
+            data-testid={`filter-section-${slug}`}
+          >
           <div className="flex items-center gap-2">
             {isOpen ? (
               <ChevronDown className="h-4 w-4" />
@@ -223,7 +224,9 @@ function FilterSection({ title, filters, onAdd, onRemove, onEdit, onClearAll }: 
             <span className="text-xs">{title}</span>
             <span className="text-[10px] text-muted-foreground">({filters.length})</span>
           </div>
-          <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
+          </Button>
+        </CollapsibleTrigger>
+          <div className="flex items-center gap-1 pr-1">
             {onClearAll && filters.length > 0 && (
               <Button
                 variant="ghost"
@@ -249,8 +252,7 @@ function FilterSection({ title, filters, onAdd, onRemove, onEdit, onClearAll }: 
               </Button>
             )}
           </div>
-        </Button>
-      </CollapsibleTrigger>
+      </div>
       <CollapsibleContent>
         <div className="space-y-2 px-2 pb-2">
           {filters.length === 0 ? (

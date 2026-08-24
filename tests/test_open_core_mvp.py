@@ -73,7 +73,7 @@ def test_published_artifact_passes_boundary_validator(tmp_path: Path) -> None:
 
 
 def test_updater_manifest_targets_signed_public_release_asset(tmp_path: Path) -> None:
-    installer = tmp_path / "Semantic Migration Workbench_0.2.0_x64-setup.exe"
+    installer = tmp_path / "Dummy BI Engine_0.2.0_x64-setup.exe"
     signature = installer.with_suffix(installer.suffix + ".sig")
     installer.write_bytes(b"installer")
     signature.write_text("signed-payload", encoding="utf-8")
@@ -92,4 +92,4 @@ def test_updater_manifest_targets_signed_public_release_asset(tmp_path: Path) ->
     platform = payload["platforms"]["windows-x86_64"]
     assert payload["version"] == "0.2.0"
     assert platform["signature"] == "signed-payload"
-    assert platform["url"].endswith("Semantic.Migration.Workbench_0.2.0_x64-setup.exe")
+    assert platform["url"].endswith("Dummy.BI.Engine_0.2.0_x64-setup.exe")

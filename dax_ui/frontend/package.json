@@ -1,7 +1,7 @@
 {
-  "name": "dax-to-sql-open-core-ui",
+  "name": "dummy-bi-engine-ui",
   "private": false,
-  "version": "0.2.3",
+  "version": "0.2.4",
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.open-core.config.ts",

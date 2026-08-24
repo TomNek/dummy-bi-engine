@@ -70,8 +70,8 @@ updated first; GitHub then creates `v0.1.0-alpha.2` in the public repository and
 attaches:
 
 - the raw NSIS setup executable;
-- `DAX-to-SQL-Open-Core-<version>-windows-x64.zip`;
-- the signed Semantic Migration Workbench installer and `.sig` file;
+- `Dummy-BI-Engine-Open-Core-<version>-windows-x64.zip`;
+- the signed Dummy BI Engine installer and `.sig` file;
 - `latest.json` for the Tauri updater;
 - bundle and source checksums;
 - the validated source ZIP.

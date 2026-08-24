@@ -1,2 +1,2 @@
-export const PRODUCT_NAME = 'Semantic Migration Workbench'
-export const PRODUCT_SHORT_NAME = 'Migration Workbench'
+export const PRODUCT_NAME = 'Dummy BI Engine'
+export const PRODUCT_SHORT_NAME = 'Dummy BI Engine'

@@ -1,7 +1,7 @@
 {
-  "productName": "Semantic Migration Workbench",
-  "version": "0.2.3",
-  "identifier": "com.dax-to-sql.open-core",
+  "productName": "Dummy BI Engine",
+  "version": "0.2.4",
+  "identifier": "com.dummy-bi.engine",
   "build": {
     "beforeBuildCommand": "",
     "beforeDevCommand": "",
@@ -10,7 +10,7 @@
   "app": {
     "windows": [
       {
-        "title": "Semantic Migration Workbench",
+        "title": "Dummy BI Engine",
         "width": 1920,
         "height": 1080,
         "minWidth": 1024,

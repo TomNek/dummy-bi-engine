@@ -2,8 +2,8 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$Installer,
     [string]$Workspace = "sample_project",
-    [string]$ExpectedUiText = "Semantic Migration Workbench",
-    [string]$AppExecutableName = "semantic-migration-workbench.exe",
+    [string]$ExpectedUiText = "Dummy BI Engine",
+    [string]$AppExecutableName = "dummy-bi-engine.exe",
     [switch]$OpenCore,
     [int]$TimeoutSeconds = 120
 )

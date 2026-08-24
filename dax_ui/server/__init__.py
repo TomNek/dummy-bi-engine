@@ -406,7 +406,7 @@ def create_app() -> "FastAPI":
                 except Exception as exc:
                     logger.warning("[subscriptions] failed to stop dispatcher: %s", exc)
 
-    app = FastAPI(title="Semantic Migration Workbench", lifespan=lifespan)
+    app = FastAPI(title="Dummy BI Engine", lifespan=lifespan)
 
     # Desktop token auth middleware (active only when DAX_DESKTOP_TOKEN is set)
     try:

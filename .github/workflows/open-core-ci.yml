@@ -48,4 +48,11 @@ jobs:
         run: npm audit --audit-level=low
       - name: Build public frontend
         working-directory: dist/open-core-ci/dax_ui/frontend
-        run: npm run build
+        run: |
+          npm run build
+          python ../../tools/validate_open_core_frontend_build.py dist
+      - name: Smoke-test public frontend workflows
+        working-directory: dist/open-core-ci
+        run: |
+          python -m playwright install chromium
+          python -m pytest -q -p no:cacheprovider tests/test_open_core_frontend_e2e.py

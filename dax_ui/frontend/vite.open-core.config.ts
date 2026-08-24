@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   root: path.resolve(__dirname, 'open-core'),
+  base: '/',
+  publicDir: path.resolve(__dirname, 'public'),
   define: {
     __OPEN_CORE__: 'true',
   },
@@ -20,7 +22,7 @@ export default defineConfig({
     port: 5174,
     proxy: {
       '/runtime': {
-        target: 'http://127.0.0.1:8000',
+        target: process.env.VITE_RUNTIME_PROXY ?? 'http://127.0.0.1:8000',
         changeOrigin: true,
       },
     },

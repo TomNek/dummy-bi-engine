@@ -2908,8 +2908,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "dax-to-sql-open-core"
-version = "0.2.3"
+name = "dummy-bi-engine"
+version = "0.2.4"
 dependencies = [
  "rand",
  "serde",

@@ -1,8 +1,8 @@
 [package]
-name = "dax-to-sql-open-core"
-version = "0.2.3"
+name = "dummy-bi-engine"
+version = "0.2.4"
 edition = "2021"
-description = "Semantic Migration Workbench — open-core desktop shell"
+description = "Dummy BI Engine — open-core desktop shell"
 repository = "https://github.com/TomNek/dummy-bi-engine"
 homepage = "https://www.dummy-bi.com/engine"
 authors = ["Thomas"]

@@ -2,7 +2,7 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$BackendExe,
     [string]$Workspace = "sample_project",
-    [string]$ExpectedUiText = "Semantic Migration Workbench",
+    [string]$ExpectedUiText = "Dummy BI Engine",
     [switch]$OpenCore,
     [int]$TimeoutSeconds = 90
 )

@@ -1,6 +1,6 @@
-# Semantic Migration Workbench — Open Core
+# Dummy BI Engine — Open Core
 
-This repository contains the local open-core edition of Semantic Migration Workbench. It uses the same application shell as the full desktop product.
+This repository contains the local open-core edition of Dummy BI Engine. It uses the same application shell as the full desktop product.
 
 ## Download the Windows desktop app
 

@@ -3,7 +3,7 @@ import { type VisualInfo, type VisualInteractions, type ColumnRef, exportVisual,
 import { useVisualRender, useInteractions, useVisualDragResize, useMatrixState, useMatrixStore, useTheme } from '@/hooks'
 import { EMPTY_RENDER_STATE } from '@/hooks/useVisualRender'
 import { useAppStore, useReportStore, useThemeStore } from '@/stores'
-import { useFilterStore } from '@/stores/filter-store'
+import { useFilterStore, type Filter as VisualFilter } from '@/stores/filter-store'
 import { useChartDrillStore } from '@/stores/chart-drill-store'
 import { useDrillthroughStore } from '@/stores/drillthrough-store'
 import { shadowClass } from '@/lib/theme-defaults'
@@ -42,6 +42,7 @@ const Plot = lazy(() => import('react-plotly.js'))
 // Default dimensions
 const DEFAULT_WIDTH = 400
 const DEFAULT_HEIGHT = 300
+const EMPTY_VISUAL_FILTERS: VisualFilter[] = []
 
 interface VisualCardProps {
   visual: VisualInfo
@@ -194,7 +195,7 @@ export function VisualCard({ visual, isSelected, isInGroup, groupMembers, onSele
   const cutVisualToClipboard = useReportStore(s => s.cutVisualToClipboard)
   const editInteractionsSourceId = useReportStore(s => s.editInteractionsSourceId)
   const visuals = useReportStore(s => s.visuals)
-  const persistedVisualFilters = useFilterStore(s => s.visualFilters[visual.id] || [])
+  const persistedVisualFilters = useFilterStore(s => s.visualFilters[visual.id] ?? EMPTY_VISUAL_FILTERS)
   const [exporting, setExporting] = useState(false)
   const [deleting, setDeleting] = useState(false)
   const [removingHidden, setRemovingHidden] = useState(false)

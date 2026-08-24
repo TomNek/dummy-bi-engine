@@ -1,4 +1,4 @@
-//! Semantic Migration Workbench — Tauri v2 desktop shell
+//! Dummy BI Engine — Tauri v2 desktop shell
 //!
 //! Lifecycle:
 //! 1. Generate a random auth token

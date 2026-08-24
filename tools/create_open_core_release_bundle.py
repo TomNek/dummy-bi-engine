@@ -33,7 +33,7 @@ def create_bundle(installer: Path, output_dir: Path, version: str = __version__)
         "artifact": installer.name,
         "bytes": len(installer_bytes),
         "platform": "windows-x64",
-        "product": "Semantic Migration Workbench",
+        "product": "Dummy BI Engine",
         "profile": "open-core-mvp",
         "homepage": "https://www.dummy-bi.com/engine",
         "sha256": _sha256(installer_bytes),
@@ -46,7 +46,7 @@ def create_bundle(installer: Path, output_dir: Path, version: str = __version__)
         f"{_sha256(manifest_bytes)}  release-manifest.json\n"
     ).encode("ascii")
     safe_version = version.replace("+", "-")
-    bundle = output_dir / f"Semantic-Migration-Workbench-Open-Core-{safe_version}-windows-x64.zip"
+    bundle = output_dir / f"Dummy-BI-Engine-Open-Core-{safe_version}-windows-x64.zip"
     with zipfile.ZipFile(bundle, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for name, data in sorted(
             {installer.name: installer_bytes, "release-manifest.json": manifest_bytes, "SHA256SUMS.txt": sums}.items()
