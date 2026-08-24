@@ -57,14 +57,10 @@ def _ok(payload: Mapping[str, Any]) -> dict[str, Any]:
     return {"ok": True, **dict(payload)}
 
 
-def _err(status_code: int, message: str, **extra: Any) -> JSONResponse:
+def _err(status_code: int, _message: str, **extra: Any) -> JSONResponse:
     # Never reflect exception-derived text into an HTTP response. Detailed
     # failures belong in server logs; the desktop UI receives a stable message
     # and any explicit error code supplied by the route.
-    safe_literals = frozenset({
-        "advanced_plotly_patch must be an object",
-        "advanced_plotly_patch must be JSON-serializable",
-    })
     safe_message = {
         400: "The request could not be completed. Check the supplied values.",
         401: "Authentication is required.",
@@ -73,8 +69,6 @@ def _err(status_code: int, message: str, **extra: Any) -> JSONResponse:
         409: "The request conflicts with the current project state.",
         413: "The request is too large.",
     }.get(status_code, "An internal error occurred.")
-    if message in safe_literals:
-        safe_message = message
     body: dict[str, Any] = {"ok": False, "error": safe_message}
     body.update(extra)
     return JSONResponse(status_code=status_code, content=body)
