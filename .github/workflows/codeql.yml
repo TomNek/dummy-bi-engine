@@ -35,11 +35,6 @@ jobs:
             area: project
             paths: '["dax_project/*.py"]'
           - language: python
-            area: power-query
-            # Retain the historical category long enough to retire findings for
-            # Power Query code that is intentionally absent from open core.
-            paths: '["dax_project/open_core_profile.py"]'
-          - language: python
             area: server
             paths: '["dax_ui/server"]'
           - language: python
