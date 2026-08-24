@@ -152,7 +152,10 @@ def collect_open_core_files() -> list[str]:
             continue
         if Path(rel).parent == Path(".") and rel.lower().endswith(".md") and rel not in PUBLIC_ROOT_DOCUMENTS:
             continue
-        if rel.startswith(".github/workflows/") and rel != ".github/workflows/open-core-ci.yml":
+        if rel.startswith(".github/workflows/") and rel not in {
+            ".github/workflows/open-core-ci.yml",
+            ".github/workflows/codeql.yml",
+        }:
             continue
         selected.append(rel)
     return sorted(set(selected))

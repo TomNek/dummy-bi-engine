@@ -454,8 +454,8 @@ def register_visual_routes(app):
                         path="$.advanced_plotly_patch",
                         strict=True,
                     )
-                except TypeError as exc:
-                    return _err(400, f"advanced_plotly_patch must be JSON-serializable; {exc}")
+                except TypeError:
+                    return _err(400, "advanced_plotly_patch must be JSON-serializable")
 
         if "static_content" in payload:
             sc_raw = payload.get("static_content")
@@ -2195,9 +2195,9 @@ def register_visual_routes(app):
                 )
                 highlight_cols_full = list(h_cols)
                 highlight_rows_full = list(h_rows)
-            except Exception as exc:  # noqa: BLE001
+            except Exception:  # noqa: BLE001
                 highlight_ok = False
-                highlight_error = str(exc)
+                highlight_error = "Highlight query failed"
                 highlight_query = {
                     "sql": str(highlight_sql or ""),
                     "row_count": 0,
@@ -2381,13 +2381,13 @@ def register_visual_routes(app):
                 "ok": False,
                 "blocked": True,
                 "hidden_refs": list(exc.hidden_refs),
-                "error": str(exc),
+                "error": "Visual rendering failed",
             }
         except Exception as exc:
             return {
                 "visual_id": visual_id,
                 "ok": False,
-                "error": str(exc),
+                "error": "Visual rendering failed",
             }
 
         cols_out = list(cols)
@@ -2825,11 +2825,11 @@ def register_visual_routes(app):
                     result["figure"] = fig
                 except ImportError:
                     result["plotly_not_installed"] = True
-                except Exception as fig_exc:
-                    result["figure_error"] = str(fig_exc)
+                except Exception:
+                    result["figure_error"] = "Figure rendering failed"
 
-            except Exception as exc:  # noqa: BLE001
-                result["error"] = str(exc)
+            except Exception:  # noqa: BLE001
+                result["error"] = "Visual rendering failed"
 
             rendered_visuals.append(result)
 
@@ -4677,7 +4677,7 @@ def register_visual_routes(app):
                 )
             except Exception as exc:  # noqa: BLE001
                 ws.append(["Error"])
-                ws.append([str(exc)])
+                ws.append(["Visual export failed"])
                 query_rows.append(
                     {
                         "visual_id": visual_id,

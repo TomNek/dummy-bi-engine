@@ -47,9 +47,11 @@ def _parse_one_calc(name: str, expr: str) -> VisualCalc:
     """Parse a single visual calculation expression."""
     # Normalize whitespace
     norm = " ".join(expr.split())
+    if len(norm) > 8192:
+        return VisualCalc(name=name, expression=expr, calc_type='unknown')
 
     # Simple reference: [MeasureName]
-    m = re.match(r'^\[([^\]]+)\]$', norm)
+    m = re.fullmatch(r'\[([^\]]++)\]', norm)
     if m:
         return VisualCalc(
             name=name, expression=expr,
@@ -57,8 +59,8 @@ def _parse_one_calc(name: str, expr: str) -> VisualCalc:
         )
 
     # RANK(DENSE, ROWS, ORDERBY([Measure], DESC|ASC))
-    m = re.match(
-        r'RANK\s*\(\s*DENSE\s*,\s*ROWS\s*,\s*ORDERBY\s*\(\s*\[([^\]]+)\]\s*,\s*(ASC|DESC)\s*\)\s*\)',
+    m = re.fullmatch(
+        r'RANK\s*+\(\s*+DENSE\s*+,\s*+ROWS\s*+,\s*+ORDERBY\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+(ASC|DESC)\s*+\)\s*+\)',
         norm, re.IGNORECASE
     )
     if m:
@@ -70,8 +72,8 @@ def _parse_one_calc(name: str, expr: str) -> VisualCalc:
 
     # Cumulative/Running total:
     # SUMX(WINDOW(0, ABS, 0, REL, ROWS, ORDERBY([Measure], DESC)), [Measure])
-    m = re.match(
-        r'SUMX\s*\(\s*WINDOW\s*\(\s*0\s*,\s*ABS\s*,\s*0\s*,\s*REL\s*,\s*ROWS\s*,\s*ORDERBY\s*\(\s*\[([^\]]+)\]\s*,\s*(ASC|DESC)\s*\)\s*\)\s*,\s*\[([^\]]+)\]\s*\)',
+    m = re.fullmatch(
+        r'SUMX\s*+\(\s*+WINDOW\s*+\(\s*+0\s*+,\s*+ABS\s*+,\s*+0\s*+,\s*+REL\s*+,\s*+ROWS\s*+,\s*+ORDERBY\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+(ASC|DESC)\s*+\)\s*+\)\s*+,\s*+\[([^\]]++)\]\s*+\)',
         norm, re.IGNORECASE
     )
     if m:
@@ -83,21 +85,8 @@ def _parse_one_calc(name: str, expr: str) -> VisualCalc:
 
     # Grand total percentage:
     # FORMAT(DIVIDE([Measure], COLLAPSEALL([Measure], ROWS)), "percent")
-    m = re.match(
-        r'FORMAT\s*\(\s*DIVIDE\s*\(\s*\[([^\]]+)\]\s*,\s*COLLAPSEALL\s*\(\s*\[([^\]]+)\]\s*,\s*ROWS\s*\)\s*\)\s*,\s*"percent"\s*\)',
-        norm, re.IGNORECASE
-    )
-    if m:
-        return VisualCalc(
-            name=name, expression=expr,
-            calc_type='grand_total_pct', ref_measure=m.group(1),
-            format_type='percent'
-        )
-
-    # Cumulative percentage:
-    # FORMAT(DIVIDE([CumulativeCalc], COLLAPSEALL([Measure], ROWS)), "percent")
-    m = re.match(
-        r'FORMAT\s*\(\s*DIVIDE\s*\(\s*\[([^\]]+)\]\s*,\s*COLLAPSEALL\s*\(\s*\[([^\]]+)\]\s*,\s*ROWS\s*\)\s*\)\s*,\s*"percent"\s*\)',
+    m = re.fullmatch(
+        r'FORMAT\s*+\(\s*+DIVIDE\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+COLLAPSEALL\s*+\(\s*+\[([^\]]++)\]\s*+,\s*+ROWS\s*+\)\s*+\)\s*+,\s*+"percent"\s*+\)',
         norm, re.IGNORECASE
     )
     if m:

@@ -62,7 +62,15 @@ def _ok(data: Any) -> dict:
 
 def _err(status: int, msg: str, error_code: str = "E_SELECTION_STATE") -> dict:
     from fastapi.responses import JSONResponse
-    return JSONResponse(status_code=status, content={"ok": False, "error": error_code, "message": msg})
+    del msg
+    return JSONResponse(
+        status_code=status,
+        content={
+            "ok": False,
+            "error": error_code,
+            "message": "Selection state could not be calculated.",
+        },
+    )
 
 
 def register_selection_routes(app: Any) -> None:
@@ -252,7 +260,7 @@ def register_selection_routes(app: Any) -> None:
                         "all_values": [],
                         "possible": [],
                         "excluded": [],
-                        "error": str(exc),
+                        "error": "Selection query failed",
                     }
 
         except Exception as exc:

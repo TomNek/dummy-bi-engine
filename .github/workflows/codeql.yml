@@ -35,6 +35,9 @@ jobs:
             area: project
             paths: '["dax_project/*.py"]'
           - language: python
+            area: power-query
+            paths: '["dax_project/power_query"]'
+          - language: python
             area: server
             paths: '["dax_ui/server"]'
           - language: python
@@ -49,6 +52,9 @@ jobs:
         uses: github/codeql-action/init@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4
         with:
           languages: ${{ matrix.language }}
+          # Split the interpreted code into independently uploaded databases.
+          # This preserves every default security query while preventing a few
+          # Python data-flow queries from exceeding CodeQL's 2 GiB result limit.
           config: |
             paths: ${{ matrix.paths }}
       - name: Analyze

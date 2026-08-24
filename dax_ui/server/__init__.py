@@ -371,7 +371,7 @@ def create_app() -> "FastAPI":
 
     try:
         from fastapi import FastAPI, Form
-        from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
+        from fastapi.responses import HTMLResponse, FileResponse
         from fastapi.staticfiles import StaticFiles
         from fastapi.templating import Jinja2Templates
     except ImportError as exc:  # pragma: no cover
@@ -604,7 +604,7 @@ def create_app() -> "FastAPI":
                 model, _pages, _visuals = load_project(project_path)
                 measures = list_measures(model)
         except Exception as exc:  # noqa: BLE001
-            error = str(exc)
+            error = "Measure validation failed"
 
         return templates.TemplateResponse(
             "index.html",
@@ -661,8 +661,10 @@ def create_app() -> "FastAPI":
         if get_measure(model, name) is None:
             raise RuntimeError("Measure save failed: measure not found after reload")
 
-        url = request.url_for("get_measure", name=name)
-        return RedirectResponse(url=f"{url}?project={project_path}&msg=Saved", status_code=303)
+        # The React desktop client does not use this legacy form redirect.
+        # Return structured data instead of constructing a redirect target from
+        # request-controlled project and measure values.
+        return {"ok": True, "project": project_path, "measure": name, "message": "Saved"}
 
     @app.post("/measure/{name}/validate", response_class=HTMLResponse)
     def validate_measure(

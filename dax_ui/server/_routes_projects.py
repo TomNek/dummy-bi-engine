@@ -32,7 +32,14 @@ def _ok(payload: dict) -> dict:
 
 
 def _err(status_code: int, message: str) -> JSONResponse:
-    return JSONResponse(status_code=status_code, content={"ok": False, "error": message})
+    del message
+    safe_message = {
+        400: "The project operation could not be completed.",
+        403: "The selected path is not allowed.",
+        404: "The requested project was not found.",
+        413: "The uploaded project is too large.",
+    }.get(status_code, "An internal project error occurred.")
+    return JSONResponse(status_code=status_code, content={"ok": False, "error": safe_message})
 
 
 def _selected_path(raw: str, label: str, *, must_exist: bool = False) -> Path:
