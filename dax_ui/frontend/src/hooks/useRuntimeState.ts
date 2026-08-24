@@ -2,6 +2,12 @@ import { useCallback, useState } from 'react'
 import { useAppStore, useReportStore, useFilterStore, useModelViewStore, useThemeStore, type Filter, type PlaybookMeta } from '@/stores'
 import { getRuntimeState, getSecurityRoles, getRuntimeMeta, getFilters, getReportingTheme, clearApiDedupCache } from '@/lib/api'
 
+function normalizeBootstrapProject(value?: string | null): string {
+  const candidate = value?.trim() || ''
+  if (/%[^%]+%|\$\{[^}]+\}/.test(candidate)) return ''
+  return candidate
+}
+
 /**
  * Hook to load and manage runtime state
  * Fetches project data, pages, visuals, fields, and security roles
@@ -274,7 +280,7 @@ export function useRuntimeState() {
   ])
 
   const bootstrap = useCallback(async (): Promise<BootstrapResult> => {
-    const urlProject = getProjectFromUrl()
+    const urlProject = normalizeBootstrapProject(getProjectFromUrl())
     const app = useAppStore.getState()
     const report = useReportStore.getState()
 
@@ -310,7 +316,7 @@ export function useRuntimeState() {
       useAppStore.getState().setUserRole(data.user_role as 'admin' | 'editor' | 'viewer')
     }
 
-    const active = (data?.active_project || '').trim()
+    const active = normalizeBootstrapProject(data?.active_project)
     if (active) {
       const source = data?.active_project_source === 'env' ? 'env' : 'manual'
       app.setProjectSource(source)

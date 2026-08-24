@@ -14,6 +14,9 @@ import yaml
 REQUIRED = {
     "README.md",
     "LICENSE",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "THIRD_PARTY_NOTICES.md",
     "open_core_mvp.yml",
     "dax_compiler.py",
     "semantic_model_loader.py",
@@ -21,6 +24,8 @@ REQUIRED = {
     "dax_project/visual_types.yaml",
     "dax_ui/open_core_app.py",
     "dax_ui/open_core_main.py",
+    "dax_ui/desktop_auth.py",
+    "dax_ui/server/_routes_projects.py",
     "dax_ui/frontend/open-core/index.html",
     "dax_ui/frontend/open-core/src/main.tsx",
     "dax_ui/frontend/src/App.tsx",
@@ -74,6 +79,17 @@ REMOVED_IMPLEMENTATIONS = {
     "dax_engine/subscription_product.py",
     "dax_engine/threshold_scheduler.py",
 }
+FORBIDDEN_ROOT_FILES = {
+    ".dockerignore",
+    "AI_POLICY.md",
+    "COMPATIBILITY.md",
+    "Dockerfile",
+    "OPEN_CORE_RELEASE.md",
+    "PRODUCT_SCOPE.md",
+    "README_OPEN_CORE.md",
+    "REDDIT_FEEDBACK.md",
+    "docker-compose.yml",
+}
 
 
 def validate(root: Path) -> list[str]:
@@ -90,6 +106,8 @@ def validate(root: Path) -> list[str]:
             errors.append(f"Forbidden path in artifact: {rel}")
         if rel.startswith(EXCLUDED_IMPLEMENTATION_PREFIXES) and rel not in COMPATIBILITY_STUBS:
             errors.append(f"Excluded feature implementation in artifact: {rel}")
+    for rel in sorted(FORBIDDEN_ROOT_FILES & relative_files):
+        errors.append(f"Internal or obsolete root file in artifact: {rel}")
     for rel in sorted(COMPATIBILITY_STUBS & relative_files):
         content = (root / rel).read_text(encoding="utf-8", errors="ignore")
         if "Open-core compatibility stub." not in content or len(content) > 1500:
@@ -176,6 +194,14 @@ def validate(root: Path) -> list[str]:
     launcher = root / "dax_ui" / "open_core_main.py"
     if launcher.exists() and "OPEN_CORE_PROFILE" not in launcher.read_text(encoding="utf-8"):
         errors.append("Public backend launcher does not enforce the open-core runtime profile")
+    license_path = root / "LICENSE"
+    if license_path.exists() and "PolyForm Noncommercial License 1.0.0" not in license_path.read_text(encoding="utf-8"):
+        errors.append("Public artifact does not use the required noncommercial license")
+    auth_path = root / "dax_ui" / "desktop_auth.py"
+    if auth_path.exists():
+        auth_text = auth_path.read_text(encoding="utf-8")
+        if '"/runtime/meta"' in auth_text.partition("_EXEMPT_PATHS")[2].partition("}")[0]:
+            errors.append("Sensitive /runtime/meta API is exempt from desktop authentication")
     return errors
 
 

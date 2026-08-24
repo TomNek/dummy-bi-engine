@@ -6,7 +6,7 @@ description = "Dummy BI Engine — open-core desktop shell"
 repository = "https://github.com/TomNek/dummy-bi-engine"
 homepage = "https://www.dummy-bi.com/engine"
 authors = ["Thomas"]
-license = "AGPL-3.0-only"
+license-file = "../LICENSE"
 
 [dependencies]
 tauri = { version = "2", features = [] }

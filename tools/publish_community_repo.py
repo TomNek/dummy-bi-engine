@@ -4,7 +4,7 @@ Publish Community Repo
 
 Copies only the community-allowed paths from the current repository
 into a clean `dist/community_repo/` folder, suitable for publishing
-as the AGPL Community Edition.
+as the noncommercial source-available edition.
 
 Usage:
     python tools/publish_community_repo.py [--output dist/community_repo]

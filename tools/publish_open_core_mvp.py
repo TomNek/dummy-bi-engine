@@ -58,6 +58,12 @@ EXCLUDED_IMPLEMENTATION_FILES = {
     "dax_engine/subscription_product.py",
     "dax_engine/threshold_scheduler.py",
 }
+PUBLIC_ROOT_DOCUMENTS = {
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "SECURITY.md",
+    "THIRD_PARTY_NOTICES.md",
+}
 PUBLIC_TESTS = {
     "tests/conftest.py",
     "tests/test_compiler_mapping_load.py",
@@ -142,7 +148,9 @@ def collect_open_core_files() -> list[str]:
             continue
         if rel.startswith("sample_project/") and not _is_public_sample_file(rel):
             continue
-        if rel == "README_community.md":
+        if rel in {"README_community.md", "README_OPEN_CORE.md"}:
+            continue
+        if Path(rel).parent == Path(".") and rel.lower().endswith(".md") and rel not in PUBLIC_ROOT_DOCUMENTS:
             continue
         if rel.startswith(".github/workflows/") and rel != ".github/workflows/open-core-ci.yml":
             continue
@@ -275,7 +283,7 @@ def _write_public_package(output_dir: Path) -> None:
     package = json.loads(target.read_text(encoding="utf-8"))
     package["name"] = "dummy-bi-engine-ui"
     package["private"] = False
-    package["license"] = "AGPL-3.0-only"
+    package["license"] = "SEE LICENSE IN LICENSE"
     package["homepage"] = "https://www.dummy-bi.com/engine"
     package["repository"] = {
         "type": "git",
@@ -293,6 +301,7 @@ def _write_public_package(output_dir: Path) -> None:
     if not isinstance(root_package, dict):
         raise ValueError("Public frontend lockfile has no root package")
     root_package["name"] = package["name"]
+    root_package["license"] = package["license"]
     root_package["dependencies"] = package["dependencies"]
     root_package["devDependencies"] = package["devDependencies"]
     lock["name"] = package["name"]
@@ -355,13 +364,21 @@ def _write_public_cargo_identity(output_dir: Path) -> None:
         count=1,
         flags=re.MULTILINE,
     )
-    cargo_text = re.sub(
+    cargo_text, license_count = re.subn(
         r'^license\s*=\s*"[^"]*"',
-        'license = "AGPL-3.0-only"',
+        'license-file = "../LICENSE"',
         cargo_text,
         count=1,
         flags=re.MULTILINE,
     )
+    if license_count == 0 and not re.search(r'^license-file\s*=', cargo_text, flags=re.MULTILINE):
+        cargo_text = re.sub(
+            r'(^description\s*=.*$)',
+            r'\1\nlicense-file = "../LICENSE"',
+            cargo_text,
+            count=1,
+            flags=re.MULTILINE,
+        )
     if not re.search(r'^repository\s*=', cargo_text, flags=re.MULTILINE):
         cargo_text = re.sub(
             r'(^description\s*=.*$)',

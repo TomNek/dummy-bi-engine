@@ -151,8 +151,8 @@ measures: []
 _DEFAULT_PAGES = """\
 pages:
   - id: page_1
-    name: Page 1
-    display_order: 0
+    title: Page 1
+    order: 1
 """
 
 

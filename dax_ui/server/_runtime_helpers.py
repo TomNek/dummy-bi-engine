@@ -104,6 +104,38 @@ def _validate_server_mode_path(resolved: Path, label: str = "Path") -> None:
         )
 
 
+def _validate_open_core_author_path(resolved: Path, label: str = "Path") -> None:
+    """Limit unauthenticated source-build access to the configured workspace.
+
+    The packaged Tauri application supplies a random desktop token and its UI
+    may deliberately select any local folder. A manually started public
+    backend without that token is restricted to ``DAX_PROJECT_PATH`` so an
+    unrelated local web page cannot turn it into a general filesystem API.
+    """
+    try:
+        from dax_project.open_core_profile import is_open_core_mvp
+    except ImportError:
+        return
+    if not is_open_core_mvp() or os.environ.get("DAX_DESKTOP_TOKEN", ""):
+        return
+    allowed_root = os.environ.get("DAX_PROJECT_PATH", "").strip()
+    if not allowed_root:
+        raise ValueError(
+            f"{label} access requires the authenticated desktop app or a configured DAX_PROJECT_PATH."
+        )
+    allowed_resolved = Path(allowed_root).resolve()
+    try:
+        resolved.relative_to(allowed_resolved)
+    except ValueError:
+        raise ValueError(f"{label} must be within the configured DAX_PROJECT_PATH.")
+
+
+def _validate_runtime_path(resolved: Path, label: str = "Path") -> None:
+    """Apply the path policy for both server and public desktop modes."""
+    _validate_server_mode_path(resolved, label)
+    _validate_open_core_author_path(resolved, label)
+
+
 def _resolve_project_path_runtime(project: Optional[str]) -> str:
     # Contract: accept ?project= or env DAX_PROJECT_PATH.
     path = (project or os.environ.get("DAX_PROJECT_PATH") or "").strip()
@@ -115,9 +147,9 @@ def _resolve_project_path_runtime(project: Optional[str]) -> str:
     resolved = p.resolve()
 
     # SEC-09 / SEC-14: In server mode, restrict to the configured project root(s).
-    _validate_server_mode_path(resolved, "Project path")
+    _validate_runtime_path(resolved, "Project path")
 
-    return str(p)
+    return str(resolved)
 
 
 def _invalidate_engine_cache_for_project(project_path: str) -> None:

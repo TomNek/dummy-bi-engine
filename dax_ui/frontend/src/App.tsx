@@ -42,6 +42,7 @@ import {
 } from '@/lib/edition'
 import { UpdateManager } from '@/components/updates/UpdateManager'
 import { PRODUCT_NAME } from '@/lib/product'
+import { addRecentProject } from '@/lib/api'
 
 function App() {
   const { bootstrap, loadState } = useRuntimeState()
@@ -91,13 +92,6 @@ function App() {
   // Phase 18 (Hypothesis Simulation) — deferred to v2
   // const [scenarioPanelOpen, setScenarioPanelOpen] = useState(false)
 
-  const pickerMessage = useMemo(() => {
-    if (projectError && projectError.trim()) {
-      return projectError
-    }
-    return 'Enter a project path to load the runtime UI.'
-  }, [projectError])
-
   // Load initial state on mount (once only — bootstrap identity changes when
   // loadState deps shift after the first call; re-firing would set loading=true
   // again before the overlay has been removed from the DOM, causing an
@@ -108,19 +102,19 @@ function App() {
     bootstrapRan.current = true
     bootstrap().then((result) => {
       if (result && result.ok === false && result.needsProject) {
-        if (result.prefillProject) {
-          setProjectPickerValue(result.prefillProject)
+        const prefill = result.prefillProject?.trim() || ''
+        if (prefill && !/%[^%]+%/.test(prefill)) {
+          setProjectPickerValue(prefill)
+        } else {
+          setProjectPickerValue('')
         }
+        useAppStore.getState().setProjectError(null)
+        useReportStore.getState().setError(null)
+        setProjectPickerError(null)
         setProjectPickerOpen(true)
       }
     })
   }, [bootstrap])
-
-  useEffect(() => {
-    if (!projectPickerOpen) {
-      setProjectPickerError(null)
-    }
-  }, [projectPickerOpen])
 
   useEffect(() => {
     if (!HAS_TRANSFORM_STUDIO && viewMode === 'transform') {
@@ -162,21 +156,40 @@ function App() {
     return () => document.removeEventListener('wheel', handler)
   }, [])
 
-  const handleProjectSubmit = async () => {
-    const trimmed = projectPickerValue.trim()
+  const handleProjectPickerChange = useCallback((next: string) => {
+    setProjectPickerValue(next)
+    setProjectPickerError(null)
+  }, [])
+
+  const handleProjectSubmit = useCallback(async (path?: string): Promise<boolean> => {
+    const trimmed = (path ?? projectPickerValue).trim()
     if (!trimmed) {
-      setProjectPickerError('Project path is required.')
-      return
+      setProjectPickerError('Choose a project folder first.')
+      return false
     }
 
     const result = await loadState({ project: trimmed, projectSource: 'manual' })
     if (result.ok) {
+      await addRecentProject(trimmed)
       setProjectPickerOpen(false)
       setProjectPickerError(null)
+      return true
     } else {
       setProjectPickerError(result.error || 'Project load failed.')
+      return false
     }
-  }
+  }, [loadState, projectPickerValue])
+
+  const handleContinueWithoutProject = useCallback(() => {
+    setProjectPickerOpen(false)
+    setProjectPickerError(null)
+    useAppStore.getState().setProjectError(null)
+    useReportStore.getState().setError(null)
+
+    const url = new URL(window.location.href)
+    url.searchParams.delete('project')
+    window.history.replaceState(null, '', url.toString())
+  }, [])
 
   return (
     <TooltipProvider delayDuration={300}>
@@ -343,9 +356,9 @@ function App() {
         open={projectPickerOpen}
         value={projectPickerValue}
         error={projectPickerError}
-        message={pickerMessage}
-        onChange={setProjectPickerValue}
+        onChange={handleProjectPickerChange}
         onSubmit={handleProjectSubmit}
+        onContinue={handleContinueWithoutProject}
       />
 
       <FocusMode />

@@ -1,31 +1,26 @@
 # Contributing
 
-Thanks for contributing.
+Thanks for helping improve Dummy BI Engine.
 
-This repository’s scope, phase ordering, and invariants are defined by `project_plan.md`.
-Do not change architecture or frozen invariants without an explicit plan update.
+## Before opening a change
+
+- Keep changes within the public desktop edition described in `README.md`.
+- Do not add excluded commercial features or compatibility code copied from proprietary products.
+- Add or update regression tests for behavior changes.
+- Never commit credentials, private data, generated build output, or local project files.
+
+## Development checks
+
+Run the focused Python tests for the area you changed. For frontend changes, also run:
+
+```powershell
+cd dax_ui/frontend
+npm ci
+npm run build
+```
+
+The public CI workflow runs the release validator, core tests, dependency audit, frontend build, and browser smoke tests.
 
 ## License of contributions
 
-By contributing to this repository, you agree that your contributions are licensed under the project’s license (see `LICENSE`).
-
-## Provenance / IP rules
-
-- Do not submit code copied from proprietary or restricted sources.
-- Do not paste large blocks of third-party code unless you have the right to do so and it is compatible with the repo license.
-- Keep additions minimal, deterministic, and test-covered.
-
-## AI-assisted contributions
-
-AI-assisted development is allowed.
-Contributors are responsible for ensuring:
-- the contribution is compatible with the repo license
-- third-party licenses are respected
-- no restricted/copyrighted material is introduced
-
-## Quality bar
-
-- Add/extend regression tests for behavior changes.
-- Verify before proposing completion:
-  - `python scripts/run_pytests_fast.py`
-  - `python scripts/run_ui_tests_parallel.py` (when UI was touched)
+By submitting a contribution, you agree to license it under the repository's [PolyForm Noncommercial License 1.0.0](LICENSE). Only submit work you have the right to contribute. AI-assisted changes are welcome, but the contributor remains responsible for provenance, correctness, security, and third-party license compliance.

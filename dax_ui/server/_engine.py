@@ -324,9 +324,10 @@ def _resolve_project_path(project: Optional[str]) -> str:
     if not p.exists() or not p.is_dir():
         raise FileNotFoundError(str(p))
     # SEC-14: server-mode path restriction
-    from dax_ui.server._runtime_helpers import _validate_server_mode_path
-    _validate_server_mode_path(p.resolve(), "Project path")
-    return str(p)
+    from dax_ui.server._runtime_helpers import _validate_runtime_path
+    resolved = p.resolve()
+    _validate_runtime_path(resolved, "Project path")
+    return str(resolved)
 
 def _resolve_duckdb_path(duckdb_path: Optional[str]) -> Optional[str]:
     p = (duckdb_path or os.environ.get("DAX_DUCKDB_PATH") or "").strip()

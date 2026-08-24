@@ -27,12 +27,20 @@ export function useWhatIfParameters() {
   const [error, setError] = useState<string | null>(null)
 
   const load = useCallback(async () => {
+    if (!projectPath) {
+      setWhatIfParams([])
+      setWhatIfDefs({})
+      setSelections({})
+      setLoading(false)
+      setError(null)
+      return
+    }
     setLoading(true)
     setError(null)
     try {
       const [paramsResult, selectionsResult] = await Promise.all([
-        getWhatIfParameters(projectPath || undefined, currentRole || undefined),
-        getWhatIfSelections(projectPath || undefined),
+        getWhatIfParameters(projectPath, currentRole || undefined),
+        getWhatIfSelections(projectPath),
       ])
       
       if (paramsResult.data) {

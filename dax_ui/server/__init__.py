@@ -413,7 +413,7 @@ def create_app() -> "FastAPI":
         from dax_ui.desktop_auth import DesktopTokenMiddleware
         app.add_middleware(DesktopTokenMiddleware)
     except ImportError:
-        pass  # Community edition — middleware not available (no-op when DAX_DESKTOP_TOKEN is unset anyway)
+        logger.error("Desktop authentication middleware is unavailable")
 
     # Server-mode API key auth (active when DAX_SERVER_MODE=server)
     try:
@@ -472,7 +472,12 @@ def create_app() -> "FastAPI":
         # Mount remaining static assets.
         app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
-    frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+    configured_frontend_dist = os.environ.get("DAX_FRONTEND_DIST", "").strip()
+    frontend_dist = (
+        Path(configured_frontend_dist).resolve()
+        if configured_frontend_dist
+        else Path(__file__).resolve().parent.parent / "frontend" / "dist"
+    )
     if frontend_dist.exists() and frontend_dist.is_dir():
         react_index = frontend_dist / "index.html"
         react_assets = frontend_dist / "assets"
@@ -698,7 +703,7 @@ def create_app() -> "FastAPI":
         _register_enterprise_routes(app)
         logger.info("DAX Engine — Enterprise Edition")
     else:
-        logger.info("DAX Engine — Community Edition (AGPL-3.0)")
+        logger.info("Dummy BI Engine — Noncommercial source-available edition")
 
     _runtime_routes(app)
     _phase14_routes(app)
@@ -1594,6 +1599,7 @@ def _runtime_routes(app):
     from dax_ui.server._routes_selection import register_selection_routes
     from dax_ui.server._routes_story import register_story_routes
     from dax_ui.server._routes_report_transfer import register_report_transfer_routes
+    from dax_ui.server._routes_projects import register_project_routes
 
     register_core_routes(app)
     register_model_ext_routes(app)
@@ -1603,6 +1609,7 @@ def _runtime_routes(app):
     register_selection_routes(app)
     register_story_routes(app)
     register_report_transfer_routes(app)
+    register_project_routes(app)
 
 
 

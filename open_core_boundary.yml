@@ -1,5 +1,5 @@
 # Open-Core Boundary Manifest
-# This file defines which paths belong to the Community (AGPL) edition,
+# This file defines which paths belong to the public source-available edition,
 # which belong to the Enterprise edition, and which are internal-only
 # (development docs, QA artifacts, build specs — never shipped).
 #
@@ -11,11 +11,12 @@
 # Updated: 2026-08-20
 
 edition_rules:
-  # ── Community (AGPL) ─────────────────────────────────────────────
+  # ── Public source-available edition ──────────────────────────────
   community:
     description: >
       Core DAX engine, compiler, runtime UI, and project management.
-      Licensed under AGPL. Ships as the public open-source release.
+      Licensed under PolyForm Noncommercial 1.0.0. Ships as the public
+      source-available release.
     paths:
       # Core engine
       - dax_engine/__init__.py
@@ -70,6 +71,7 @@ edition_rules:
       - dax_ui/__main__.py
       - dax_ui/open_core_app.py
       - dax_ui/open_core_main.py
+      - dax_ui/desktop_auth.py
       - dax_ui/project_manager.py
       - dax_ui/version.py
 
@@ -81,14 +83,11 @@ edition_rules:
       - semantic_model.yaml
 
       # Config / build
-      - .dockerignore
       - .gitignore
       - requirements.txt
       - requirements-ui.txt
       - requirements-dev.txt
       - pytest.ini
-      - Dockerfile
-      - docker-compose.yml
       - open_core_boundary.yml
       - open_core_mvp.yml
       - pyinstaller_open_core.spec
@@ -102,20 +101,14 @@ edition_rules:
       - src-tauri/capabilities/default.json
       - src-tauri/icons/icon.ico
 
-      # Community README (renamed to readme.md during publish)
-      - README_community.md
+      # Public README (renamed to README.md during publish)
       - README_OPEN_CORE.md
-      - REDDIT_FEEDBACK.md
-      - OPEN_CORE_RELEASE.md
 
       # Legal / governance
       - LICENSE
-      - AI_POLICY.md
       - CONTRIBUTING.md
       - SECURITY.md
       - THIRD_PARTY_NOTICES.md
-      - PRODUCT_SCOPE.md
-      - COMPATIBILITY.md
 
       # Sample project (community demo)
       - sample_project/**
@@ -157,7 +150,6 @@ edition_rules:
       - dax_ui/server/routes_enterprise.py
       - dax_ui/server/_explanations.py
       - dax_ui/role_guard.py
-      - dax_ui/desktop_auth.py
       - dax_ui/server_auth.py
 
       # Enterprise test files (test enterprise-only features)

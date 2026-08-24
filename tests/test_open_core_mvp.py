@@ -2,7 +2,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
 import yaml
+from fastapi import FastAPI
+from fastapi.testclient import TestClient
 
 from dax_project.open_core_profile import (
     OPEN_CORE_DATA_CONNECTIONS,
@@ -54,6 +57,8 @@ def test_public_file_selection_uses_shared_shell_without_excluded_implementation
     assert "dax_ui/frontend/src/lib/edition.ts" in files
     assert "dax_ui/frontend/src/components/layout/VisualsPane.tsx" in files
     assert "dax_ui/open_core_main.py" in files
+    assert "dax_ui/desktop_auth.py" in files
+    assert "dax_ui/server/_routes_projects.py" in files
     assert {
         "src-tauri/tauri.open-core.conf.json",
         "src-tauri/tauri.conf.json",
@@ -64,6 +69,51 @@ def test_public_file_selection_uses_shared_shell_without_excluded_implementation
     assert not any("components/power-query/" in rel for rel in files)
     assert "dax_project/tmdl_converter.py" not in files
     assert "dax_ui/server/routes_enterprise.py" not in files
+
+
+def test_desktop_token_protects_every_api_route(monkeypatch: pytest.MonkeyPatch) -> None:
+    from dax_ui.desktop_auth import DesktopTokenMiddleware
+
+    monkeypatch.setenv("DAX_DESKTOP_TOKEN", "unit-test-token")
+    app = FastAPI()
+    app.add_middleware(DesktopTokenMiddleware)
+
+    @app.get("/runtime/meta")
+    def meta():
+        return {"ok": True}
+
+    @app.get("/runtime/ui-react")
+    def ui():
+        return {"ok": True}
+
+    with TestClient(app) as client:
+        assert client.get("/runtime/meta").status_code == 401
+        assert client.get(
+            "/runtime/meta", headers={"X-Desktop-Token": "unit-test-token"}
+        ).status_code == 200
+        assert client.get("/runtime/ui-react").status_code == 200
+
+
+def test_unauthenticated_public_backend_is_limited_to_workspace(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from dax_ui.server._runtime_helpers import _resolve_project_path_runtime
+
+    allowed = tmp_path / "allowed"
+    outside = tmp_path / "outside"
+    allowed.mkdir()
+    outside.mkdir()
+    monkeypatch.setenv("DAX_PRODUCT_PROFILE", OPEN_CORE_PROFILE)
+    monkeypatch.setenv("DAX_PROJECT_PATH", str(allowed))
+    monkeypatch.delenv("DAX_DESKTOP_TOKEN", raising=False)
+
+    assert Path(_resolve_project_path_runtime(str(allowed))) == allowed.resolve()
+    with pytest.raises(ValueError, match="configured DAX_PROJECT_PATH"):
+        _resolve_project_path_runtime(str(outside))
+
+    monkeypatch.setenv("DAX_DESKTOP_TOKEN", "authenticated")
+    assert Path(_resolve_project_path_runtime(str(outside))) == outside.resolve()
 
 
 def test_published_artifact_passes_boundary_validator(tmp_path: Path) -> None:

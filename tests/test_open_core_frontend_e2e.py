@@ -16,6 +16,7 @@ from playwright.sync_api import Page, expect
 
 pytestmark = [pytest.mark.ui, pytest.mark.playwright, pytest.mark.serial]
 ROOT = Path(__file__).resolve().parents[1]
+DESKTOP_TEST_TOKEN = "open-core-e2e-desktop-token"
 
 
 def _free_port() -> int:
@@ -40,13 +41,15 @@ def _wait_ready(url: str, timeout: float = 30.0) -> None:
 
 @pytest.fixture()
 def open_core_runtime(tmp_path: Path) -> Iterator[str]:
-    frontend = ROOT / "dax_ui" / "frontend" / "dist"
+    open_core_frontend = ROOT / "dax_ui" / "frontend" / "dist-open-core"
+    frontend = open_core_frontend if open_core_frontend.is_dir() else ROOT / "dax_ui" / "frontend" / "dist"
     assert (frontend / "index.html").is_file(), "Build the public frontend before this test"
     project = tmp_path / "sample_project"
     shutil.copytree(ROOT / "sample_project", project)
     port = _free_port()
     env = os.environ.copy()
     env["PYTHONPATH"] = str(ROOT)
+    env["DAX_FRONTEND_DIST"] = str(frontend)
     process = subprocess.Popen(
         [
             sys.executable,
@@ -58,6 +61,8 @@ def open_core_runtime(tmp_path: Path) -> Iterator[str]:
             str(port),
             "--workspace",
             str(project),
+            "--auth-token",
+            DESKTOP_TEST_TOKEN,
         ],
         cwd=ROOT,
         env=env,
@@ -77,11 +82,55 @@ def open_core_runtime(tmp_path: Path) -> Iterator[str]:
             process.kill()
 
 
+@pytest.fixture()
+def open_core_runtime_without_project(tmp_path: Path) -> Iterator[tuple[str, Path]]:
+    open_core_frontend = ROOT / "dax_ui" / "frontend" / "dist-open-core"
+    frontend = open_core_frontend if open_core_frontend.is_dir() else ROOT / "dax_ui" / "frontend" / "dist"
+    assert (frontend / "index.html").is_file(), "Build the public frontend before this test"
+    port = _free_port()
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(ROOT)
+    env["DAX_FRONTEND_DIST"] = str(frontend)
+    env["DAX_PROJECT_PATH"] = r"%CD%\sample_project"
+    env["HOME"] = str(tmp_path / "home")
+    env["USERPROFILE"] = str(tmp_path / "home")
+    process = subprocess.Popen(
+        [
+            sys.executable,
+            "-m",
+            "dax_ui.open_core_main",
+            "--host",
+            "127.0.0.1",
+            "--port",
+            str(port),
+            "--auth-token",
+            DESKTOP_TEST_TOKEN,
+        ],
+        cwd=ROOT,
+        env=env,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+    )
+    url = f"http://127.0.0.1:{port}/runtime/ui-react"
+    try:
+        _wait_ready(url)
+        yield url, tmp_path
+    finally:
+        process.terminate()
+        try:
+            process.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            process.kill()
+
+
 def test_open_core_shell_views_visuals_and_save(open_core_runtime: str, page: Page) -> None:
     console_errors: list[str] = []
     page_errors: list[str] = []
+    failed_responses: list[str] = []
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
     page.on("pageerror", lambda error: page_errors.append(str(error)))
+    page.on("response", lambda response: failed_responses.append(f"{response.status} {response.url}") if response.status >= 400 else None)
 
     response = page.goto(open_core_runtime, wait_until="domcontentloaded")
     assert response is not None and response.status == 200
@@ -138,4 +187,69 @@ def test_open_core_shell_views_visuals_and_save(open_core_runtime: str, page: Pa
     if screenshot:
         page.screenshot(path=screenshot, full_page=True)
     assert page_errors == []
-    assert console_errors == []
+    assert console_errors == [], f"console_errors={console_errors}; failed_responses={failed_responses}"
+
+
+def test_startup_project_picker_can_search_create_and_continue_empty(
+    open_core_runtime_without_project: tuple[str, Path],
+    page: Page,
+) -> None:
+    url, tmp_path = open_core_runtime_without_project
+    console_errors: list[str] = []
+    page_errors: list[str] = []
+    failed_responses: list[str] = []
+    page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+    page.on("pageerror", lambda error: page_errors.append(str(error)))
+    page.on("response", lambda response: failed_responses.append(f"{response.status} {response.url}") if response.status >= 400 else None)
+
+    response = page.goto(url, wait_until="domcontentloaded")
+    assert response is not None and response.status == 200
+    picker = page.locator('[data-testid="project-picker"]')
+    expect(picker).to_be_visible(timeout=30_000)
+    expect(page.locator('[data-testid="project-picker-title"]')).to_have_text("Open or create a project")
+    expect(page.locator('[data-testid="project-picker-search"]')).to_be_visible()
+    expect(page.locator('[data-testid="project-picker-close"]')).to_be_visible()
+    expect(page.locator('[data-testid="project-picker-continue"]')).to_be_visible()
+    expect(page.locator('[data-testid="project-picker-error"]')).to_have_count(0)
+    expect(page.locator('[data-testid="project-picker-input"]')).not_to_have_value(r"%CD%\sample_project")
+
+    page.locator('[data-testid="project-picker-search"]').fill("no-project-matches-this")
+    expect(page.get_by_text("No matching recent projects", exact=True)).to_be_visible()
+    page.locator('[data-testid="project-picker-search"]').fill("")
+
+    page.locator('[data-testid="project-picker-new-tab"]').click()
+    new_project_parent = tmp_path / "projects"
+    page.locator('[data-testid="project-picker-new-location"]').fill(str(new_project_parent))
+    page.locator('[data-testid="project-picker-new-name"]').fill("Blank Project")
+    expect(page.locator('[data-testid="project-picker-create-preview"]')).to_contain_text("Blank Project")
+    page.locator('[data-testid="project-picker-create"]').click()
+
+    try:
+        expect(picker).to_have_count(0, timeout=30_000)
+    except AssertionError as error:
+        raise AssertionError(
+            f"Project creation did not close the picker. body={page.locator('body').inner_text()}; "
+            f"page_errors={page_errors}; console_errors={console_errors}"
+        ) from error
+    expect(page.locator('[data-testid="project-label"]')).to_contain_text("Blank Project", timeout=30_000)
+    project_path = new_project_parent / "Blank Project"
+    assert (project_path / "semantic_model.yaml").is_file()
+    assert (project_path / "model" / "measures.yaml").is_file()
+    assert (project_path / "reports" / "pages.yaml").is_file()
+
+    page.goto(url, wait_until="domcontentloaded")
+    expect(picker).to_be_visible(timeout=30_000)
+    page.locator('[data-testid="project-picker-close"]').click()
+    expect(picker).to_have_count(0)
+    expect(page.locator('[data-testid="app-root"]')).to_be_visible()
+    expect(page.locator('[data-testid="error-display"]')).to_have_count(0)
+    expect(page.locator('[data-testid="project-label"]')).to_contain_text("No project loaded")
+
+    screenshot = os.environ.get("OPEN_CORE_PICKER_QA_SCREENSHOT", "").strip()
+    if screenshot:
+        page.goto(url, wait_until="domcontentloaded")
+        expect(picker).to_be_visible(timeout=30_000)
+        page.screenshot(path=screenshot, full_page=True)
+
+    assert page_errors == []
+    assert console_errors == [], f"console_errors={console_errors}; failed_responses={failed_responses}"

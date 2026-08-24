@@ -26,12 +26,20 @@ export function useFieldParameters() {
   const [error, setError] = useState<string | null>(null)
 
   const load = useCallback(async () => {
+    if (!projectPath) {
+      setFieldParams([])
+      setFieldParamDefs({})
+      setSelections({})
+      setLoading(false)
+      setError(null)
+      return
+    }
     setLoading(true)
     setError(null)
     try {
       const [paramsResult, selectionsResult] = await Promise.all([
-        getFieldParameters(projectPath || undefined, currentRole || undefined),
-        getFieldParameterSelections(projectPath || undefined, currentRole || undefined),
+        getFieldParameters(projectPath, currentRole || undefined),
+        getFieldParameterSelections(projectPath, currentRole || undefined),
       ])
       
       if (paramsResult.data) {

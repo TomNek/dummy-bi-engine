@@ -27,14 +27,22 @@ export function useCalcGroups() {
   const [error, setError] = useState<string | null>(null)
 
   const load = useCallback(async () => {
+    if (!projectPath) {
+      setCalcGroups([])
+      setCalcGroupDefs({})
+      setSelections({})
+      setLoading(false)
+      setError(null)
+      return
+    }
     setLoading(true)
     setError(null)
     try {
       // Fetch calc groups from runtime state, defs from API, and selections
       const [stateResult, defsResult, selectionsResult] = await Promise.all([
-        getRuntimeState({ project: projectPath || undefined, role: currentRole || undefined }),
-        getCalculationGroups(projectPath || undefined),
-        getCalcGroupSelections(projectPath || undefined),
+        getRuntimeState({ project: projectPath, role: currentRole || undefined }),
+        getCalculationGroups(projectPath),
+        getCalcGroupSelections(projectPath),
       ])
       
       // Parse calc_groups from runtime state response

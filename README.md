@@ -1,6 +1,6 @@
-# Dummy BI Engine — Open Core
+# Dummy BI Engine — Source-Available Desktop Edition
 
-This repository contains the local open-core edition of Dummy BI Engine. It uses the same application shell as the full desktop product.
+This repository contains the local source-available edition of Dummy BI Engine. It uses the same application shell as the full desktop product.
 
 ## Download the Windows desktop app
 
@@ -15,7 +15,7 @@ This is an early feedback build. The installer is not yet Authenticode-signed, s
 3. Compile supported DAX expressions to DuckDB SQL and evaluate the result.
 4. Build complete local reports with all Plotly visuals and table.
 
-The open-core edition excludes Transform Studio, Stories, EDU relationships, ML analytics and forecasting, report autogeneration, matrix/static/IBCS visuals, subscriptions and scheduled delivery, server/cloud and marketplace features, and PBIP/TMDL import. Their implementation source is removed from the public snapshot; minimal compatibility stubs keep the shared shell buildable.
+This edition excludes Transform Studio, Stories, EDU relationships, ML analytics and forecasting, report autogeneration, matrix/static/IBCS visuals, subscriptions and scheduled delivery, server/cloud and marketplace features, and PBIP/TMDL import. Their implementation source is removed from the public snapshot; minimal compatibility stubs keep the shared shell buildable.
 
 ## Run locally
 
@@ -27,11 +27,10 @@ cd dax_ui/frontend
 npm ci
 ```
 
-Start the backend from the repository root:
+Start the backend from the repository root. The explicit workspace becomes the only project root accepted by the unauthenticated development server:
 
 ```powershell
-$env:DAX_PROJECT_PATH = "sample_project"
-python -m uvicorn dax_ui.open_core_app:app --host 127.0.0.1 --port 8000
+python -m dax_ui.open_core_main --workspace sample_project --host 127.0.0.1 --port 8000
 ```
 
 Start the public frontend in another terminal:
@@ -75,12 +74,19 @@ python tools/validate_open_core_mvp.py dist/open_core_mvp
 
 The publisher is copy-only. It never pushes to GitHub or another remote.
 
+## Support development
+
+If Dummy BI Engine is useful to you, you can support continued development through the funding link shown in the repository sidebar.
+
+## License
+
+Dummy BI Engine is source-available under the [PolyForm Noncommercial License 1.0.0](LICENSE). You may use, study, modify, and redistribute it for noncommercial purposes. Commercial use is not granted. Contact the maintainer if you need commercial rights.
+
+This is intentionally not described as an OSI-approved open-source license because it restricts commercial use.
+
 ## Windows desktop releases
 
-The private development repository includes a guarded GitHub Actions path that
-publishes this exact validated source snapshot to a separate public repository,
-builds the same snapshot as a Tauri/NSIS desktop installer, smoke-tests it, and
-attaches checksummed artifacts to the public GitHub Release. Setup and release
-instructions are in [`OPEN_CORE_RELEASE.md`](OPEN_CORE_RELEASE.md).
+Releases are built from the validated public snapshot as a Tauri/NSIS desktop
+installer, smoke-tested, and attached with checksums to the public GitHub Release.
 
 The installed desktop app checks the signed public update feed daily. When a new release is available it offers **Update now**, installs the update, and restarts the application.

@@ -61,7 +61,7 @@
   "overrides": {
     "protocol-buffers-schema": "^3.6.1"
   },
-  "license": "AGPL-3.0-only",
+  "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://www.dummy-bi.com/engine",
   "repository": {
     "type": "git",
