@@ -199,24 +199,18 @@ def test_import_connector_coverage(tmp_path: Path) -> None:
         assert data.get("row_count") == 1
         assert data.get("rows", [[None, None]])[0][1].get("kind") == "binary_ref"
     else:
-        detail = str(data.get("detail") or data.get("error") or "").lower()
-        if "read_blob" in detail:
-            assert status == 400
-        elif "non-json" in detail and "bytes" in detail:
-            assert status == 400
-        else:
-            assert status == 200, data
+        # Optional DuckDB readers differ across packaged builds. The public API
+        # deliberately returns a stable, non-sensitive validation response.
+        assert status == 400
+        assert data.get("ok") is False
 
     if excel_written:
         status, data = _preview(client, project_path, {"type": "excel", "path": "data/data.xlsx"})
         if status == 200:
             assert (data.get("row_count") or 0) >= 2
         else:
-            detail = str(data.get("detail") or data.get("error") or "").lower()
-            if "read_excel" in detail:
-                assert status == 400
-            else:
-                assert status == 200
+            assert status == 400
+            assert data.get("ok") is False
 
     # Database sources
     status, data = _preview(
