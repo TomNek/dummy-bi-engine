@@ -1,10 +1,10 @@
 [package]
-name = "dummy-bi-engine"
-version = "0.2.2"
+name = "dax-to-sql-open-core"
+version = "0.2.3"
 edition = "2021"
-description = "Dummy BI Engine — desktop shell"
-homepage = "https://www.dummy-bi.com/engine"
+description = "Semantic Migration Workbench — open-core desktop shell"
 repository = "https://github.com/TomNek/dummy-bi-engine"
+homepage = "https://www.dummy-bi.com/engine"
 authors = ["Thomas"]
 license = "AGPL-3.0-only"
 
@@ -14,6 +14,8 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tokio = { version = "1", features = ["full"] }
 rand = "0.10"
+tauri-plugin-process = "2"
+tauri-plugin-updater = "2"
 
 [build-dependencies]
 tauri-build = { version = "2", features = [] }

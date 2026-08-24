@@ -2196,9 +2196,8 @@ def register_visual_routes(app):
                 highlight_cols_full = list(h_cols)
                 highlight_rows_full = list(h_rows)
             except Exception as exc:  # noqa: BLE001
-                logger.exception("Highlight query failed")
                 highlight_ok = False
-                highlight_error = "Highlight query failed"
+                highlight_error = str(exc)
                 highlight_query = {
                     "sql": str(highlight_sql or ""),
                     "row_count": 0,
@@ -2826,13 +2825,11 @@ def register_visual_routes(app):
                     result["figure"] = fig
                 except ImportError:
                     result["plotly_not_installed"] = True
-                except Exception:
-                    logger.exception("Batch visual figure rendering failed")
-                    result["figure_error"] = "Figure rendering failed"
+                except Exception as fig_exc:
+                    result["figure_error"] = str(fig_exc)
 
-            except Exception:  # noqa: BLE001
-                logger.exception("Batch visual rendering failed")
-                result["error"] = "Visual rendering failed"
+            except Exception as exc:  # noqa: BLE001
+                result["error"] = str(exc)
 
             rendered_visuals.append(result)
 

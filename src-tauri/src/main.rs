@@ -163,6 +163,8 @@ fn main() {
     let sidecar_state = SidecarState { child: Some(child) };
 
     tauri::Builder::default()
+        .plugin(tauri_plugin_process::init())
+        .plugin(tauri_plugin_updater::Builder::new().build())
         .manage(Mutex::new(sidecar_state))
         .setup(move |app| {
             // Navigate the main window to the backend-served React UI

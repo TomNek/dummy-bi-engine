@@ -62,6 +62,7 @@ OPEN_CORE_VISUAL_TYPES = frozenset(
         "waterfall",
         "gauge",
         "sankey",
+        "table",
     }
 )
 

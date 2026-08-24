@@ -1,23 +1,21 @@
-# Dummy BI Engine — Open-core feedback build
+# Semantic Migration Workbench — Open Core
 
-[Dummy BI Engine](https://www.dummy-bi.com/engine) is a local-first semantic engine. This repository is its deliberately focused open-core feedback build:
+This repository contains the local open-core edition of Semantic Migration Workbench. It uses the same application shell as the full desktop product.
 
 ## Download the Windows desktop app
 
-**[Download the latest Windows x64 installer](https://github.com/TomNek/dummy-bi-engine/releases/latest/download/Dummy-BI-Engine-Windows-x64-Setup.exe)**
+**[Download the latest Windows x64 installer](https://github.com/TomNek/dummy-bi-engine/releases/latest)**
 
 [Product page](https://www.dummy-bi.com/engine) · [Release notes and checksums](https://github.com/TomNek/dummy-bi-engine/releases/latest) · [All releases](https://github.com/TomNek/dummy-bi-engine/releases)
 
 This is an early feedback build. The installer is not yet Authenticode-signed, so Windows SmartScreen may display a warning.
 
-Security model and vulnerability reporting: [SECURITY.md](SECURITY.md).
-
 1. Connect data with any of the project's existing connectors.
 2. Inspect tables, columns, measures, and relationships in the semantic model.
 3. Compile supported DAX expressions to DuckDB SQL and evaluate the result.
-4. Preview the data and explore it with the complete existing Plotly chart set.
+4. Build complete local reports with all Plotly visuals and table.
 
-The feedback build does **not** contain custom SVG/IBCS visuals, Tableau visuals or import, static report objects, matrix/table report renderers, report auto-generation, ML features, licensing, subscriptions, or the multi-user report server. The small HTML data grid is included only to validate connections and chart inputs.
+The open-core edition excludes Transform Studio, Stories, EDU relationships, ML analytics and forecasting, report autogeneration, matrix/static/IBCS visuals, subscriptions and scheduled delivery, server/cloud and marketplace features, and PBIP/TMDL import. Their implementation source is removed from the public snapshot; minimal compatibility stubs keep the shared shell buildable.
 
 ## Run locally
 
@@ -53,7 +51,7 @@ Remote credentials and data are used by the locally running process. This feedba
 
 ## Included Plotly visuals
 
-All 31 currently registered Plotly Express and Plotly graph-object visuals are included: standard bar/line/area/scatter/pie and combo charts, statistical charts, funnels, density charts, hierarchical charts, polar charts, bubbles, 3D charts, financial charts, waterfall, gauge, and Sankey.
+All 31 currently registered Plotly Express and Plotly graph-object visuals are included, plus the table visual. Matrix is excluded.
 
 ## What feedback is useful?
 
@@ -84,3 +82,5 @@ publishes this exact validated source snapshot to a separate public repository,
 builds the same snapshot as a Tauri/NSIS desktop installer, smoke-tests it, and
 attaches checksummed artifacts to the public GitHub Release. Setup and release
 instructions are in [`OPEN_CORE_RELEASE.md`](OPEN_CORE_RELEASE.md).
+
+The installed desktop app checks the signed public update feed daily. When a new release is available it offers **Update now**, installs the update, and restarts the application.

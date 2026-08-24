@@ -27,10 +27,6 @@ pages:
   title: Detail Tooltip
   order: 100
   page_type: tooltip
-- id: story_sales_review
-  title: Sales Review
-  order: 200
-  page_type: story
 - id: page9
   title: Page 10
   order: 101
@@ -40,27 +36,3 @@ pages:
 - id: page_combo_gaps
   title: Combo Gap Demos
   order: 103
-- id: story_yoy
-  title: Year-over-Year Trend
-  order: 201
-  page_type: story
-- id: story_categories
-  title: Category Breakdown
-  order: 202
-  page_type: story
-- id: story_shift
-  title: The Category Shift
-  order: 203
-  page_type: story
-- id: story_brands
-  title: Brand Performance
-  order: 204
-  page_type: story
-- id: story_regions
-  title: Regional Distribution
-  order: 205
-  page_type: story
-- id: story_pricing
-  title: Price vs Volume Trade-off
-  order: 206
-  page_type: story

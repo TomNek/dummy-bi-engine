@@ -5,7 +5,6 @@ _ok, _err, _resolve_project_path_runtime, _measure_to_json, etc.
 """
 
 import json
-import logging
 import os
 from pathlib import Path
 from typing import Any, Mapping, Optional
@@ -18,14 +17,6 @@ from dax_ui.server._engine import (
     _ENGINE_CACHE,
 )
 import dax_ui.server._engine as _engine_mod
-
-logger = logging.getLogger(__name__)
-
-_PUBLIC_RUNTIME_ERRORS = {
-    "OAuth completion requires a token/secret payload or mock_oauth=true.": (
-        "OAuth completion requires a token/secret payload or mock_oauth=true."
-    ),
-}
 
 __all__ = [
     "_sorted_pages",
@@ -67,9 +58,7 @@ def _ok(payload: Mapping[str, Any]) -> dict[str, Any]:
 
 
 def _err(status_code: int, message: str, **extra: Any) -> JSONResponse:
-    logger.warning("Runtime request failed: %s", message)
-    public_message = _PUBLIC_RUNTIME_ERRORS.get(message, "Runtime request failed")
-    body: dict[str, Any] = {"ok": False, "error": public_message}
+    body: dict[str, Any] = {"ok": False, "error": message}
     body.update(extra)
     return JSONResponse(status_code=status_code, content=body)
 
@@ -128,7 +117,7 @@ def _resolve_project_path_runtime(project: Optional[str]) -> str:
     # SEC-09 / SEC-14: In server mode, restrict to the configured project root(s).
     _validate_server_mode_path(resolved, "Project path")
 
-    return str(resolved)
+    return str(p)
 
 
 def _invalidate_engine_cache_for_project(project_path: str) -> None:

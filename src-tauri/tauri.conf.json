@@ -1,7 +1,7 @@
 {
-  "productName": "Dummy BI Engine",
-  "version": "0.2.2",
-  "identifier": "com.dummy-bi.engine",
+  "productName": "Semantic Migration Workbench",
+  "version": "0.2.3",
+  "identifier": "com.dax-to-sql.open-core",
   "build": {
     "beforeBuildCommand": "",
     "beforeDevCommand": "",
@@ -10,10 +10,10 @@
   "app": {
     "windows": [
       {
-        "title": "Dummy BI Engine",
-        "width": 1536,
-        "height": 960,
-        "minWidth": 1120,
+        "title": "Semantic Migration Workbench",
+        "width": 1920,
+        "height": 1080,
+        "minWidth": 1024,
         "minHeight": 680,
         "resizable": true,
         "maximizable": true,
@@ -31,6 +31,7 @@
     "targets": [
       "nsis"
     ],
+    "createUpdaterArtifacts": false,
     "externalBin": [
       "binaries/dax_backend"
     ],
@@ -46,6 +47,17 @@
         "languages": [
           "English"
         ]
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEIyMTQxMTg0MjFCMEFEQTMKUldTanJiQWhoQkVVc21lbFB2cGxyMDY3VzdxTkVSbWR6bUNSd0JWaTV5a2oxNDNTMEwzTHdYbkcK",
+      "endpoints": [
+        "https://raw.githubusercontent.com/TomNek/dummy-bi-engine/main/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
       }
     }
   }

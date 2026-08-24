@@ -18,8 +18,9 @@ allowlist publisher + boundary validator
 ```
 
 This prevents the installer from quietly containing code that is absent from
-the public repository. The validator also rejects custom SVG/IBCS and Tableau
-visual UI and requires all 31 Plotly visual types and all 17 connectors.
+the public repository. The validator rejects excluded implementation source and
+requires the shared shell, all 31 Plotly visuals, table, all 17 connectors, and
+the signed updater configuration.
 
 ## One-time GitHub setup
 
@@ -34,6 +35,9 @@ visual UI and requires all 31 Plotly visual types and all 17 connectors.
    update it. The public repository receives its own `open-core-ci.yml` workflow.
 5. Optional: add `WINDOWS_CERTIFICATE_PFX_BASE64` and
    `WINDOWS_CERTIFICATE_PASSWORD` to Authenticode-sign the Windows bundle.
+6. Add `TAURI_UPDATER_PUBLIC_KEY` as an Actions variable and
+   `TAURI_SIGNING_PRIVATE_KEY` plus `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` as
+   Actions secrets.
 
 The workflow uses the separate token only when `publish=true`. A manual dry run
 therefore needs no public-repository write and cannot publish anything.
@@ -66,8 +70,9 @@ updated first; GitHub then creates `v0.1.0-alpha.2` in the public repository and
 attaches:
 
 - the raw NSIS setup executable;
-- `Dummy-BI-Engine-<version>-windows-x64.zip`;
-- `Dummy-BI-Engine-Windows-x64-Setup.exe` as the permanent latest-download asset;
+- `DAX-to-SQL-Open-Core-<version>-windows-x64.zip`;
+- the signed Semantic Migration Workbench installer and `.sig` file;
+- `latest.json` for the Tauri updater;
 - bundle and source checksums;
 - the validated source ZIP.
 
@@ -84,10 +89,8 @@ python tools/validate_open_core_mvp.py dist/open_core_mvp
 The local publisher only creates files under `dist`; it never commits, pushes,
 or creates a GitHub release.
 
-## First-version recommendation
+## Updater key handling
 
-Ship the NSIS installer and public source together as a prerelease. Do not add
-automatic application updates to the first feedback build: the reference
-project's updater requires stable signing keys, hosted updater metadata, and a
-long-term update URL. Add that only after the application identity and signing
-process are stable.
+The updater endpoint is the public repository's root `latest.json`. Never rotate
+the private updater key without a transition plan for applications that already
+embed the current public key.

@@ -2,12 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/app-icon-32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Local-first DAX-to-SQL compiler and semantic model workbench." />
-    <title>Dummy BI Engine</title>
+    <meta name="description" content="Local-first semantic model and reporting workbench." />
+    <title>Semantic Migration Workbench</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div data-testid="project-label" style="padding:6px 10px; font-size:12px; color:#666;">Project: (loading)</div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

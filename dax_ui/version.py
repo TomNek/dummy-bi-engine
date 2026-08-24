@@ -3,7 +3,7 @@
 import os
 
 __product_name__ = "Semantic Migration Workbench"
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 # Overridable via env var at build time (e.g., git hash injected by CI)
 __build__ = os.environ.get("DAX_BUILD_HASH", "dev")

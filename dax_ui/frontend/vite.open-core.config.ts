@@ -5,6 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   root: path.resolve(__dirname, 'open-core'),
+  define: {
+    __OPEN_CORE__: 'true',
+  },
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

@@ -1,0 +1,31 @@
+{
+  "id": "v_1772199435093_kco6ip",
+  "title": "New table",
+  "visual_type": "table",
+  "page_id": "page1",
+  "layout": {
+    "x": 20,
+    "y": 350,
+    "w": 400,
+    "h": 300
+  },
+  "encodings": {
+    "columns": [
+      {
+        "type": "HierarchyRef",
+        "name": "Date Hierarchy"
+      },
+      {
+        "type": "MeasureRef",
+        "name": "Total Sales"
+      }
+    ]
+  },
+  "format": {},
+  "advanced_plotly_patch": {},
+  "interactions": {
+    "affects_others": true,
+    "is_affected": true,
+    "mode": "filter"
+  }
+}

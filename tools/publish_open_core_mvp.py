@@ -31,23 +31,32 @@ from dax_project.open_core_profile import OPEN_CORE_VISUAL_TYPES
 
 DEFAULT_OUTPUT = ROOT / "dist" / "open_core_mvp"
 FRONTEND_ROOT = "dax_ui/frontend/"
-PUBLIC_FRONTEND_FILES = {
-    "dax_ui/frontend/package.json",
-    "dax_ui/frontend/package-lock.json",
-    "dax_ui/frontend/tsconfig.open-core.json",
-    "dax_ui/frontend/vite.open-core.config.ts",
-    "dax_ui/frontend/open-core/index.html",
-    "dax_ui/frontend/open-core/src/main.tsx",
-    "dax_ui/frontend/src/open-core/OpenCoreApp.tsx",
-    "dax_ui/frontend/src/open-core/api.ts",
-    "dax_ui/frontend/src/open-core/charts.ts",
-    "dax_ui/frontend/src/open-core/open-core.css",
-    "dax_ui/frontend/src/lib/utils.ts",
-    "dax_ui/frontend/src/components/ui/button.tsx",
-    "dax_ui/frontend/src/components/ui/input.tsx",
-    "dax_ui/frontend/src/components/ui/select.tsx",
-    "dax_ui/frontend/src/components/ui/switch.tsx",
-    "dax_ui/frontend/src/components/ui/textarea.tsx",
+EXCLUDED_IMPLEMENTATION_PREFIXES = (
+    "dax_ui/frontend/src/components/autogen/",
+    "dax_ui/frontend/src/components/stories/",
+    "dax_ui/frontend/src/components/power-query/",
+    "dax_ui/frontend/src/components/explanations/",
+    "dax_ui/frontend/src/components/subscriptions/",
+    "dax_ui/frontend/src/components/server/",
+    "dax_engine/autogen/",
+    "dax_engine/explanations/",
+    "dax_project/power_query/",
+)
+EXCLUDED_IMPLEMENTATION_FILES = {
+    "dax_ui/frontend/src/components/model/PlaybookEditor.tsx",
+    "dax_ui/frontend/src/components/model/TmdlImportWizard.tsx",
+    "dax_ui/frontend/src/components/model/ReportImportWizard.tsx",
+    "dax_ui/frontend/src/stores/autogen-store.ts",
+    "dax_ui/frontend/src/stores/ml-store.ts",
+    "dax_ui/frontend/src/stores/server-store.ts",
+    "dax_ui/frontend/src/stores/story-store.ts",
+    "dax_ui/frontend/src/stores/subscription-store.ts",
+    "dax_ui/frontend/src/hooks/useStories.ts",
+    "dax_ui/server/_routes_story.py",
+    "dax_ui/server/_routes_tmdl.py",
+    "dax_project/tmdl_converter.py",
+    "dax_engine/subscription_product.py",
+    "dax_engine/threshold_scheduler.py",
 }
 PUBLIC_TESTS = {
     "tests/conftest.py",
@@ -57,11 +66,11 @@ PUBLIC_TESTS = {
     "tests/test_semantic_model_loader_duckdb.py",
     "tests/test_semantic_model_validation.py",
     "tests/test_open_core_mvp.py",
-    "tests/test_open_core_security_contract.py",
 }
 PUBLIC_TOOLS = {
     "tools/check_open_core_boundary.py",
     "tools/create_open_core_release_bundle.py",
+    "tools/create_tauri_updater_manifest.py",
     "tools/publish_community_repo.py",
     "tools/publish_open_core_mvp.py",
     "tools/set_open_core_release_version.py",
@@ -69,36 +78,6 @@ PUBLIC_TOOLS = {
     "tools/smoke_windows_installer.ps1",
     "tools/validate_open_core_mvp.py",
 }
-PUBLIC_WORKFLOWS = {
-    ".github/workflows/codeql.yml",
-    ".github/workflows/open-core-ci.yml",
-}
-PUBLIC_FRONTEND_DEPENDENCIES = {
-    "@radix-ui/react-select",
-    "@radix-ui/react-slot",
-    "buffer",
-    "class-variance-authority",
-    "clsx",
-    "lucide-react",
-    "plotly.js-dist-min",
-    "react",
-    "react-dom",
-    "react-plotly.js",
-    "tailwind-merge",
-}
-PUBLIC_FRONTEND_DEV_DEPENDENCIES = {
-    "@tailwindcss/vite",
-    "@types/node",
-    "@types/react",
-    "@types/react-dom",
-    "@types/react-plotly.js",
-    "@vitejs/plugin-react",
-    "tailwindcss",
-    "typescript",
-    "vite",
-}
-
-
 def _is_public_sample_file(rel: str) -> bool:
     if any(part in {".git", ".report_server", ".dax_engine_cache"} for part in Path(rel).parts):
         return False
@@ -140,7 +119,12 @@ def collect_open_core_files() -> list[str]:
             community_files.add("src-tauri/tauri.conf.json")
     selected: list[str] = []
     for rel in community_files:
-        if rel.startswith(FRONTEND_ROOT) and rel not in PUBLIC_FRONTEND_FILES:
+        if rel in EXCLUDED_IMPLEMENTATION_FILES or rel.startswith(EXCLUDED_IMPLEMENTATION_PREFIXES):
+            continue
+        if rel.startswith(FRONTEND_ROOT) and any(
+            part in {"node_modules", "dist", "dist-open-core", "build"}
+            for part in Path(rel).parts
+        ):
             continue
         if rel.startswith("dax_ui/static/") or rel.startswith("dax_ui/templates/"):
             continue
@@ -158,7 +142,7 @@ def collect_open_core_files() -> list[str]:
             continue
         if rel == "README_community.md":
             continue
-        if rel.startswith(".github/workflows/") and rel not in PUBLIC_WORKFLOWS:
+        if rel.startswith(".github/workflows/") and rel != ".github/workflows/open-core-ci.yml":
             continue
         selected.append(rel)
     return sorted(set(selected))
@@ -174,66 +158,126 @@ def _write_filtered_visual_registry(output_dir: Path) -> None:
     target.write_text(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True), encoding="utf-8")
 
 
-def _prune_npm_lock(lock: dict) -> None:
-    """Keep only packages reachable from the public lockfile root."""
+def _write_excluded_feature_stubs(output_dir: Path) -> None:
+    """Keep shared-shell imports buildable without publishing excluded implementations."""
 
-    packages = lock.get("packages")
-    root_package = packages.get("") if isinstance(packages, dict) else None
-    if not isinstance(packages, dict) or not isinstance(root_package, dict):
-        raise ValueError("Public frontend lockfile has no package graph")
+    frontend_stubs = {
+        "src/components/autogen/index.ts": """export function AutogenWizard() { return null }\n""",
+        "src/components/autogen/EDUSubWizard.tsx": """
+export type EDUConfig = Record<string, unknown>
+export function EDUSubWizard(_props: Record<string, unknown>) { return null }
+""",
+        "src/components/stories/index.ts": """
+export function StoryViewer(_props: Record<string, unknown>) { return null }
+export function StoryEditor(_props: Record<string, unknown>) { return null }
+""",
+        "src/components/power-query/TransformStudio.tsx": """
+export function TransformStudio() { return null }
+""",
+        "src/components/explanations/index.ts": """
+export function EDUDiagram(_props: Record<string, unknown>) { return null }
+export function MLAnalyticsPanel(_props: Record<string, unknown>) { return null }
+""",
+        "src/components/subscriptions/SubscriptionList.tsx": """
+export function SubscriptionList(_props: Record<string, unknown>) { return null }
+""",
+        "src/components/model/PlaybookEditor.tsx": """
+export function PlaybookEditor(_props: Record<string, unknown>) { return null }
+""",
+        "src/components/model/TmdlImportWizard.tsx": """
+export function TmdlImportWizard(_props: Record<string, unknown>) { return null }
+""",
+        "src/components/model/ReportImportWizard.tsx": """
+export function ReportImportWizard(_props: Record<string, unknown>) { return null }
+""",
+        "src/stores/autogen-store.ts": """
+export interface AutogenState { setOpen: (open: boolean) => void }
+const state: AutogenState = { setOpen: () => undefined }
+export const useAutogenStore = Object.assign(
+  <T>(selector: (value: AutogenState) => T): T => selector(state),
+  { getState: () => state },
+)
+""",
+        "src/stores/ml-store.ts": """
+export type MLActivity = Record<string, unknown>
+export interface MLState {
+  loadRegimeChanges: (...args: unknown[]) => Promise<void>
+  hasRegimeChanges: (...args: unknown[]) => boolean
+}
+const state: MLState = {
+  loadRegimeChanges: async () => undefined,
+  hasRegimeChanges: () => false,
+}
+export const useMLStore = <T>(selector: (value: MLState) => T): T => selector(state)
+""",
+        "src/stores/story-store.ts": """
+export interface StoryState { presentingStoryId: string | null }
+const state: StoryState = { presentingStoryId: null }
+export const useStoryStore = <T>(selector: (value: StoryState) => T): T => selector(state)
+""",
+        "src/stores/subscription-store.ts": """
+export type SubscriptionState = Record<string, never>
+const state: SubscriptionState = {}
+export const useSubscriptionStore = <T>(selector: (value: SubscriptionState) => T): T => selector(state)
+""",
+        "src/stores/server-store.ts": """
+export type ServerState = Record<string, never>
+const state: ServerState = {}
+export const useServerStore = <T>(selector: (value: ServerState) => T): T => selector(state)
+""",
+        "src/hooks/useStories.ts": """
+export type UseStoriesReturn = Record<string, never>
+export function useStories(): UseStoriesReturn { return {} }
+""",
+    }
+    frontend = output_dir / "dax_ui" / "frontend"
+    for relative, content in frontend_stubs.items():
+        target = frontend / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("// Open-core compatibility stub.\n" + content.strip() + "\n", encoding="utf-8")
 
-    def resolve_dependency(package_path: str, name: str) -> str | None:
-        cursor = package_path
-        while cursor:
-            candidate = f"{cursor}/node_modules/{name}"
-            if candidate in packages:
-                return candidate
-            marker = "/node_modules/"
-            if marker in cursor:
-                cursor = cursor.rsplit(marker, 1)[0]
-            else:
-                cursor = ""
-        candidate = f"node_modules/{name}"
-        return candidate if candidate in packages else None
+    server_stubs = {
+        "dax_ui/server/_routes_story.py": "def register_story_routes(app):\n    return None\n",
+        "dax_ui/server/_routes_tmdl.py": "def register_tmdl_converter_routes(app):\n    return None\n",
+    }
+    for relative, content in server_stubs.items():
+        target = output_dir / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("# Open-core compatibility stub.\n" + content, encoding="utf-8")
 
-    reachable = {""}
-    pending = [""]
-    while pending:
-        package_path = pending.pop()
-        entry = packages[package_path]
-        dependency_names: set[str] = set()
-        for field in ("dependencies", "devDependencies", "optionalDependencies", "peerDependencies"):
-            values = entry.get(field, {})
-            if isinstance(values, dict):
-                dependency_names.update(str(name) for name in values)
-        for name in dependency_names:
-            resolved = resolve_dependency(package_path, name)
-            if resolved is not None and resolved not in reachable:
-                reachable.add(resolved)
-                pending.append(resolved)
-    lock["packages"] = {path: entry for path, entry in packages.items() if path in reachable}
+
+def _strip_excluded_backend_exports(output_dir: Path) -> None:
+    package_init = output_dir / "dax_project" / "__init__.py"
+    text = package_init.read_text(encoding="utf-8")
+    text, count = re.subn(
+        r"\nfrom \.power_query import \(  # noqa: F401\n(?:    .*\n)+?\)\n",
+        "\n",
+        text,
+        count=1,
+    )
+    if count != 1 and "from .power_query import" in text:
+        raise ValueError("Could not remove Transform Studio exports from public dax_project package")
+    excluded_names = {
+        "MCompatibilityReport", "MDiagnostic", "MQuery", "MSourceMapping", "MStep",
+        "build_power_query_metadata", "build_power_query_report", "map_source_from_m", "parse_m_query",
+    }
+    text = "\n".join(
+        line for line in text.splitlines()
+        if not any(f'"{name}"' in line for name in excluded_names)
+    ) + "\n"
+    package_init.write_text(text, encoding="utf-8")
 
 
 def _write_public_package(output_dir: Path) -> None:
     target = output_dir / "dax_ui" / "frontend" / "package.json"
     package = json.loads(target.read_text(encoding="utf-8"))
-    package["name"] = "dummy-bi-engine-ui"
+    package["name"] = "dax-to-sql-open-core-ui"
     package["private"] = False
     package["license"] = "AGPL-3.0-only"
     package["homepage"] = "https://www.dummy-bi.com/engine"
     package["repository"] = {
         "type": "git",
         "url": "https://github.com/TomNek/dummy-bi-engine.git",
-    }
-    package["dependencies"] = {
-        name: version
-        for name, version in package.get("dependencies", {}).items()
-        if name in PUBLIC_FRONTEND_DEPENDENCIES
-    }
-    package["devDependencies"] = {
-        name: version
-        for name, version in package.get("devDependencies", {}).items()
-        if name in PUBLIC_FRONTEND_DEV_DEPENDENCIES
     }
     package["scripts"] = {
         "dev": "vite --config vite.open-core.config.ts",
@@ -250,10 +294,29 @@ def _write_public_package(output_dir: Path) -> None:
     root_package["dependencies"] = package["dependencies"]
     root_package["devDependencies"] = package["devDependencies"]
     lock["name"] = package["name"]
-    _prune_npm_lock(lock)
     lock_path.write_text(json.dumps(lock, indent=2) + "\n", encoding="utf-8")
     vite = output_dir / "dax_ui" / "frontend" / "vite.open-core.config.ts"
     vite.write_text(vite.read_text(encoding="utf-8").replace("'dist-open-core'", "'dist'"), encoding="utf-8")
+
+
+def _strip_excluded_sample_pages(output_dir: Path) -> None:
+    pages_path = output_dir / "sample_project" / "reports" / "pages.yaml"
+    if not pages_path.is_file():
+        return
+    payload = yaml.safe_load(pages_path.read_text(encoding="utf-8")) or {}
+    pages = payload.get("pages", [])
+    story_ids = {str(page.get("id")) for page in pages if page.get("page_type") == "story"}
+    payload["pages"] = [page for page in pages if page.get("page_type") != "story"]
+    pages_path.write_text(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True), encoding="utf-8")
+
+    visuals_dir = pages_path.parent / "visuals"
+    for visual_path in visuals_dir.glob("*.json") if visuals_dir.is_dir() else []:
+        try:
+            visual = json.loads(visual_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if str(visual.get("page_id") or "") in story_ids:
+            visual_path.unlink()
 
 
 def _write_public_tauri_config(output_dir: Path) -> None:
@@ -265,6 +328,9 @@ def _write_public_tauri_config(output_dir: Path) -> None:
         source.unlink()
     elif not target.is_file():
         raise FileNotFoundError("Open-core Tauri configuration was not published")
+    config = json.loads(target.read_text(encoding="utf-8"))
+    config.setdefault("build", {})["frontendDist"] = "../dax_ui/frontend/dist"
+    target.write_text(json.dumps(config, indent=2) + "\n", encoding="utf-8")
 
 
 def _write_public_cargo_identity(output_dir: Path) -> None:
@@ -272,16 +338,16 @@ def _write_public_cargo_identity(output_dir: Path) -> None:
     cargo_text = cargo_toml.read_text(encoding="utf-8")
     cargo_text, count = re.subn(
         r'(^\[package\][\s\S]*?^name\s*=\s*)"semantic-migration-workbench"',
-        r'\g<1>"dummy-bi-engine"',
+        r'\g<1>"dax-to-sql-open-core"',
         cargo_text,
         count=1,
         flags=re.MULTILINE,
     )
-    if count != 1 and 'name = "dummy-bi-engine"' not in cargo_text:
+    if count != 1 and 'name = "dax-to-sql-open-core"' not in cargo_text:
         raise ValueError("Could not rewrite the public Cargo package name")
     cargo_text = re.sub(
         r'^description\s*=\s*"[^"]*"',
-        'description = "Dummy BI Engine — desktop shell"',
+        'description = "Semantic Migration Workbench — open-core desktop shell"',
         cargo_text,
         count=1,
         flags=re.MULTILINE,
@@ -293,10 +359,18 @@ def _write_public_cargo_identity(output_dir: Path) -> None:
         count=1,
         flags=re.MULTILINE,
     )
-    if not re.search(r'^homepage\s*=', cargo_text, flags=re.MULTILINE):
+    if not re.search(r'^repository\s*=', cargo_text, flags=re.MULTILINE):
         cargo_text = re.sub(
             r'(^description\s*=.*$)',
-            r'\1\nhomepage = "https://www.dummy-bi.com/engine"\nrepository = "https://github.com/TomNek/dummy-bi-engine"',
+            r'\1\nrepository = "https://github.com/TomNek/dummy-bi-engine"',
+            cargo_text,
+            count=1,
+            flags=re.MULTILINE,
+        )
+    if not re.search(r'^homepage\s*=', cargo_text, flags=re.MULTILINE):
+        cargo_text = re.sub(
+            r'(^repository\s*=.*$)',
+            r'\1\nhomepage = "https://www.dummy-bi.com/engine"',
             cargo_text,
             count=1,
             flags=re.MULTILINE,
@@ -307,11 +381,11 @@ def _write_public_cargo_identity(output_dir: Path) -> None:
     lock_text = cargo_lock.read_text(encoding="utf-8")
     lock_text, count = re.subn(
         r'(\[\[package\]\]\r?\nname = )"semantic-migration-workbench"',
-        r'\g<1>"dummy-bi-engine"',
+        r'\g<1>"dax-to-sql-open-core"',
         lock_text,
         count=1,
     )
-    if count != 1 and 'name = "dummy-bi-engine"' not in lock_text:
+    if count != 1 and 'name = "dax-to-sql-open-core"' not in lock_text:
         raise ValueError("Could not rewrite the public Cargo.lock package name")
     cargo_lock.write_text(lock_text, encoding="utf-8")
 
@@ -348,6 +422,9 @@ def publish(output_dir: Path, *, dry_run: bool = False) -> bool:
         readme_source = ROOT / "readme.md"
     shutil.copy2(readme_source, output_dir / "readme.md")
     _write_filtered_visual_registry(output_dir)
+    _write_excluded_feature_stubs(output_dir)
+    _strip_excluded_backend_exports(output_dir)
+    _strip_excluded_sample_pages(output_dir)
     _write_public_package(output_dir)
     _write_public_tauri_config(output_dir)
     _write_public_cargo_identity(output_dir)

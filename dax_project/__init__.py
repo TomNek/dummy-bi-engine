@@ -51,17 +51,6 @@ from .dbt_bridge import (  # noqa: F401
     import_dbt_project,
     write_dbt_export,
 )
-from .power_query import (  # noqa: F401
-    MCompatibilityReport,
-    MDiagnostic,
-    MQuery,
-    MSourceMapping,
-    MStep,
-    build_power_query_metadata,
-    build_power_query_report,
-    map_source_from_m,
-    parse_m_query,
-)
 
 __all__ = [
     "CalcItem",
@@ -98,13 +87,4 @@ __all__ = [
     "export_dbt_project",
     "import_dbt_project",
     "write_dbt_export",
-    "MCompatibilityReport",
-    "MDiagnostic",
-    "MQuery",
-    "MSourceMapping",
-    "MStep",
-    "build_power_query_metadata",
-    "build_power_query_report",
-    "map_source_from_m",
-    "parse_m_query",
 ]

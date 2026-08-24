@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Modern subtle UI chrome */
+  --color-background: hsl(0 0% 98%);           /* #FAFAFA — near-white chrome */
+  --color-foreground: hsl(240 6% 16%);         /* #272830 — soft near-black */
+  --color-card: hsl(0 0% 100%);                /* #FFFFFF — cards */
+  --color-card-foreground: hsl(240 6% 20%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(240 6% 16%);
+  --color-primary: hsl(262 83% 78%);           /* #B197FC — soft lavender (matches chart-1) */
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(240 5% 94%);
+  --color-secondary-foreground: hsl(240 6% 16%);
+  --color-muted: hsl(240 5% 94%);              /* #EFEFEF — subtle chrome accent */
+  --color-muted-foreground: hsl(240 4% 50%);
+  --color-accent: hsl(240 5% 93%);
+  --color-accent-foreground: hsl(240 6% 16%);
+  --color-destructive: hsl(0 60% 56%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(240 6% 90%);             /* #E5E5E7 — hairline borders */
+  --color-input: hsl(240 6% 90%);
+  --color-ring: hsl(262 83% 78%);
+  --color-sidebar-background: hsl(0 0% 98%);   /* #FAFAFA — same as chrome */
+  --color-sidebar-foreground: hsl(240 6% 25%);
+  --color-sidebar-primary: hsl(262 83% 78%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(240 5% 93%);
+  --color-sidebar-accent-foreground: hsl(240 6% 18%);
+  --color-sidebar-border: hsl(240 6% 90%);
+  --color-sidebar-ring: hsl(262 83% 78%);
+  --color-canvas: hsl(240 3% 97%);            /* light-mode canvas area */
+  --radius: 0.375rem;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* Status colors (UI chrome only — not for IBCS charts) */
+  --color-success: hsl(152 56% 38%);
+  --color-success-foreground: hsl(0 0% 100%);
+  --color-warning: hsl(38 78% 46%);            /* saffron family */
+  --color-warning-foreground: hsl(0 0% 100%);
+  --color-info: hsl(262 83% 78%);
+  --color-info-foreground: hsl(0 0% 100%);
+  /* Chart/reporting accent colors — match dataColors in theme-defaults.ts */
+  --color-chart-1: hsl(252 100% 92%);          /* lightest lavender */
+  --color-chart-2: hsl(255 72% 80%);           /* soft violet */
+  --color-chart-3: hsl(300 50% 77%);           /* light orchid */
+  --color-chart-4: hsl(255 62% 67%);           /* medium violet */
+  --color-chart-5: hsl(300 50% 60%);           /* magenta-purple */
+}
+
+.dark {
+  --color-background: hsl(230 8% 15%);          /* #22242F — neutral dark chrome */
+  --color-canvas: hsl(260 8% 21%);               /* #34313A — canvas area only */
+  --color-foreground: hsl(240 5% 92%);
+  --color-card: hsl(232 9% 34%);                 /* #50525F — visual cards */
+  --color-card-foreground: hsl(240 5% 92%);
+  --color-popover: hsl(232 9% 34%);              /* match card */
+  --color-popover-foreground: hsl(240 5% 92%);
+  --color-primary: hsl(262 83% 78%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(240 4% 18%);
+  --color-secondary-foreground: hsl(240 5% 92%);
+  --color-muted: hsl(240 4% 18%);
+  --color-muted-foreground: hsl(240 4% 58%);
+  --color-accent: hsl(240 5% 20%);
+  --color-accent-foreground: hsl(240 5% 92%);
+  --color-destructive: hsl(0 55% 50%);
+  --color-destructive-foreground: hsl(240 5% 92%);
+  --color-border: hsl(240 5% 22%);
+  --color-input: hsl(240 5% 22%);
+  /* Status colors (dark mode) */
+  --color-success: hsl(152 50% 44%);
+  --color-success-foreground: hsl(0 0% 100%);
+  --color-warning: hsl(38 74% 54%);
+  --color-warning-foreground: hsl(0 0% 100%);
+  --color-info: hsl(262 83% 78%);
+  --color-info-foreground: hsl(0 0% 100%);
+  --color-ring: hsl(262 83% 78%);
+  --color-sidebar-background: hsl(240 6% 8%);
+  --color-sidebar-foreground: hsl(240 4% 85%);
+  --color-sidebar-primary: hsl(262 83% 78%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(240 5% 16%);
+  --color-sidebar-accent-foreground: hsl(240 4% 85%);
+  --color-sidebar-border: hsl(240 5% 18%);
+  --color-sidebar-ring: hsl(262 83% 78%);
+  --color-chart-1: hsl(252 100% 92%);
+  --color-chart-2: hsl(255 72% 80%);
+  --color-chart-3: hsl(300 50% 77%);
+  --color-chart-4: hsl(255 62% 67%);
+  --color-chart-5: hsl(300 50% 60%);
+}
+
+* { @apply border-border; }
+body { @apply bg-background text-foreground font-sans antialiased m-0; }
+#root { @apply min-h-screen; }
+
+/* ─── Scrollbar Styling ───────────────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Hide scrollbar completely (for areas with custom scroll arrows) */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Transition Utilities ────────────────────────────────────────────────── */
+.transition-sidebar {
+  transition: width 150ms ease, opacity 150ms ease;
+}
+
+.transition-panel {
+  transition: all 150ms ease;
+}
+
+/* ─── Canvas Dot Grid ─────────────────────────────────────────────── */
+.canvas-dot-grid {
+  background-image: radial-gradient(circle, var(--color-border) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+}
+
+/* UX-5: Focus indicators for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Suppress focus ring for mouse clicks (pointer) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Enhanced focus for icon-only buttons */
+button[aria-label]:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 1px;
+}
+
+/* ─── IBCS Chart Custom Properties ────────────────────────────────────────── */
+:root {
+  --ibcs-actual: #1a1a1a;
+  --ibcs-plan: #1a1a1a;
+  --ibcs-py: #a0a0a0;
+  --ibcs-forecast: #1a1a1a;
+  --ibcs-positive: #00843d;
+  --ibcs-negative: #c42828;
+  --ibcs-text-primary: #1a1a1a;
+  --ibcs-text-secondary: #666666;
+  --ibcs-text-muted: #999999;
+  --ibcs-grid: #e8e8e8;
+  --ibcs-header-bg: #f5f5f5;
+  --ibcs-total-border: #1a1a1a;
+  --ibcs-font-size: 10px;
+  --ibcs-row-height: 30px;
+  --ibcs-bar-height: 14px;
+}
+
+.dark {
+  --ibcs-actual: #e0e0e0;
+  --ibcs-plan: #e0e0e0;
+  --ibcs-py: #888888;
+  --ibcs-forecast: #e0e0e0;
+  --ibcs-positive: #2ecc71;
+  --ibcs-negative: #e74c3c;
+  --ibcs-text-primary: #e0e0e0;
+  --ibcs-text-secondary: #aaaaaa;
+  --ibcs-text-muted: #777777;
+  --ibcs-grid: #333333;
+  --ibcs-header-bg: #222222;
+  --ibcs-total-border: #e0e0e0;
+}
+
