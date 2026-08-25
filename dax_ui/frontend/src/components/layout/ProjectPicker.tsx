@@ -36,6 +36,10 @@ interface ProjectPickerProps {
 
 type PickerMode = 'open' | 'new'
 
+function isTauriRuntime(): boolean {
+  return typeof window !== 'undefined' && '__TAURI_INTERNALS__' in window
+}
+
 function joinProjectPath(parent: string, name: string): string {
   const cleanParent = parent.replace(/[\\/]$/, '')
   const separator = cleanParent.includes('/') ? '/' : '\\'
@@ -60,6 +64,7 @@ export function ProjectPicker({
   const [loading, setLoading] = useState(false)
   const [creating, setCreating] = useState(false)
   const [localError, setLocalError] = useState<string | null>(null)
+  const nativeDialogAvailable = isTauriRuntime()
 
   useEffect(() => {
     if (!open) return
@@ -146,6 +151,31 @@ export function ProjectPicker({
     }
   }, [currentDir, onChange, onSubmit, projectName, value])
 
+  const handleNativeDirectoryPick = useCallback(async () => {
+    setLoading(true)
+    setLocalError(null)
+    try {
+      const { open: openDialog } = await import('@tauri-apps/plugin-dialog')
+      const selected = await openDialog({
+        directory: true,
+        multiple: false,
+        title: mode === 'open' ? 'Open a Dummy BI Engine project' : 'Choose where to create the project',
+        defaultPath: value.trim() || currentDir || undefined,
+      })
+      if (typeof selected !== 'string' || !selected.trim()) return
+      onChange(selected)
+      if (mode === 'open') {
+        await onSubmit(selected)
+      } else {
+        setCurrentDir(selected)
+      }
+    } catch {
+      setLocalError('The Windows folder picker could not be opened.')
+    } finally {
+      setLoading(false)
+    }
+  }, [currentDir, mode, onChange, onSubmit, value])
+
   const query = search.trim().toLocaleLowerCase()
   const filteredRecent = useMemo(() => {
     if (!query) return recentProjects
@@ -216,7 +246,7 @@ export function ProjectPicker({
             <Input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search projects and folders..."
+              placeholder={nativeDialogAvailable ? 'Search recent projects...' : 'Search projects and folders...'}
               className="pl-9"
               data-testid="project-picker-search"
               autoFocus
@@ -224,7 +254,7 @@ export function ProjectPicker({
           </div>
 
           {mode === 'open' ? (
-            <div className="mt-5 grid gap-5 md:grid-cols-2">
+            <div className={cn('mt-5 grid gap-5', !nativeDialogAvailable && 'md:grid-cols-2')}>
               <section>
                 <Label className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted-foreground">
                   <Clock className="h-3.5 w-3.5" /> Recent projects
@@ -263,7 +293,7 @@ export function ProjectPicker({
                 </ScrollArea>
               </section>
 
-              <section>
+              {!nativeDialogAvailable ? <section>
                 <Label className="text-xs uppercase tracking-wide text-muted-foreground">Browse folders</Label>
                 <div className="mt-2 flex gap-2">
                   <Button variant="outline" size="icon" onClick={goUp} aria-label="Go to parent folder" data-testid="project-picker-up">
@@ -298,7 +328,7 @@ export function ProjectPicker({
                     ))}
                   </div>
                 </ScrollArea>
-              </section>
+              </section> : null}
             </div>
           ) : (
             <div className="mt-5 grid gap-4">
@@ -315,18 +345,25 @@ export function ProjectPicker({
               <div className="grid gap-2">
                 <Label htmlFor="new-project-location">Location</Label>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="icon" onClick={goUp} aria-label="Go to parent folder"><ArrowUp className="h-4 w-4" /></Button>
+                  {!nativeDialogAvailable ? <Button variant="outline" size="icon" onClick={goUp} aria-label="Go to parent folder"><ArrowUp className="h-4 w-4" /></Button> : null}
                   <Input
                     id="new-project-location"
                     value={value}
                     onChange={(event) => onChange(event.target.value)}
                     onKeyDown={(event) => event.key === 'Enter' && void navigateTo(value)}
+                    readOnly={nativeDialogAvailable}
                     data-testid="project-picker-new-location"
                   />
-                  <Button variant="outline" onClick={() => void navigateTo(value)}>Go</Button>
+                  {nativeDialogAvailable ? (
+                    <Button variant="outline" onClick={() => void handleNativeDirectoryPick()} data-testid="project-picker-native-location">
+                      <FolderOpen className="mr-2 h-4 w-4" /> Choose folder
+                    </Button>
+                  ) : (
+                    <Button variant="outline" onClick={() => void navigateTo(value)}>Go</Button>
+                  )}
                 </div>
               </div>
-              <ScrollArea className="h-36 rounded-md border">
+              {!nativeDialogAvailable ? <ScrollArea className="h-36 rounded-md border">
                 <div className="p-1">
                   {loading ? (
                     <div className="flex h-28 items-center justify-center"><Loader2 className="h-5 w-5 animate-spin" /></div>
@@ -343,7 +380,7 @@ export function ProjectPicker({
                     </button>
                   ))}
                 </div>
-              </ScrollArea>
+              </ScrollArea> : null}
               {createPreview ? (
                 <p className="text-xs text-muted-foreground" data-testid="project-picker-create-preview">
                   New project: <code className="rounded bg-muted px-1 py-0.5">{createPreview}</code>
@@ -352,7 +389,7 @@ export function ProjectPicker({
             </div>
           )}
 
-          {mode === 'open' ? (
+          {mode === 'open' && !nativeDialogAvailable ? (
             <div className="mt-5 grid gap-2">
               <Label htmlFor="project-path">Selected project path</Label>
               <Input
@@ -376,8 +413,13 @@ export function ProjectPicker({
         <div className="flex flex-wrap items-center justify-between gap-3 border-t p-6 pt-4">
           <Button variant="ghost" onClick={onContinue} data-testid="project-picker-continue">Continue without project</Button>
           {mode === 'open' ? (
-            <Button onClick={() => void onSubmit()} data-testid="project-picker-submit">
-              <FolderOpen className="mr-2 h-4 w-4" /> Load project
+            <Button
+              onClick={() => void (nativeDialogAvailable ? handleNativeDirectoryPick() : onSubmit())}
+              disabled={loading}
+              data-testid={nativeDialogAvailable ? 'project-picker-native-open' : 'project-picker-submit'}
+            >
+              {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <FolderOpen className="mr-2 h-4 w-4" />}
+              {nativeDialogAvailable ? 'Choose project folder' : 'Load project'}
             </Button>
           ) : (
             <Button onClick={() => void handleCreate()} disabled={creating || !projectName.trim()} data-testid="project-picker-create">

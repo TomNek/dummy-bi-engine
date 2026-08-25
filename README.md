@@ -17,6 +17,70 @@ This is an early feedback build. The installer is not yet Authenticode-signed, s
 
 This edition excludes Transform Studio, Stories, EDU relationships, ML analytics and forecasting, report autogeneration, matrix/static/IBCS visuals, subscriptions and scheduled delivery, server/cloud and marketplace features, and PBIP/TMDL import. Their implementation source is removed from the public snapshot; minimal compatibility stubs keep the shared shell buildable.
 
+## Technical overview
+
+Dummy BI Engine is a local desktop BI authoring application. The public edition contains the same React application shell, local project format, semantic model, DAX compiler, DuckDB execution layer, and report canvas used by the desktop product. It does not require a hosted service.
+
+```text
+Tauri desktop shell
+  -> starts a bundled Python/FastAPI sidecar on 127.0.0.1 and a random port
+  -> generates a random 256-bit authentication token for that launch
+  -> opens the React authoring UI in the desktop webview
+  -> React calls the authenticated local runtime API
+  -> the runtime loads the project and semantic model
+  -> DAX is parsed, bound, planned, and lowered to DuckDB SQL
+  -> DuckDB queries local or explicitly configured data sources
+  -> results are rendered as Plotly figures or tables
+```
+
+### Included subsystems
+
+| Area | Included functionality |
+| --- | --- |
+| Desktop | Windows Tauri application, native folder selection, local sidecar lifecycle, update notification and install/restart flow |
+| Projects | Create, open, recent projects, save, Save As, import/export archive, refresh, and local project metadata |
+| Views | Report, Data, and Model views using the shared application shell |
+| Data | Local and remote connectors listed below, previews, table metadata, and DuckDB-backed query execution |
+| Semantic model | Tables, columns, measures, relationships, hierarchies, calculation groups, field parameters, security metadata, and model layouts |
+| DAX | Parser, semantic binding, filter/context rewriting, query planning, DuckDB SQL generation, measures, calculated columns/tables, and visual calculations |
+| Reports | Pages, canvas layout, filters, slicers, interactions, drill behavior, bookmarks, themes, formatting, visual persistence, import/export, and report metadata |
+| Visuals | Every public Plotly visual registered in `open_core_mvp.yml`, plus the table visual |
+| Utilities | Formula bar, field/model panes, performance analysis, DAX analysis, selection, undo/redo, canvas settings, and local diagnostics |
+
+### Deliberately excluded
+
+The public snapshot contains no implementation for Transform Studio/Power Query authoring, Stories, EDU relationship explanations, ML analytics or forecasting, report autogeneration, matrix/static/IBCS/custom visuals, subscriptions, scheduled delivery, multi-user server hosting, marketplace/cloud deployment, or PBIP/TMDL import. Edition flags remove these workflows from the UI, backend registration omits their routes, and the publisher removes their implementation files.
+
+### Local project format
+
+A project is an ordinary directory rather than a proprietary database file. Its main structure is:
+
+```text
+project/
+  model/                 tables, measures, relationships, hierarchies,
+                         calculation groups, field parameters, security
+  reports/               pages, visuals, filters, slicers, bookmarks,
+                         themes, model layouts and selections
+  data/                  optional project-local source files
+  *.duckdb               optional local DuckDB database
+```
+
+YAML and JSON definitions are loaded by `dax_project`, validated into the internal semantic model, and persisted back to the same project directory. Report visuals are individual JSON definitions, which keeps projects inspectable and version-control friendly.
+
+### Runtime and security boundary
+
+The packaged Tauri process owns the backend lifecycle. Each launch uses a random token passed directly to the sidecar; protected API requests must present that token. The backend listens only on loopback. When the source edition is run without Tauri authentication, filesystem operations are constrained to the configured `DAX_PROJECT_PATH` workspace. Project selection is intentional local filesystem access and uses the operating system's native folder dialog in the desktop build.
+
+The application has no product telemetry. Connector secrets are used only by the local process, and excluded Power Query credential-storage code is not present in this repository.
+
+### Updates
+
+The updater reads `latest.json` from this repository. When a newer signed version is available, the application displays an update prompt. Choosing **Update now** downloads the installer artifact, applies it, and restarts the desktop application. Declining leaves the current version running.
+
+### Source and release boundary
+
+`open_core_boundary.yml` is the source allowlist. `tools/publish_open_core_mvp.py` creates a clean public tree, removes excluded implementations and internal documentation, rewrites the public package identities, and installs compatibility stubs only where the shared shell requires an import. `tools/validate_open_core_mvp.py` rejects a release artifact if excluded code, unexpected root documents, private product naming, or invalid build configuration is present.
+
 ## Run locally
 
 Requirements: Python 3.11+, Node.js 20+, and npm.
